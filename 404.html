@@ -1,0 +1,221 @@
+<!-- ===================================
+     CUSTOM 404 ERROR PAGE FOR GITHUB PAGES
+     File: 404.html
+     =================================== -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found - Brian M. Shoemaker</title>
+    <meta name="description" content="The page you're looking for doesn't exist. Return to Brian M. Shoemaker's official website.">
+    
+    <!-- Prevent indexing of 404 page -->
+    <meta name="robots" content="noindex, nofollow">
+    
+    <!-- CSS - Update paths as needed -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/components/navigation.css">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom 404 Styles -->
+    <style>
+        .error-404 {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #1B4332 0%, #6D1A36 100%);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .error-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .error-404-number {
+            font-family: 'Cinzel', serif;
+            font-size: 8rem;
+            font-weight: 700;
+            line-height: 1;
+            background: linear-gradient(135deg, #B7881F, #FFFFFF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+        
+        .error-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 1rem;
+        }
+        
+        .error-message {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        
+        .error-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #B7881F, #6D1A36);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-family: 'Cinzel', serif;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(183, 136, 31, 0.3);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: #B7881F;
+        }
+        
+        .search-form {
+            margin-top: 2rem;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1rem;
+        }
+        
+        .search-input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .search-input:focus {
+            outline: none;
+            border-color: #B7881F;
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        @media (max-width: 768px) {
+            .error-404-number {
+                font-size: 6rem;
+            }
+            
+            .error-title {
+                font-size: 2rem;
+            }
+            
+            .error-message {
+                font-size: 1rem;
+            }
+            
+            .error-actions {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="error-404">
+        <div class="error-content">
+            <div class="error-404-number">404</div>
+            <h1 class="error-title">Page Not Found</h1>
+            <p class="error-message">
+                The page you're looking for seems to have wandered off into the mystical realms. 
+                Perhaps it's on an adventure with Doraleous and Associates?
+            </p>
+            
+            <div class="error-actions">
+                <a href="/" class="btn">
+                    <i class="fas fa-home"></i>
+                    Return Home
+                </a>
+                <a href="/books/" class="btn btn-secondary">
+                    <i class="fas fa-book"></i>
+                    View Books
+                </a>
+                <a href="/about.html" class="btn btn-secondary">
+                    <i class="fas fa-user"></i>
+                    About the Author
+                </a>
+            </div>
+            
+            <form class="search-form" action="/" method="get">
+                <input 
+                    type="search" 
+                    name="q" 
+                    class="search-input" 
+                    placeholder="Search for something specific..."
+                    aria-label="Search the website"
+                >
+            </form>
+        </div>
+    </div>
+
+    <!-- Optional: Add analytics tracking for 404 errors -->
+    <script>
+        // Track 404 errors if Google Analytics is available
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'page_view', {
+                page_title: '404 Error',
+                page_location: window.location.href,
+                custom_map: {
+                    'dimension1': '404 Error'
+                }
+            });
+        }
+        
+        // Log the 404 for debugging
+        console.warn('404 Error: Page not found -', window.location.href);
+        
+        // Optional: Send 404 info to your own analytics
+        // You can implement custom tracking here if needed
+    </script>
+</body>
+</html>
