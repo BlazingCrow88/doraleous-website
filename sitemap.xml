@@ -1,125 +1,83 @@
+<!-- ===================================
+     SITEMAP FOR GITHUB PAGES
+     File: sitemap.xml
+     =================================== -->
+
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-
-  <!-- Homepage -->
-  <url>
-    <loc>https://brianmshoemaker.com/</loc>
-    <lastmod>2025-01-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  
-  <!-- About Author -->
-  <url>
-    <loc>https://brianmshoemaker.com/about.html</loc>
-    <lastmod>2025-01-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  
-  <!-- Books Main Page -->
-  <url>
-    <loc>https://brianmshoemaker.com/books/</loc>
-    <lastmod>2025-01-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  
-  <!-- Doraleous and Associates Book Pages -->
-  <url>
-    <loc>https://brianmshoemaker.com/books/doraleous-associates/</loc>
-    <lastmod>2025-01-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://brianmshoemaker.com/assets/images/books/covers/doraleous-associates-full.jpg</image:loc>
-      <image:title>Doraleous and Associates: A Tale of Glory - Book Cover</image:title>
-      <image:caption>Epic fantasy novel by Brian M. Shoemaker</image:caption>
-    </image:image>
-  </url>
-  
-  <url>
-    <loc>https://brianmshoemaker.com/books/doraleous-associates/characters.html</loc>
-    <lastmod>2025-01-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  
-  <url>
-    <loc>https://brianmshoemaker.com/books/doraleous-associates/excerpt.html</loc>
-    <lastmod>2025-01-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  
-  <url>
-    <loc>https://brianmshoemaker.com/books/doraleous-associates/reviews.html</loc>
-    <lastmod>2025-01-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- Blog Section -->
-  <url>
-    <loc>https://brianmshoemaker.com/blog/</loc>
-    <lastmod>2025-01-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  
-  <!-- Blog Posts (add as you create them) -->
-  <url>
-    <loc>https://brianmshoemaker.com/blog/creating-the-world-of-doraleous.html</loc>
-    <lastmod>2025-01-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  
-  <url>
-    <loc>https://brianmshoemaker.com/blog/character-development-in-fantasy.html</loc>
-    <lastmod>2025-01-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  
-  <url>
-    <loc>https://brianmshoemaker.com/blog/writing-epic-fantasy-adventures.html</loc>
-    <lastmod>2024-12-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-
-  <!-- Contact Page -->
-  <url>
-    <loc>https://brianmshoemaker.com/contact.html</loc>
-    <lastmod>2025-01-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- Media Kit -->
-  <url>
-    <loc>https://brianmshoemaker.com/media-kit.html</loc>
-    <lastmod>2025-01-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-
-  <!-- Events Page (if you have speaking engagements, book signings) -->
-  <url>
-    <loc>https://brianmshoemaker.com/events.html</loc>
-    <lastmod>2025-01-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-
-  <!-- Privacy Policy -->
-  <url>
-    <loc>https://brianmshoemaker.com/privacy-policy.html</loc>
-    <lastmod>2025-01-01</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    
+    <!-- Update the base URL below to match your GitHub Pages URL -->
+    <!-- Format: https://yourusername.github.io/repository-name/ -->
+    <!-- Or your custom domain if using CNAME: https://yourdomain.com/ -->
+    
+    <!-- Homepage -->
+    <url>
+        <loc>https://yourusername.github.io/repository-name/</loc>
+        <lastmod>2024-03-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+    
+    <!-- About Page -->
+    <url>
+        <loc>https://yourusername.github.io/repository-name/about.html</loc>
+        <lastmod>2024-03-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- Books Index -->
+    <url>
+        <loc>https://yourusername.github.io/repository-name/books/</loc>
+        <lastmod>2024-03-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <!-- Doraleous and Associates Book -->
+    <url>
+        <loc>https://yourusername.github.io/repository-name/books/doraleous-associates/</loc>
+        <lastmod>2024-03-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <!-- Contact Page -->
+    <url>
+        <loc>https://yourusername.github.io/repository-name/contact.html</loc>
+        <lastmod>2024-03-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <!-- Blog/Media Kit (if applicable) -->
+    <url>
+        <loc>https://yourusername.github.io/repository-name/blog/</loc>
+        <lastmod>2024-03-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://yourusername.github.io/repository-name/media-kit.html</loc>
+        <lastmod>2024-03-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    
+    <!-- Additional book pages -->
+    <url>
+        <loc>https://yourusername.github.io/repository-name/books/doraleous-associates/characters.html</loc>
+        <lastmod>2024-03-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <url>
+        <loc>https://yourusername.github.io/repository-name/books/doraleous-associates/excerpt.html</loc>
+        <lastmod>2024-03-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
 
 </urlset>
