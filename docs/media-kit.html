@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Press Kit - Brian M. Shoemaker | Doraleous and Associates</title>
+    <meta name="description" content="Press resources for Brian M. Shoemaker, author of Doraleous and Associates - photos, bio, and book information.">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 60px 0;
+        }
+
+        .section {
+            background: white;
+            margin-bottom: 40px;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .section-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+
+        /* Author Section */
+        .author-grid {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .author-photo {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .author-info h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        .author-info p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .download-btn {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 15px;
+            transition: background 0.3s;
+        }
+
+        .download-btn:hover {
+            background: #2980b9;
+        }
+
+        /* Book Section */
+        .book-grid {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .book-cover {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .book-details h3 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .book-meta {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .meta-item {
+            display: flex;
+            margin-bottom: 8px;
+        }
+
+        .meta-label {
+            font-weight: 600;
+            min-width: 120px;
+            color: #2c3e50;
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .contact-item {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .contact-item h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        .contact-item a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+
+        /* Downloads Section */
+        .downloads-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .download-card {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            border: 2px solid transparent;
+            transition: border-color 0.3s;
+        }
+
+        .download-card:hover {
+            border-color: #3498db;
+        }
+
+        .download-card h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .download-card p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .author-grid,
+            .book-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .author-photo,
+            .book-cover {
+                max-width: 300px;
+                margin: 0 auto;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .section {
+                padding: 20px;
+            }
+        }
+
+        /* Navigation */
+        .nav {
+            background: #2c3e50;
+            padding: 15px 0;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand {
+            color: white;
+            font-family: 'Cinzel', serif;
+            font-size: 1.2rem;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #3498db;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container">
+            <div class="nav-content">
+                <a href="index.html" class="nav-brand">Brian M. Shoemaker</a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="book.html">Book</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <section class="header">
+        <div class="container">
+            <h1>Press Kit</h1>
+            <p>Media resources for Doraleous and Associates</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+
+            <!-- Quick Downloads -->
+            <section class="section">
+                <h2 class="section-title">Quick Downloads</h2>
+                <div class="downloads-grid">
+                    <div class="download-card">
+                        <h3>Author Photo</h3>
+                        <p>High-resolution headshot</p>
+                        <a href="assets/images/brian-shoemaker-photo.jpg" class="download-btn" download>Download Photo</a>
+                    </div>
+                    <div class="download-card">
+                        <h3>Book Cover</h3>
+                        <p>High-resolution cover image</p>
+                        <a href="assets/images/doraleous-cover.jpg" class="download-btn" download>Download Cover</a>
+                    </div>
+                    <div class="download-card">
+                        <h3>Author Bio</h3>
+                        <p>Text biography for press use</p>
+                        <a href="assets/documents/author-bio.txt" class="download-btn" download>Download Bio</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Author Information -->
+            <section class="section">
+                <h2 class="section-title">About the Author</h2>
+                <div class="author-grid">
+                    <img src="assets/images/brian-shoemaker-photo.jpg" alt="Brian M. Shoemaker" class="author-photo">
+                    <div class="author-info">
+                        <h3>Brian M. Shoemaker</h3>
+                        <p>
+                            Brian M. Shoemaker is a fantasy author whose debut novel, "Doraleous and Associates: A Tale of Glory," 
+                            brings readers into a rich world of adventure and magic. Drawing inspiration from classic fantasy 
+                            literature and mythology, Brian creates compelling characters and immersive storylines that blend 
+                            action with meaningful character development.
+                        </p>
+                        <p>
+                            With a passion for storytelling that began in childhood, Brian has spent years crafting the world 
+                            of Doraleous and his companions. When not writing, Brian enjoys exploring nature, studying mythology, 
+                            and connecting with fellow fantasy enthusiasts.
+                        </p>
+                        <a href="assets/documents/author-bio.txt" class="download-btn" download>Download Full Bio</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Book Information -->
+            <section class="section">
+                <h2 class="section-title">About the Book</h2>
+                <div class="book-grid">
+                    <img src="assets/images/doraleous-cover.jpg" alt="Doraleous and Associates Book Cover" class="book-cover">
+                    <div class="book-details">
+                        <h3>Doraleous and Associates: A Tale of Glory</h3>
+                        <div class="book-meta">
+                            <div class="meta-item">
+                                <span class="meta-label">Author:</span>
+                                <span>Brian M. Shoemaker</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Genre:</span>
+                                <span>Epic Fantasy</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Format:</span>
+                                <span>Paperback, eBook</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Pages:</span>
+                                <span>456 pages</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Publication:</span>
+                                <span>2024</span>
+                            </div>
+                        </div>
+                        <p>
+                            An epic fantasy adventure following Doraleous and his companions as they embark on a quest 
+                            for glory. Filled with rich world-building, compelling characters, and thrilling adventures, 
+                            this debut novel introduces readers to a magical world where friendship and courage are the 
+                            greatest powers of all.
+                        </p>
+                        <a href="assets/images/doraleous-cover-high-res.jpg" class="download-btn" download>Download Cover</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Information -->
+            <section class="section">
+                <h2 class="section-title">Media Contact</h2>
+                <div class="contact-grid">
+                    <div class="contact-item">
+                        <h3>General Inquiries</h3>
+                        <p>For interviews, reviews, and media requests</p>
+                        <a href="mailto:media@brianmshoemaker.com">media@brianmshoemaker.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <h3>Events & Speaking</h3>
+                        <p>Book signings, readings, and appearances</p>
+                        <a href="mailto:events@brianmshoemaker.com">events@brianmshoemaker.com</a>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 30px;">
+                    <p><strong>Response Time:</strong> Within 48 hours during business days</p>
+                </div>
+            </section>
+
+        </div>
+    </main>
+</body>
+</html>
