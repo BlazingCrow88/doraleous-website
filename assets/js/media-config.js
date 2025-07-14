@@ -1,12 +1,12 @@
 /* ===================================
-   SOCIAL MEDIA CONFIGURATION FOR NETLIFY
-   File: assets/js/social-media-config.js
+   SOCIAL MEDIA CONFIGURATION FOR GITHUB PAGES
+   File: assets/js/media-config.js
    =================================== */
 
 /**
  * Simplified Social Media Configuration for Doraleous and Associates
  * 
- * This configuration is designed for static site deployment on Netlify
+ * This configuration is designed for static site deployment on GitHub Pages
  * and focuses on client-side functionality including:
  * - Social sharing buttons
  * - ConvertKit email integration
@@ -76,219 +76,173 @@ const CONTENT_CATEGORIES = {
         defaultText: 'Go behind the scenes of creating Doraleous and Associates!'
     },
     'book-update': {
-        hashtags: ['#BookUpdate', '#FantasyBooks', '#NewRelease', '#DoraleousAndAssociates'],
-        defaultText: 'New updates from the world of Doraleous and Associates!'
+        hashtags: ['#BookUpdate', '#NewRelease', '#FantasyBooks', '#DoraleousAndAssociates'],
+        defaultText: 'Exciting news about Doraleous and Associates!'
     }
 };
 
 /**
  * Social Media Sharing Class
+ * Handles sharing functionality across different platforms
  */
 class SocialMediaSharing {
     constructor() {
-        this.initializeSharingButtons();
-        this.setupEventListeners();
+        this.setupShareButtons();
+        this.bindEvents();
     }
 
     /**
-     * Initialize social sharing buttons on page load
+     * Setup share buttons on the page
      */
-    initializeSharingButtons() {
-        // Auto-generate sharing buttons for blog posts
-        const blogPosts = document.querySelectorAll('.blog-post-card, .blog-post');
-        blogPosts.forEach(post => {
-            if (!post.querySelector('.share-buttons')) {
-                this.addSharingButtons(post);
-            }
-        });
-
-        // Initialize floating share buttons if they exist
-        this.initializeFloatingShareBar();
-    }
-
-    /**
-     * Add sharing buttons to a specific element
-     */
-    addSharingButtons(element) {
-        const shareContainer = document.createElement('div');
-        shareContainer.className = 'share-buttons';
-        shareContainer.innerHTML = this.generateSharingHTML();
-        
-        // Find the best place to insert sharing buttons
-        const footer = element.querySelector('.post-footer, .card-footer');
-        if (footer) {
-            footer.appendChild(shareContainer);
-        } else {
-            element.appendChild(shareContainer);
-        }
-    }
-
-    /**
-     * Generate HTML for sharing buttons
-     */
-    generateSharingHTML() {
-        const currentUrl = encodeURIComponent(window.location.href);
-        const pageTitle = encodeURIComponent(document.title || 'Doraleous and Associates');
-        const pageDescription = encodeURIComponent(
-            document.querySelector('meta[name="description"]')?.content || 
-            'Epic fantasy adventures with Doraleous and his legendary companions!'
-        );
-
-        return `
-            <div class="share-buttons-wrapper">
-                <h4 class="share-title">Share this adventure:</h4>
-                <div class="share-button-list">
-                    <a href="https://twitter.com/intent/tweet?url=${currentUrl}&text=${pageTitle}&via=doraleousadventures" 
-                       target="_blank" rel="noopener" class="share-btn twitter" data-platform="twitter">
-                        <i class="fab fa-twitter"></i>
-                        <span>Twitter</span>
-                    </a>
-                    <a href="https://www.facebook.com/sharer/sharer.php?u=${currentUrl}" 
-                       target="_blank" rel="noopener" class="share-btn facebook" data-platform="facebook">
-                        <i class="fab fa-facebook-f"></i>
-                        <span>Facebook</span>
-                    </a>
-                    <a href="https://www.pinterest.com/pin/create/button/?url=${currentUrl}&description=${pageDescription}" 
-                       target="_blank" rel="noopener" class="share-btn pinterest" data-platform="pinterest">
-                        <i class="fab fa-pinterest"></i>
-                        <span>Pinterest</span>
-                    </a>
-                    <a href="https://www.reddit.com/submit?url=${currentUrl}&title=${pageTitle}" 
-                       target="_blank" rel="noopener" class="share-btn reddit" data-platform="reddit">
-                        <i class="fab fa-reddit-alien"></i>
-                        <span>Reddit</span>
-                    </a>
-                    <a href="mailto:?subject=${pageTitle}&body=Check out this epic fantasy content: ${currentUrl}" 
-                       class="share-btn email" data-platform="email">
-                        <i class="fas fa-envelope"></i>
-                        <span>Email</span>
-                    </a>
-                    <button class="share-btn copy-link" onclick="SocialMediaManager.copyToClipboard('${decodeURIComponent(currentUrl)}')" data-platform="copy">
-                        <i class="fas fa-link"></i>
-                        <span>Copy Link</span>
-                    </button>
-                </div>
-            </div>
-        `;
-    }
-
-    /**
-     * Initialize floating share bar for blog posts
-     */
-    initializeFloatingShareBar() {
-        if (document.querySelector('.blog-post-page')) {
-            const floatingBar = document.createElement('div');
-            floatingBar.className = 'floating-share-bar';
-            floatingBar.innerHTML = `
-                <div class="floating-share-content">
-                    <span class="share-text">Share:</span>
-                    ${this.generateFloatingSharingHTML()}
-                </div>
-            `;
-            
-            document.body.appendChild(floatingBar);
-            
-            // Show/hide based on scroll position
-            this.setupFloatingBarScrollBehavior(floatingBar);
-        }
-    }
-
-    /**
-     * Generate HTML for floating sharing buttons
-     */
-    generateFloatingSharingHTML() {
-        const currentUrl = encodeURIComponent(window.location.href);
-        const pageTitle = encodeURIComponent(document.title || 'Doraleous and Associates');
-
-        return `
-            <a href="https://twitter.com/intent/tweet?url=${currentUrl}&text=${pageTitle}&via=doraleousadventures" 
-               target="_blank" rel="noopener" class="floating-share-btn twitter" data-platform="twitter">
-                <i class="fab fa-twitter"></i>
-            </a>
-            <a href="https://www.facebook.com/sharer/sharer.php?u=${currentUrl}" 
-               target="_blank" rel="noopener" class="floating-share-btn facebook" data-platform="facebook">
-                <i class="fab fa-facebook-f"></i>
-            </a>
-            <a href="https://www.pinterest.com/pin/create/button/?url=${currentUrl}&description=${pageTitle}" 
-               target="_blank" rel="noopener" class="floating-share-btn pinterest" data-platform="pinterest">
-                <i class="fab fa-pinterest"></i>
-            </a>
-        `;
-    }
-
-    /**
-     * Setup scroll behavior for floating share bar
-     */
-    setupFloatingBarScrollBehavior(floatingBar) {
-        let lastScrollTop = 0;
-        const showThreshold = 300; // Show after scrolling 300px
-
-        window.addEventListener('scroll', () => {
-            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            
-            if (scrollTop > showThreshold && scrollTop > lastScrollTop) {
-                // Scrolling down and past threshold
-                floatingBar.classList.add('visible');
-            } else if (scrollTop < 100) {
-                // Near top of page
-                floatingBar.classList.remove('visible');
-            }
-            
-            lastScrollTop = scrollTop;
-        });
-    }
-
-    /**
-     * Setup event listeners for tracking
-     */
-    setupEventListeners() {
-        // Track social sharing clicks
-        document.addEventListener('click', (e) => {
-            const shareBtn = e.target.closest('[data-platform]');
-            if (shareBtn) {
-                const platform = shareBtn.getAttribute('data-platform');
-                this.trackSocialShare(platform);
-            }
-        });
-    }
-
-    /**
-     * Track social sharing for analytics
-     */
-    trackSocialShare(platform) {
-        // Google Analytics 4 tracking
-        if (typeof gtag !== 'undefined') {
-            gtag('event', 'share', {
-                method: platform,
-                content_type: this.getContentType(),
-                item_id: window.location.pathname
+    setupShareButtons() {
+        const shareButtons = document.querySelectorAll('.share-button');
+        shareButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                const platform = button.getAttribute('data-platform');
+                const url = button.getAttribute('data-url') || window.location.href;
+                const title = button.getAttribute('data-title') || document.title;
+                const description = button.getAttribute('data-description') || '';
+                
+                this.shareTo(platform, url, title, description);
             });
-        }
-
-        // Console log for debugging
-        console.log(`Social share tracked: ${platform} from ${window.location.pathname}`);
+        });
     }
 
     /**
-     * Get content type for analytics
+     * Share content to specific platform
      */
-    getContentType() {
-        const path = window.location.pathname;
-        if (path.includes('/blog/')) {
-            return 'blog_post';
-        } else if (path.includes('/characters/')) {
-            return 'character_page';
-        } else if (path.includes('/world/')) {
-            return 'world_page';
-        } else if (path.includes('/adventures/')) {
-            return 'adventure_page';
+    shareTo(platform, url, title, description = '') {
+        const encodedUrl = encodeURIComponent(url);
+        const encodedTitle = encodeURIComponent(title);
+        const encodedDescription = encodeURIComponent(description);
+        
+        let shareUrl = '';
+        
+        switch (platform) {
+            case 'twitter':
+                shareUrl = `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`;
+                break;
+            case 'facebook':
+                shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`;
+                break;
+            case 'pinterest':
+                shareUrl = `https://pinterest.com/pin/create/button/?url=${encodedUrl}&description=${encodedTitle}`;
+                break;
+            case 'linkedin':
+                shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`;
+                break;
+            case 'email':
+                shareUrl = `mailto:?subject=${encodedTitle}&body=${encodedDescription}%0A%0A${encodedUrl}`;
+                break;
+            default:
+                console.warn('Unknown sharing platform:', platform);
+                return;
         }
-        return 'general_page';
+        
+        if (platform === 'email') {
+            window.location.href = shareUrl;
+        } else {
+            this.openShareWindow(shareUrl);
+        }
+    }
+
+    /**
+     * Open share window with optimal dimensions
+     */
+    openShareWindow(url) {
+        const width = 600;
+        const height = 400;
+        const left = (window.innerWidth - width) / 2;
+        const top = (window.innerHeight - height) / 2;
+        
+        window.open(
+            url,
+            'share',
+            `width=${width},height=${height},left=${left},top=${top},scrollbars=yes,resizable=yes`
+        );
+    }
+
+    /**
+     * Bind additional event listeners
+     */
+    bindEvents() {
+        // Copy link functionality
+        document.addEventListener('click', (e) => {
+            if (e.target.classList.contains('copy-link')) {
+                const url = e.target.getAttribute('data-url') || window.location.href;
+                this.copyToClipboard(url);
+            }
+        });
+    }
+
+    /**
+     * Copy URL to clipboard
+     */
+    copyToClipboard(url) {
+        if (navigator.clipboard) {
+            navigator.clipboard.writeText(url).then(() => {
+                this.showCopyFeedback();
+            }).catch(err => {
+                console.error('Could not copy text: ', err);
+                this.fallbackCopyTextToClipboard(url);
+            });
+        } else {
+            this.fallbackCopyTextToClipboard(url);
+        }
+    }
+
+    /**
+     * Fallback copy method for older browsers
+     */
+    fallbackCopyTextToClipboard(text) {
+        const textArea = document.createElement('textarea');
+        textArea.value = text;
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+        
+        try {
+            document.execCommand('copy');
+            this.showCopyFeedback();
+        } catch (err) {
+            console.error('Fallback: Could not copy text: ', err);
+        }
+        
+        document.body.removeChild(textArea);
+    }
+
+    /**
+     * Show copy feedback to user
+     */
+    showCopyFeedback() {
+        // Create temporary feedback element
+        const feedback = document.createElement('div');
+        feedback.textContent = 'Link copied to clipboard!';
+        feedback.style.cssText = `
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #1B4332;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 5px;
+            z-index: 10000;
+            font-family: 'Open Sans', sans-serif;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        `;
+        
+        document.body.appendChild(feedback);
+        
+        setTimeout(() => {
+            document.body.removeChild(feedback);
+        }, 3000);
     }
 }
 
 /**
  * ConvertKit Email Integration Class
+ * Handles newsletter signup forms with GitHub Pages compatibility
  */
 class ConvertKitIntegration {
     constructor() {
@@ -297,15 +251,15 @@ class ConvertKitIntegration {
     }
 
     /**
-     * Setup newsletter signup forms
+     * Setup newsletter signup forms for GitHub Pages
      */
     setupNewsletterForms() {
         const forms = document.querySelectorAll('.newsletter-form');
         forms.forEach(form => {
-            // Replace form action with ConvertKit endpoint
+            // Set up ConvertKit form action
             form.setAttribute('action', `https://app.convertkit.com/forms/${CONVERTKIT_CONFIG.formId}/subscriptions`);
             form.setAttribute('method', 'post');
-            form.setAttribute('data-remote', 'true');
+            form.setAttribute('target', '_blank'); // GitHub Pages friendly
             
             // Add hidden fields for ConvertKit
             this.addConvertKitFields(form);
@@ -353,74 +307,63 @@ class ConvertKitIntegration {
      * Handle newsletter form submission
      */
     handleFormSubmission(e) {
-        e.preventDefault();
         const form = e.target;
-        const formData = new FormData(form);
+        const email = form.querySelector('input[type="email"]').value;
+        
+        if (!this.validateEmail(email)) {
+            e.preventDefault();
+            this.showMessage(form, CONVERTKIT_CONFIG.errorMessage, 'error');
+            return;
+        }
+
+        // Track the signup attempt
+        this.trackNewsletterSignup();
         
         // Show loading state
         this.showLoadingState(form);
         
-        // Submit to ConvertKit
-        fetch(form.action, {
-            method: 'POST',
-            body: formData,
-            mode: 'no-cors' // Required for ConvertKit
-        })
-        .then(() => {
-            this.showSuccessMessage(form);
-            this.trackNewsletterSignup();
-        })
-        .catch(() => {
-            this.showErrorMessage(form);
-        });
+        // Let form submit naturally to ConvertKit
+        // Success/error handling will be done by ConvertKit's redirect
     }
 
     /**
-     * Show loading state
+     * Validate email address
+     */
+    validateEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    }
+
+    /**
+     * Show loading state on form
      */
     showLoadingState(form) {
-        const submitBtn = form.querySelector('button[type="submit"]');
-        if (submitBtn) {
-            submitBtn.disabled = true;
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Joining...';
+        const submitButton = form.querySelector('button[type="submit"]');
+        if (submitButton) {
+            submitButton.disabled = true;
+            submitButton.textContent = 'Subscribing...';
         }
     }
 
     /**
-     * Show success message
+     * Show message to user
      */
-    showSuccessMessage(form) {
-        const messageDiv = this.createMessageElement('success', CONVERTKIT_CONFIG.successMessage);
-        form.parentNode.replaceChild(messageDiv, form);
-    }
-
-    /**
-     * Show error message
-     */
-    showErrorMessage(form) {
-        const messageDiv = this.createMessageElement('error', CONVERTKIT_CONFIG.errorMessage);
-        form.appendChild(messageDiv);
-        
-        // Reset form
-        const submitBtn = form.querySelector('button[type="submit"]');
-        if (submitBtn) {
-            submitBtn.disabled = false;
-            submitBtn.innerHTML = 'Join the Adventure';
+    showMessage(form, message, type = 'success') {
+        const existingMessage = form.querySelector('.form-message');
+        if (existingMessage) {
+            existingMessage.remove();
         }
-    }
 
-    /**
-     * Create message element
-     */
-    createMessageElement(type, message) {
         const div = document.createElement('div');
-        div.className = `newsletter-message ${type}`;
+        div.className = `form-message ${type}`;
         div.innerHTML = `
-            <div class="message-content">
+            <div style="display: flex; align-items: center; gap: 0.5rem; padding: 1rem; background: ${type === 'success' ? '#059669' : '#DC2626'}; color: white; border-radius: 5px; margin-top: 1rem;">
                 <i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-circle'}"></i>
                 <p>${message}</p>
             </div>
         `;
+        form.appendChild(div);
+        
         return div;
     }
 
@@ -528,42 +471,17 @@ class SocialMediaManager {
             const copyButtons = document.querySelectorAll('.copy-link');
             copyButtons.forEach(btn => {
                 const originalText = btn.innerHTML;
-                btn.innerHTML = '<i class="fas fa-check"></i><span>Copied!</span>';
-                btn.classList.add('copied');
+                btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                btn.style.background = '#059669';
                 
                 setTimeout(() => {
                     btn.innerHTML = originalText;
-                    btn.classList.remove('copied');
+                    btn.style.background = '';
                 }, 2000);
             });
         }).catch(err => {
-            console.error('Failed to copy to clipboard:', err);
-            // Fallback for older browsers
-            this.fallbackCopyToClipboard(url);
+            console.error('Could not copy text: ', err);
         });
-    }
-
-    /**
-     * Fallback copy method for older browsers
-     */
-    fallbackCopyToClipboard(text) {
-        const textArea = document.createElement('textarea');
-        textArea.value = text;
-        textArea.style.position = 'fixed';
-        textArea.style.left = '-999999px';
-        textArea.style.top = '-999999px';
-        document.body.appendChild(textArea);
-        textArea.focus();
-        textArea.select();
-        
-        try {
-            document.execCommand('copy');
-            console.log('URL copied to clipboard (fallback method)');
-        } catch (err) {
-            console.error('Fallback copy failed:', err);
-        }
-        
-        document.body.removeChild(textArea);
     }
 }
 
@@ -572,15 +490,12 @@ document.addEventListener('DOMContentLoaded', () => {
     new SocialMediaManager();
 });
 
-// Export for use in other scripts
+// Export for module systems
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = {
         SocialMediaManager,
-        SocialMediaSharing,
-        ConvertKitIntegration,
         SocialContentHelper,
         SOCIAL_ACCOUNTS,
-        CONVERTKIT_CONFIG,
-        CONTENT_CATEGORIES
+        CONVERTKIT_CONFIG
     };
 }
