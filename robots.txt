@@ -1,7 +1,8 @@
 # ===================================
 # ROBOTS.TXT for Brian M. Shoemaker
 # Author Website: Doraleous and Associates
-# ===================================
+# File: robots.txt
+# =================================== 
 
 # Allow all legitimate web crawlers
 User-agent: *
@@ -40,7 +41,6 @@ Disallow: /
 Disallow: /.git/
 Disallow: /.env
 Disallow: /node_modules/
-Disallow: /.netlify/
 
 # Allow access to important assets
 Allow: /assets/css/
@@ -56,8 +56,8 @@ Crawl-delay: 1
 User-agent: Bingbot
 Crawl-delay: 1
 
-# Sitemap location
-Sitemap: https://brianmshoemaker.com/sitemap.xml
+# Sitemap location - Update this URL to your GitHub Pages domain
+Sitemap: https://yourusername.github.io/repository-name/sitemap.xml
 
-# Host specification
-Host: https://brianmshoemaker.com
+# Host specification - Update this URL to your GitHub Pages domain
+Host: https://yourusername.github.io/repository-name
