@@ -1,29 +1,29 @@
 /* ===================================
-   STRUCTURED DATA MANAGER
+   STRUCTURED DATA MANAGER FOR GITHUB PAGES
    File: assets/js/structured-data.js
    =================================== */
 
 (function() {
     'use strict';
 
-    // Configuration - Update these with your actual information
+    // Configuration - Update these with your actual information and GitHub Pages URLs
     const CONFIG = {
         author: {
-            name: "Your Author Name",
-            description: "Author of mystery and thriller novels",
-            image: "/assets/images/author-photo.jpg",
-            website: window.location.origin,
-            email: "contact@yourname.com",
+            name: "Brian M. Shoemaker",
+            description: "Fantasy author and creator of the Doraleous and Associates series",
+            image: "/assets/images/author/headshots/brian-shoemaker-professional.jpg",
+            website: window.location.origin, // Automatically uses current domain
+            email: "contact@brianmshoemaker.com", // Update with actual email
             socialMedia: {
-                twitter: "https://twitter.com/yourhandle",
-                facebook: "https://facebook.com/yourname", 
-                instagram: "https://instagram.com/yourname",
-                goodreads: "https://goodreads.com/author/yourname"
+                twitter: "https://twitter.com/doraleousadventures",
+                facebook: "https://facebook.com/doraleousandassociates", 
+                instagram: "https://instagram.com/doraleousadventures",
+                youtube: "https://youtube.com/@doraleousadventures"
             }
         },
         website: {
-            name: "Your Author Name - Official Website",
-            description: "Official website of mystery novelist Your Author Name"
+            name: "Brian M. Shoemaker - Official Website",
+            description: "Official website of fantasy novelist Brian M. Shoemaker, author of Doraleous and Associates"
         }
     };
 
@@ -36,6 +36,8 @@
         const pageType = detectPageType();
         if (pageType === 'book') {
             addBookData();
+        } else if (pageType === 'home') {
+            addHomePageData();
         }
     }
 
@@ -49,11 +51,15 @@
             "url": CONFIG.author.website,
             "image": CONFIG.author.website + CONFIG.author.image,
             "jobTitle": "Author",
+            "knowsAbout": ["Fantasy Literature", "World Building", "Creative Writing"],
             "sameAs": Object.values(CONFIG.author.socialMedia).filter(url => url),
-            "knowsAbout": ["Creative Writing", "Mystery Fiction", "Thriller Novels"]
+            "worksFor": {
+                "@type": "Organization",
+                "name": "Independent Author"
+            }
         };
 
-        insertStructuredData(authorSchema, 'author');
+        addStructuredData(authorSchema, 'author-schema');
     }
 
     // Add website structured data
@@ -67,104 +73,80 @@
             "author": {
                 "@type": "Person",
                 "name": CONFIG.author.name
+            },
+            "potentialAction": {
+                "@type": "SearchAction",
+                "target": CONFIG.author.website + "/search?q={search_term_string}",
+                "query-input": "required name=search_term_string"
             }
         };
 
-        insertStructuredData(websiteSchema, 'website');
+        addStructuredData(websiteSchema, 'website-schema');
     }
 
-    // Add book structured data (for individual book pages)
+    // Add book-specific structured data
     function addBookData() {
-        const bookData = extractBookData();
+        // Detect if this is a specific book page
+        const bookTitle = document.querySelector('h1')?.textContent || 'Doraleous and Associates';
+        const bookDescription = document.querySelector('meta[name="description"]')?.content || 
+                               document.querySelector('.book-description')?.textContent || 
+                               'An epic fantasy adventure in the world of Aethermoor';
         
-        if (!bookData.title) return;
-
         const bookSchema = {
             "@context": "https://schema.org",
             "@type": "Book",
-            "name": bookData.title,
-            "description": bookData.description,
+            "name": bookTitle,
+            "description": bookDescription,
             "author": {
+                "@type": "Person",
+                "name": CONFIG.author.name,
+                "url": CONFIG.author.website
+            },
+            "genre": ["Fantasy", "Epic Fantasy", "Adventure"],
+            "bookFormat": "https://schema.org/Hardcover",
+            "publisher": {
+                "@type": "Organization",
+                "name": "Independent"
+            },
+            "url": window.location.href,
+            "mainEntityOfPage": window.location.href,
+            "datePublished": "2024", // Update with actual publication date
+            "inLanguage": "en-US"
+        };
+
+        // Add book cover image if available
+        const bookCover = document.querySelector('.book-cover-image, .featured-book-cover, .hero-book-cover');
+        if (bookCover) {
+            bookSchema.image = CONFIG.author.website + bookCover.getAttribute('src');
+        }
+
+        addStructuredData(bookSchema, 'book-schema');
+    }
+
+    // Add homepage specific structured data
+    function addHomePageData() {
+        const organizationSchema = {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": CONFIG.author.name,
+            "url": CONFIG.author.website,
+            "logo": CONFIG.author.website + "/assets/images/ui/logo.png", // Update if logo exists
+            "sameAs": Object.values(CONFIG.author.socialMedia).filter(url => url),
+            "foundingDate": "2024", // Update with actual start date
+            "founder": {
                 "@type": "Person",
                 "name": CONFIG.author.name
             },
-            "genre": bookData.genre || ["Mystery", "Thriller"],
-            "inLanguage": "en"
+            "mainEntityOfPage": CONFIG.author.website
         };
 
-        // Add optional fields if they exist
-        if (bookData.isbn) bookSchema.isbn = bookData.isbn;
-        if (bookData.publishDate) bookSchema.datePublished = bookData.publishDate;
-        if (bookData.publisher) bookSchema.publisher = {
-            "@type": "Organization",
-            "name": bookData.publisher
-        };
-        if (bookData.coverImage) bookSchema.image = bookData.coverImage;
-        if (bookData.pages) bookSchema.numberOfPages = bookData.pages;
-
-        insertStructuredData(bookSchema, 'book');
+        addStructuredData(organizationSchema, 'organization-schema');
     }
 
-    // Extract book data from page
-    function extractBookData() {
-        return {
-            title: getMetaContent('book-title') || 
-                   document.querySelector('h1.book-title, .book-info h1, h1')?.textContent?.trim(),
-            description: getMetaContent('book-description') || 
-                        getMetaContent('description') ||
-                        document.querySelector('.book-description, .book-summary')?.textContent?.trim(),
-            isbn: getMetaContent('book-isbn') || 
-                  document.querySelector('[data-isbn]')?.dataset.isbn,
-            publishDate: getMetaContent('book-publish-date') ||
-                        document.querySelector('[data-publish-date]')?.dataset.publishDate,
-            publisher: getMetaContent('book-publisher') ||
-                      document.querySelector('.book-publisher')?.textContent?.trim(),
-            genre: getMetaContent('book-genre')?.split(',').map(g => g.trim()),
-            coverImage: getMetaContent('book-image') || 
-                       document.querySelector('.book-cover img, .cover-image')?.src,
-            pages: getMetaContent('book-pages') ||
-                   document.querySelector('[data-pages]')?.dataset.pages
-        };
-    }
-
-    // Detect what type of page this is
-    function detectPageType() {
-        const path = window.location.pathname.toLowerCase();
-        const title = document.title.toLowerCase();
-        
-        // Check if this is a book page
-        if (path.includes('/book') || 
-            title.includes('book') || 
-            document.querySelector('.book-info, .book-details, .book-cover')) {
-            return 'book';
-        }
-        
-        return 'page';
-    }
-
-    // Get meta tag content
-    function getMetaContent(name) {
-        const selectors = [
-            `meta[name="${name}"]`,
-            `meta[property="${name}"]`,
-            `meta[property="book:${name.replace('book-', '')}"]`,
-            `[data-${name}]`
-        ];
-        
-        for (const selector of selectors) {
-            const element = document.querySelector(selector);
-            if (element) {
-                return element.getAttribute('content') || element.dataset[name.replace(/-/g, '')];
-            }
-        }
-        
-        return null;
-    }
-
-    // Insert structured data into page
-    function insertStructuredData(data, id) {
-        // Remove existing script with same ID
-        const existing = document.querySelector(`script[data-structured-data="${id}"]`);
+    // Helper function to add structured data to page
+    function addStructuredData(schema, id) {
+        // Remove existing schema with same ID
+        const existing = document.getElementById(id);
         if (existing) {
             existing.remove();
         }
@@ -172,34 +154,44 @@
         // Create new script element
         const script = document.createElement('script');
         script.type = 'application/ld+json';
-        script.dataset.structuredData = id;
-        script.textContent = JSON.stringify(data, null, 2);
+        script.id = id;
+        script.textContent = JSON.stringify(schema, null, 2);
+        
+        // Add to document head
         document.head.appendChild(script);
     }
 
-    // Public API for manual updates
-    window.StructuredData = {
-        updateAuthor: function(authorData) {
-            Object.assign(CONFIG.author, authorData);
-            addAuthorData();
-        },
+    // Detect page type based on URL and content
+    function detectPageType() {
+        const path = window.location.pathname.toLowerCase();
         
-        addCustomData: function(data, id) {
-            insertStructuredData(data, id);
-        },
-        
-        refreshBookData: function() {
-            if (detectPageType() === 'book') {
-                addBookData();
-            }
+        if (path === '/' || path.includes('index.html')) {
+            return 'home';
+        } else if (path.includes('/books/') || document.querySelector('.book-showcase')) {
+            return 'book';
+        } else if (path.includes('/about')) {
+            return 'about';
+        } else if (path.includes('/contact')) {
+            return 'contact';
+        } else if (path.includes('/blog/')) {
+            return 'blog';
         }
-    };
+        return 'general';
+    }
 
-    // Initialize when DOM is ready
+    // Initialize when DOM is loaded
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', init);
     } else {
         init();
     }
+
+    // Export for debugging
+    window.StructuredDataManager = {
+        config: CONFIG,
+        detectPageType: detectPageType,
+        addStructuredData: addStructuredData,
+        reinitialize: init
+    };
 
 })();
