@@ -1,0 +1,12 @@
+# ===================================
+# .NOJEKYLL FILE
+# File: .nojekyll
+# ===================================
+
+# This empty file tells GitHub Pages not to process the site with Jekyll
+# This is important for sites that:
+# - Use their own build process
+# - Have files/folders starting with underscores
+# - Want to bypass Jekyll processing entirely
+
+# Just having this file present (even empty) disables Jekyll processing
