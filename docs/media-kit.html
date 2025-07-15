@@ -40,6 +40,157 @@
     
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="assets/images/ui/favicon.ico">
+    
+    <!-- Navigation Fix for Long Title -->
+    <style>
+        /* Fix navigation for long brand name */
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: nowrap;
+            gap: 1rem;
+        }
+        
+        .nav-brand {
+            flex: 0 1 auto;
+            min-width: 0;
+        }
+        
+        .brand-name {
+            font-size: 1.2rem !important;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 400px;
+        }
+        
+        .nav-menu {
+            flex: 0 0 auto;
+        }
+        
+        .nav-list {
+            display: flex;
+            gap: 1.5rem;
+            white-space: nowrap;
+        }
+        
+        .nav-link {
+            font-size: 0.9rem;
+            padding: 0.5rem 0.75rem;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 1200px) {
+            .brand-name {
+                font-size: 1rem !important;
+                max-width: 300px;
+            }
+            
+            .nav-list {
+                gap: 1rem;
+            }
+            
+            .nav-link {
+                font-size: 0.85rem;
+                padding: 0.5rem;
+            }
+        }
+        
+        @media (max-width: 1024px) {
+            .brand-full {
+                display: none !important;
+            }
+            
+            .brand-short {
+                display: inline !important;
+            }
+            
+            .brand-name {
+                font-size: 1.1rem !important;
+                max-width: none;
+            }
+            
+            .nav-list {
+                gap: 0.75rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                right: 0;
+                background: rgba(10, 10, 10, 0.98);
+                backdrop-filter: blur(10px);
+                border-top: 1px solid rgba(255, 215, 0, 0.3);
+                padding: 2rem;
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+                justify-content: flex-start;
+            }
+            
+            .nav-menu.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            .nav-list {
+                flex-direction: column;
+                gap: 1.5rem;
+                width: 100%;
+            }
+            
+            .nav-link {
+                font-size: 1.1rem;
+                padding: 1rem;
+                text-align: left;
+                width: 100%;
+            }
+            
+            .brand-full {
+                display: none !important;
+            }
+            
+            .brand-short {
+                display: inline !important;
+            }
+            
+            .brand-name {
+                font-size: 1rem !important;
+                max-width: none;
+            }
+        }
+        
+        /* Ensure toggle button is always visible */
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            z-index: 1001;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-toggle {
+                display: flex;
+            }
+        }
+        
+        .hamburger-line {
+            width: 25px;
+            height: 3px;
+            background: #FFD700;
+            margin: 2px 0;
+            transition: all 0.3s ease;
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
@@ -47,7 +198,10 @@
         <div class="nav-container">
             <div class="nav-brand">
                 <a href="index.html" class="brand-link">
-                    <h1 class="brand-name">Doraleous and Associates: A Tale of Glory</h1>
+                    <h1 class="brand-name">
+                        <span class="brand-full">Doraleous and Associates: A Tale of Glory</span>
+                        <span class="brand-short" style="display: none;">Doraleous & Associates</span>
+                    </h1>
                 </a>
             </div>
             
