@@ -38,24 +38,18 @@ jobs:
         
       - name: Build site
         run: |
-          # If your files are in a subdirectory, copy them to root
-          # Uncomment the next line if your files are in publlic_html/
-          # cp -r publlic_html/* .
-          
+          # Files are in docs/ subdirectory
           # Create any necessary build steps here
           echo "Building site for GitHub Pages..."
           
-          # Ensure all required files are present
-          ls -la
+          # Ensure all required files are present in docs folder
+          ls -la docs/
           
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload entire repository if files are in root
-          # Or specify path if files are in subdirectory
-          path: '.'
-          # Uncomment the next line if your files are in publlic_html/
-          # path: './publlic_html'
+          # Deploy from docs folder where all website files are located
+          path: './docs'
 
   # Deployment job
   deploy:
