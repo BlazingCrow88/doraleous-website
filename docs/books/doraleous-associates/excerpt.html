@@ -3,22 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Character Guide - Doraleous and Associates | Meet the Heroes</title>
-    <meta name="description" content="Meet the unforgettable characters of Doraleous and Associates: A Tale of Glory. Discover their backstories, abilities, and relationships in this comprehensive character guide.">
-    <meta name="keywords" content="Doraleous characters, fantasy characters, character guide, Doraleous and Associates characters, Brian M. Shoemaker characters">
+    <title>Read Free Excerpt - Doraleous and Associates: A Tale of Glory</title>
+    <meta name="description" content="Read the opening chapter of Doraleous and Associates: A Tale of Glory by Brian M. Shoemaker. Experience the epic fantasy adventure that captivates readers worldwide.">
+    <meta name="keywords" content="Doraleous excerpt, free chapter, Brian M. Shoemaker, epic fantasy preview, book sample">
     
     <!-- Open Graph Tags -->
-    <meta property="og:title" content="Character Guide - Doraleous and Associates">
-    <meta property="og:description" content="Meet the unforgettable characters of Doraleous and Associates: A Tale of Glory and discover their backstories and abilities.">
-    <meta property="og:image" content="../../assets/images/characters/character-lineup.jpg">
-    <meta property="og:url" content="https://brianmshoemaker.com/books/doraleous-associates/characters.html">
+    <meta property="og:title" content="Read Free Excerpt - Doraleous and Associates: A Tale of Glory">
+    <meta property="og:description" content="Read the opening chapter of Brian M. Shoemaker's epic fantasy adventure for free.">
+    <meta property="og:image" content="../../assets/images/books/covers/doraleous-associates-full.jpg">
+    <meta property="og:url" content="https://brianmshoemaker.com/books/doraleous-associates/read-excerpt.html">
     <meta property="og:type" content="article">
     
     <!-- Twitter Card Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Character Guide - Doraleous and Associates">
-    <meta name="twitter:description" content="Meet the unforgettable characters of Doraleous and Associates and discover their backstories.">
-    <meta name="twitter:image" content="../../assets/images/characters/character-lineup.jpg">
+    <meta name="twitter:title" content="Read Free Excerpt - Doraleous and Associates">
+    <meta name="twitter:description" content="Read the opening chapter of Brian M. Shoemaker's epic fantasy adventure for free.">
+    <meta name="twitter:image" content="../../assets/images/books/covers/doraleous-associates-full.jpg">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,9 +28,9 @@
     <!-- CSS Files -->
     <link rel="stylesheet" href="../../assets/css/main.css">
     <link rel="stylesheet" href="../../assets/css/components/navigation.css">
-    <link rel="stylesheet" href="../../assets/css/components/character-cards.css">
     <link rel="stylesheet" href="../../assets/css/components/forms.css">
     <link rel="stylesheet" href="../../assets/css/layouts/book-pages.css">
+    <link rel="stylesheet" href="../../assets/css/layouts/excerpt.css">
     <link rel="stylesheet" href="../../assets/css/responsive/mobile.css">
     <link rel="stylesheet" href="../../assets/css/responsive/tablet.css">
     <link rel="stylesheet" href="../../assets/css/responsive/desktop.css">
@@ -38,8 +38,89 @@
     <!-- AOS Animation Library -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
     
+    <!-- jsPDF Library for PDF Generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="../../assets/images/ui/favicon.ico">
+    
+    <style>
+        /* PDF Generation Styles */
+        .pdf-generating {
+            opacity: 0.7;
+            pointer-events: none;
+        }
+        
+        .pdf-generating::after {
+            content: 'Generating PDF...';
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            z-index: 1000;
+        }
+        
+        /* Newsletter Success Message */
+        .newsletter-success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 10px;
+            display: none;
+        }
+        
+        .newsletter-error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 10px;
+            display: none;
+        }
+        
+        /* Reading modes */
+        .excerpt-text.dark-mode {
+            background: #1a1a1a;
+            color: #e0e0e0;
+            padding: 30px;
+            border-radius: 8px;
+        }
+        
+        .excerpt-text.sepia-mode {
+            background: #f4f3e8;
+            color: #5c4b37;
+            padding: 30px;
+            border-radius: 8px;
+        }
+        
+        .excerpt-text.light-mode {
+            background: #ffffff;
+            color: #333333;
+            padding: 30px;
+            border-radius: 8px;
+        }
+        
+        /* Fullscreen reading */
+        .fullscreen-reading {
+            position: fixed !important;
+            top: 0;
+            left: 0;
+            width: 100vw !important;
+            height: 100vh !important;
+            z-index: 9999;
+            padding: 40px;
+            overflow-y: auto;
+            font-size: 20px !important;
+            line-height: 1.8;
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
@@ -67,10 +148,10 @@
                         <a href="../../about.html" class="nav-link">About</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a href="../index.html" class="nav-link">Books</a>
+                        <a href="../index.html" class="nav-link active">Books</a>
                         <ul class="dropdown-menu">
                             <li><a href="index.html" class="dropdown-link">Doraleous and Associates</a></li>
-                            <li><a href="characters.html" class="dropdown-link active">Character Guide</a></li>
+                            <li><a href="characters.html" class="dropdown-link">Character Guide</a></li>
                             <li><a href="read-excerpt.html" class="dropdown-link">Read Excerpt</a></li>
                         </ul>
                     </li>
@@ -89,260 +170,255 @@
     </nav>
 
     <!-- Page Header -->
-    <header class="page-header">
+    <section class="page-header">
         <div class="container">
-            <div class="header-content">
-                <h1 class="page-title">Character Guide</h1>
-                <p class="page-subtitle">Meet the Heroes of Doraleous and Associates</p>
+            <div class="header-content" data-aos="fade-up">
+                <h1 class="page-title">Free Excerpt</h1>
+                <p class="page-subtitle">Chapter One: The Crimson Contract</p>
                 <p class="page-description">
-                    Discover the rich backstories, unique abilities, and complex relationships that define the unforgettable characters in Brian M. Shoemaker's epic fantasy adventure.
+                    Experience the opening chapter of "Doraleous and Associates: A Tale of Glory" and discover why readers can't put this epic fantasy adventure down.
                 </p>
             </div>
         </div>
-    </header>
+    </section>
 
-    <!-- Character Navigation -->
-    <section class="character-navigation-section">
+    <!-- Excerpt Controls -->
+    <section class="excerpt-controls-section">
         <div class="container">
-            <div class="character-nav-tabs" data-aos="fade-up">
-                <button class="character-nav-btn active" data-category="all">All Characters</button>
-                <button class="character-nav-btn" data-category="main">Main Team</button>
-                <button class="character-nav-btn" data-category="allies">Allies</button>
-                <button class="character-nav-btn" data-category="antagonists">Antagonists</button>
-                <button class="character-nav-btn" data-category="world">World Characters</button>
+            <div class="excerpt-controls" data-aos="fade-up">
+                <div class="reading-options">
+                    <button class="reading-option active" data-mode="light">
+                        <span class="option-icon">☀️</span>
+                        <span class="option-text">Light Mode</span>
+                    </button>
+                    <button class="reading-option" data-mode="dark">
+                        <span class="option-icon">🌙</span>
+                        <span class="option-text">Dark Mode</span>
+                    </button>
+                    <button class="reading-option" data-mode="sepia">
+                        <span class="option-icon">📜</span>
+                        <span class="option-text">Sepia Mode</span>
+                    </button>
+                </div>
+                
+                <div class="text-controls">
+                    <label for="font-size" class="control-label">Font Size:</label>
+                    <input type="range" id="font-size" class="font-size-slider" min="14" max="24" value="18">
+                    <span class="font-size-display">18px</span>
+                </div>
+                
+                <div class="excerpt-actions">
+                    <button class="action-btn" id="download-pdf">
+                        <span class="btn-icon">📄</span>
+                        <span class="btn-text">Download PDF</span>
+                    </button>
+                    <button class="action-btn" id="full-screen">
+                        <span class="btn-icon">⛶</span>
+                        <span class="btn-text">Full Screen</span>
+                    </button>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Main Characters Section -->
-    <section class="main-characters-section">
+    <!-- Excerpt Content -->
+    <section class="excerpt-content-section">
         <div class="container">
-            <h2 class="section-title" data-aos="fade-up">The Core Team</h2>
-            
-            <!-- Doraleous Stormwind -->
-            <div class="character-profile main" data-category="main" id="doraleous" data-aos="fade-up">
-                <div class="character-profile-image">
-                    <img src="../../assets/images/characters/doraleous-portrait.jpg" alt="Doraleous Stormwind - The Leader" class="character-large-image">
+            <div class="excerpt-wrapper" data-aos="fade-up">
+                <div class="excerpt-meta">
+                    <h2 class="book-title">Doraleous and Associates: A Tale of Glory</h2>
+                    <p class="book-author">by Brian M. Shoemaker</p>
+                    <div class="chapter-info">
+                        <span class="chapter-number">Chapter 1</span>
+                        <span class="chapter-title">The Crimson Contract</span>
+                        <span class="reading-time">~15 minute read</span>
+                    </div>
                 </div>
-                <div class="character-profile-content">
-                    <h3 class="character-profile-name">Doraleous Stormwind</h3>
-                    <p class="character-profile-title">Human Knight & Leader</p>
+                
+                <div class="excerpt-text light-mode" id="excerpt-text">
+                    <p class="excerpt-paragraph first-paragraph">
+                        <span class="drop-cap">T</span>he tavern's smoky air carried the familiar scents of ale, sweat, and secrets—the holy trinity of any establishment where sellswords gathered to ply their trade. Doraleous sat in his customary corner booth, back to the wall, eyes scanning the room with the practiced ease of someone who had survived too many attempted assassinations to count. The Gilded Griffin wasn't the finest tavern in Aldermere, but it served his purposes: discrete, defensible, and populated by the sort of people who minded their own business.
+                    </p>
                     
-                    <div class="character-description">
-                        <p>
-                            Born into nobility but forged by adversity, Doraleous abandoned his privileged life to become one of the realm's most respected mercenaries. His transformation from pampered noble to seasoned warrior-leader represents a journey of self-discovery that continues throughout the series.
-                        </p>
-                        <p>
-                            What sets Doraleous apart isn't just his tactical brilliance or sword skills—it's his unwavering moral compass and ability to inspire absolute loyalty in his team. He sees potential in others that they often don't see in themselves, making him not just a leader, but a catalyst for growth and redemption.
-                        </p>
-                    </div>
+                    <p class="excerpt-paragraph">
+                        "You're brooding again," Zara observed, sliding into the seat across from him with her usual grace. The mage's violet eyes sparkled with amusement as she gestured for the barmaid. "It's that particular expression you get when you're trying to decide whether a potential client is worth the trouble they're likely to cause."
+                    </p>
                     
-                    <div class="character-traits">
-                        <span class="trait">Leadership</span>
-                        <span class="trait">Tactical Brilliance</span>
-                        <span class="trait">Swordsmanship</span>
-                        <span class="trait">Moral Compass</span>
-                    </div>
+                    <p class="excerpt-paragraph">
+                        Doraleous raised an eyebrow. "And what makes you think I'm considering taking on a client? Perhaps I'm simply enjoying the ambiance of our fine establishment." He gestured broadly at the tavern's interior, where a trio of mercenaries were arm-wrestling while their companions placed increasingly reckless bets.
+                    </p>
+                    
+                    <p class="excerpt-paragraph">
+                        "Because," Zara said, accepting a goblet of wine from the serving girl, "Gareth has been standing guard outside for the past hour, and you only post our stalwart defender when you're expecting someone important. Also, you've checked your pocket watch seven times in the last ten minutes."
+                    </p>
+                    
+                    <p class="excerpt-paragraph">
+                        "Observant as always." Doraleous couldn't suppress a slight smile. After three years of working together, his associates had learned to read him perhaps too well. "Lady Valeria Ashcroft sent word yesterday. She requires our services for what she described as 'a matter of utmost delicacy and substantial remuneration.'"
+                    </p>
+                    
+                    <p class="excerpt-paragraph">
+                        Zara's expression shifted to one of interest mixed with caution. "The Duke's daughter? That's either very good news or very bad news. There's rarely anything in between with nobility."
+                    </p>
+                    
+                    <p class="excerpt-paragraph">
+                        "My thoughts exactly." Doraleous reached into his coat and withdrew a sealed letter bearing the distinctive crimson wax seal of House Ashcroft. "She's requesting a meeting tonight to discuss the details. Given her family's... reputation for political maneuvering, I suspect this won't be a simple escort mission or bandit clearing."
+                    </p>
+                    
+                    <p class="excerpt-paragraph">
+                        The tavern's front door opened with a creak that somehow managed to cut through the ambient noise. A figure in a deep blue hooded cloak entered, moving with the fluid confidence of someone accustomed to command. Several patrons glanced up, then quickly returned to their drinks—a sure sign that they recognized nobility when they saw it, even disguised.
+                    </p>
+                    
+                    <p class="excerpt-paragraph">
+                        Lady Valeria Ashcroft approached their table with purposeful strides, her hood casting shadows across features that were striking rather than conventionally beautiful. Intelligence glittered in her green eyes as she took in the tavern's occupants, no doubt cataloguing potential threats with the same thoroughness that Doraleous employed.
+                    </p>
+                    
+                    <p class="excerpt-paragraph">
+                        "Master Doraleous," she said, her voice carrying the crisp authority of someone raised to rule. "Thank you for agreeing to meet on such short notice."
+                    </p>
+                    
+                    <p class="excerpt-paragraph">
+                        "My lady," Doraleous rose and gestured to an empty chair. "Please, join us. May I present my associate, Zara Nightwhisper, our resident expert in matters arcane and ancient."
+                    </p>
+                    
+                    <p class="excerpt-paragraph">
+                        Valeria's gaze lingered on Zara for a moment, taking in the subtle signs that marked her as a practitioner of the magical arts—the faint luminescence in her eyes, the way the air seemed to shimmer slightly around her fingers, the small crystal pendant that hummed with contained energy.
+                    </p>
+                    
+                    <p class="excerpt-paragraph">
+                        "A pleasure," Valeria said, settling into the offered chair. "Your reputation precedes you, Lady Nightwhisper. I understand you were once affiliated with the Celestial Academy before... pursuing independent ventures."
+                    </p>
+                    
+                    <p class="excerpt-paragraph">
+                        Zara's smile was polite but guarded. "Academic politics can be quite stifling. I found that real-world application of magical theory provided better learning opportunities."
+                    </p>
+                    
+                    <p class="excerpt-paragraph">
+                        "Indeed." Valeria turned her attention back to Doraleous. "I trust this location provides sufficient privacy for sensitive discussion?"
+                    </p>
+                    
+                    <p class="excerpt-paragraph">
+                        "The Griffin has served us well for such purposes," Doraleous confirmed. "The proprietor ensures that certain conversations go unheard, and my associate Gareth is positioned to discourage eavesdropping. You may speak freely."
+                    </p>
+                    
+                    <p class="excerpt-paragraph">
+                        Valeria nodded and leaned forward slightly, her voice dropping to barely above a whisper. "Three days ago, something was stolen from my father's private collection. Not gold or jewels—those we could replace. What was taken is far more valuable and infinitely more dangerous."
+                    </p>
+                    
+                    <p class="excerpt-paragraph">
+                        "What manner of item?" Zara asked, her scholarly instincts immediately engaged.
+                    </p>
+                    
+                    <p class="excerpt-paragraph">
+                        "An artifact from the Age of Shadows," Valeria replied, watching their faces carefully. "The Crown of Whispers—a relic that was supposedly destroyed along with the Shadow Empire a thousand years ago."
+                    </p>
+                    
+                    <p class="excerpt-paragraph">
+                        The temperature at the table seemed to drop several degrees. Doraleous felt the familiar chill that accompanied mentions of the Shadow Empire, that dark period in history when malevolent sorcerers had nearly consumed the world. Beside him, Zara had gone very still, her wine goblet forgotten in her hand.
+                    </p>
+                    
+                    <p class="excerpt-paragraph">
+                        "That's impossible," Zara said finally. "The Crown of Whispers was destroyed by Archmage Lumineth herself during the final battle at Shadowfall. I've read the historical accounts—multiple sources confirm its destruction."
+                    </p>
+                    
+                    <p class="excerpt-paragraph">
+                        "So we all believed," Valeria said grimly. "Yet my father possessed what he claimed was the genuine article, hidden in a vault beneath our estate for the past thirty years. Whether it's real or an elaborate fake matters less than the fact that someone was willing to kill three guards and a house mage to obtain it."
+                    </p>
+                    
+                    <p class="excerpt-paragraph">
+                        Doraleous leaned back in his chair, processing the implications. "You want us to retrieve it."
+                    </p>
+                    
+                    <p class="excerpt-paragraph">
+                        "I want you to find it and either return it to my father's vault or destroy it permanently," Valeria corrected. "If the Crown truly possesses the power attributed to it in the ancient texts, then its very existence poses a threat to the stability of the realm."
+                    </p>
+                    
+                    <p class="excerpt-paragraph">
+                        "And if we refuse?" Doraleous asked, though he suspected he already knew the answer.
+                    </p>
+                    
+                    <p class="excerpt-paragraph">
+                        Valeria's expression hardened. "Then I will find others to undertake the task. But given your reputation for both discretion and success in matters involving dangerous magical artifacts, I would prefer to work with professionals I can trust."
+                    </p>
+                    
+                    <p class="excerpt-paragraph">
+                        "The pay?" Zara inquired with characteristic directness.
+                    </p>
+                    
+                    <p class="excerpt-paragraph">
+                        "Fifty thousand gold crowns upon successful completion," Valeria said without hesitation. "Half again if you can accomplish the task within a fortnight."
+                    </p>
+                    
+                    <p class="excerpt-paragraph">
+                        It was an impressive sum—enough to fund their operation for two years or allow each of them to retire comfortably if they chose. Doraleous found himself studying Lady Valeria's face, searching for signs of deception or hidden motivations. What he saw was determination mixed with barely controlled fear.
+                    </p>
+                    
+                    <p class="excerpt-paragraph">
+                        "You believe the thief intends to use the Crown," he said. It wasn't a question.
+                    </p>
+                    
+                    <p class="excerpt-paragraph">
+                        "I believe," Valeria said carefully, "that anyone willing to commit murder to obtain a Shadow Empire artifact has purposes that extend far beyond mere profit. The Crown of Whispers, if the legends are true, grants its wearer the ability to command shadow magic and influence the minds of others. In the wrong hands..."
+                    </p>
+                    
+                    <p class="excerpt-paragraph">
+                        She didn't need to finish the sentence. The implications were clear enough. Doraleous exchanged a glance with Zara, seeing his own thoughts reflected in her expression. This was exactly the sort of high-stakes, world-threatening mission that their little company seemed to attract with disturbing regularity.
+                    </p>
+                    
+                    <p class="excerpt-paragraph">
+                        "We'll need details," Doraleous said finally. "Everything you know about the theft, the artifact's history, and any leads you might have regarding the identity of the thief."
+                    </p>
+                    
+                    <p class="excerpt-paragraph">
+                        Valeria reached into her cloak and withdrew a leather portfolio sealed with the same crimson wax as her letter. "Everything my father was willing to share is contained within. I should warn you—some of the information contradicts accepted historical accounts. My father has access to... alternative sources."
+                    </p>
+                    
+                    <p class="excerpt-paragraph">
+                        "Alternative sources?" Zara's academic curiosity was clearly piqued.
+                    </p>
+                    
+                    <p class="excerpt-paragraph">
+                        "Duke Ashcroft has long been a patron of researchers who investigate topics that the official histories prefer to ignore," Valeria explained. "He believes that understanding the past—all of it, not just the sanitized versions taught in schools—is essential to preventing its repetition."
+                    </p>
+                    
+                    <p class="excerpt-paragraph">
+                        Doraleous accepted the portfolio, feeling its weight both literal and figurative. "We'll need time to review this information and consult with our third associate. Gareth's insights have proven invaluable in past endeavors."
+                    </p>
+                    
+                    <p class="excerpt-paragraph">
+                        "Of course. I'll await your decision." Valeria rose gracefully from her chair. "But please don't take too long. Every day that passes increases the likelihood that whoever stole the Crown will discover how to use it."
+                    </p>
+                    
+                    <p class="excerpt-paragraph">
+                        As Lady Valeria made her way toward the tavern's exit, Doraleous found himself staring at the portfolio in his hands. Something about this entire situation felt orchestrated, as if events were falling into place according to some grand design that he couldn't quite perceive.
+                    </p>
+                    
+                    <p class="excerpt-paragraph">
+                        "Well," Zara said, breaking the contemplative silence, "it seems we're about to embark on another adventure that will likely test the limits of our sanity and survival instincts."
+                    </p>
+                    
+                    <p class="excerpt-paragraph">
+                        "Most likely," Doraleous agreed, tucking the portfolio inside his coat. "Though I suspect this particular adventure may test something far more fundamental than our survival skills."
+                    </p>
+                    
+                    <p class="excerpt-paragraph">
+                        "Such as?"
+                    </p>
+                    
+                    <p class="excerpt-paragraph final-paragraph">
+                        Doraleous met his friend's questioning gaze with a wry smile. "Our ability to save the world without destroying it in the process."
+                    </p>
                 </div>
-            </div>
-
-            <!-- Character Cards Grid for Main Team -->
-            <div class="characters-grid" data-aos="fade-up" data-aos-delay="100">
-                <!-- Neebs Silverleaf -->
-                <div class="character-card main" data-category="main">
-                    <div class="character-image">
-                        <img src="../../assets/images/characters/neebs-portrait.jpg" alt="Neebs Silverleaf" class="character-photo">
-                    </div>
-                    <div class="character-info">
-                        <h3 class="character-name">Neebs Silverleaf</h3>
-                        <p class="character-role">Elven Archer</p>
-                        <p class="character-description">
-                            A skilled elven archer whose precise aim and deep connection to nature make him an invaluable member of the team. His wisdom often guides the group through difficult decisions.
-                        </p>
-                        <div class="character-traits">
-                            <span class="trait">Archery Mastery</span>
-                            <span class="trait">Nature Connection</span>
-                            <span class="trait">Wisdom</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Drak Ironforge -->
-                <div class="character-card main" data-category="main">
-                    <div class="character-image">
-                        <img src="../../assets/images/characters/drak-portrait.jpg" alt="Drak Ironforge" class="character-photo">
-                    </div>
-                    <div class="character-info">
-                        <h3 class="character-name">Drak Ironforge</h3>
-                        <p class="character-role">Dwarven Barbarian Prince</p>
-                        <p class="character-description">
-                            The rebellious prince of the dwarven kingdom, torn between duty to his people and his loyalty to his chosen family. His raw strength is matched only by his fierce loyalty.
-                        </p>
-                        <div class="character-traits">
-                            <span class="trait">Barbarian Rage</span>
-                            <span class="trait">Royal Heritage</span>
-                            <span class="trait">Fierce Loyalty</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Sir Walkin Brightblade -->
-                <div class="character-card main" data-category="main">
-                    <div class="character-image">
-                        <img src="../../assets/images/characters/walkin-portrait.jpg" alt="Sir Walkin Brightblade" class="character-photo">
-                    </div>
-                    <div class="character-info">
-                        <h3 class="character-name">Sir Walkin Brightblade</h3>
-                        <p class="character-role">Noble Knight</p>
-                        <p class="character-description">
-                            A paragon of knightly virtue whose unwavering faith and noble bearing inspire hope in the darkest of times. His dedication to justice drives him forward against impossible odds.
-                        </p>
-                        <div class="character-traits">
-                            <span class="trait">Divine Faith</span>
-                            <span class="trait">Knightly Virtue</span>
-                            <span class="trait">Inspiring Presence</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Varsuuvius the Learned -->
-                <div class="character-card main" data-category="main">
-                    <div class="character-image">
-                        <img src="../../assets/images/characters/varsuuvius-portrait.jpg" alt="Varsuuvius the Learned" class="character-photo">
-                    </div>
-                    <div class="character-info">
-                        <h3 class="character-name">Varsuuvius the Learned</h3>
-                        <p class="character-role">Elderly Sage</p>
-                        <p class="character-description">
-                            The team's brilliant strategist and keeper of ancient knowledge. Their vast wisdom and magical abilities provide the group with crucial advantages in their quest.
-                        </p>
-                        <div class="character-traits">
-                            <span class="trait">Ancient Knowledge</span>
-                            <span class="trait">Strategic Mind</span>
-                            <span class="trait">Magical Prowess</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Allies Section -->
-    <section class="supporting-characters-section">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Allies & Supporters</h2>
-            <div class="supporting-characters-grid" data-aos="fade-up" data-aos-delay="100">
                 
-                <!-- The Wyvern King -->
-                <div class="character-card allies" data-category="allies">
-                    <div class="character-image">
-                        <img src="../../assets/images/characters/wyvern-king.jpg" alt="The Wyvern King" class="character-photo">
-                    </div>
-                    <div class="character-info">
-                        <h3 class="character-name">The Wyvern King</h3>
-                        <p class="character-role">Ancient Guardian</p>
-                        <p class="character-description">
-                            Ultimate ally despite corruption concerns. This ancient guardian possesses wisdom spanning millennia and power that could tip the balance in the fight against darkness.
+                <div class="excerpt-end-notice">
+                    <div class="end-notice-content">
+                        <h3 class="end-notice-title">End of Chapter One</h3>
+                        <p class="end-notice-text">
+                            This concludes the free excerpt from "Doraleous and Associates: A Tale of Glory." 
+                            To continue the adventure and discover what happens next, get your copy today!
                         </p>
-                        <div class="character-traits">
-                            <span class="trait">Ancient Wisdom</span>
-                            <span class="trait">Draconic Power</span>
-                            <span class="trait">Guardian Spirit</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Elder Moonwhisper -->
-                <div class="character-card allies world" data-category="allies">
-                    <div class="character-image">
-                        <img src="../../assets/images/characters/elder-moonwhisper.jpg" alt="Elder Moonwhisper" class="character-photo">
-                    </div>
-                    <div class="character-info">
-                        <h3 class="character-name">Elder Moonwhisper</h3>
-                        <p class="character-role">Elven Elder</p>
-                        <p class="character-description">
-                            An elven elder with ancestral memories that span generations. Her deep connection to the old ways provides crucial insight into the supernatural threats they face.
-                        </p>
-                        <div class="character-traits">
-                            <span class="trait">Ancestral Memory</span>
-                            <span class="trait">Ancient Lore</span>
-                            <span class="trait">Spiritual Guidance</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Captain Ironbeard -->
-                <div class="character-card allies world" data-category="allies">
-                    <div class="character-image">
-                        <img src="../../assets/images/characters/captain-ironbeard.jpg" alt="Captain Ironbeard" class="character-photo">
-                    </div>
-                    <div class="character-info">
-                        <h3 class="character-name">Captain Ironbeard</h3>
-                        <p class="character-role">Dwarven Guard Captain</p>
-                        <p class="character-description">
-                            A sympathetic dwarven military leader who secretly supports the heroes' mission despite official orders. His tactical knowledge proves invaluable.
-                        </p>
-                        <div class="character-traits">
-                            <span class="trait">Military Tactics</span>
-                            <span class="trait">Secret Sympathy</span>
-                            <span class="trait">Dwarven Honor</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- King Aldwin -->
-                <div class="character-card allies world" data-category="allies">
-                    <div class="character-image">
-                        <img src="../../assets/images/characters/king-aldwin.jpg" alt="King Aldwin" class="character-photo">
-                    </div>
-                    <div class="character-info">
-                        <h3 class="character-name">King Aldwin</h3>
-                        <p class="character-role">Ruler of Valdris Kingdom</p>
-                        <p class="character-description">
-                            Human ruler providing limited official support while navigating complex political pressures. His aid comes with diplomatic strings attached.
-                        </p>
-                        <div class="character-traits">
-                            <span class="trait">Political Acumen</span>
-                            <span class="trait">Limited Support</span>
-                            <span class="trait">Royal Authority</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Animal Companions Card -->
-                <div class="character-card allies" data-category="allies">
-                    <div class="character-image">
-                        <img src="../../assets/images/characters/animal-companions.jpg" alt="Animal Companions" class="character-photo">
-                    </div>
-                    <div class="character-info">
-                        <h3 class="character-name">Animal Companions</h3>
-                        <p class="character-role">Faithful Allies</p>
-                        <p class="character-description">
-                            Wisdom the raven, Swiftstrike the eagle, Thunderhoof the destrier, and Stargazer the palfrey. These loyal companions provide reconnaissance, transportation, and unwavering support.
-                        </p>
-                        <div class="character-traits">
-                            <span class="trait">Reconnaissance</span>
-                            <span class="trait">Transportation</span>
-                            <span class="trait">Loyalty</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Group Allies Card -->
-                <div class="character-card allies" data-category="allies">
-                    <div class="character-image">
-                        <img src="../../assets/images/characters/volunteers.jpg" alt="Volunteers and Supporters" class="character-photo">
-                    </div>
-                    <div class="character-info">
-                        <h3 class="character-name">Volunteers & Supporters</h3>
-                        <p class="character-role">Brave Volunteers</p>
-                        <p class="character-description">
-                            Elven and Dwarven volunteers who break with tradition to join the cause, along with Alliance Representatives and High Clerics who provide crucial support.
-                        </p>
-                        <div class="character-traits">
-                            <span class="trait">Breaking Tradition</span>
-                            <span class="trait">Diverse Alliance</span>
-                            <span class="trait">Religious Support</span>
+                        <div class="end-notice-actions">
+                            <a href="index.html" class="btn btn-primary">Get the Full Book</a>
+                            <a href="characters.html" class="btn btn-secondary">Meet the Characters</a>
                         </div>
                     </div>
                 </div>
@@ -350,246 +426,27 @@
         </div>
     </section>
 
-    <!-- Antagonists Section -->
-    <section class="antagonists-section">
+    <!-- Newsletter Signup -->
+    <section class="newsletter-signup">
         <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Forces of Opposition</h2>
-            <div class="antagonists-grid" data-aos="fade-up" data-aos-delay="100">
-                
-                <!-- The Devourer -->
-                <div class="character-card antagonists" data-category="antagonists">
-                    <div class="character-image">
-                        <img src="../../assets/images/characters/the-devourer.jpg" alt="The Devourer" class="character-photo">
-                    </div>
-                    <div class="character-info">
-                        <h3 class="character-name">The Devourer</h3>
-                        <p class="character-role">Main Supernatural Antagonist</p>
-                        <p class="character-description">
-                            An ancient entity of pure malevolence, released from its prison by unwitting miners. Its corruption spreads like a plague, twisting everything it touches into instruments of darkness.
-                        </p>
-                        <div class="character-traits">
-                            <span class="trait danger">Ancient Evil</span>
-                            <span class="trait danger">Corruption</span>
-                            <span class="trait danger">Soul Devouring</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- King Thorek Ironforge -->
-                <div class="character-card antagonists world" data-category="antagonists">
-                    <div class="character-image">
-                        <img src="../../assets/images/characters/king-thorek.jpg" alt="King Thorek Ironforge" class="character-photo">
-                    </div>
-                    <div class="character-info">
-                        <h3 class="character-name">King Thorek Ironforge</h3>
-                        <p class="character-role">Dwarven King</p>
-                        <p class="character-description">
-                            Drak's father, representing institutional opposition to the heroes' mission. His rigid adherence to tradition puts him at odds with his own son's noble quest.
-                        </p>
-                        <div class="character-traits">
-                            <span class="trait danger">Institutional Power</span>
-                            <span class="trait danger">Stubborn Tradition</span>
-                            <span class="trait danger">Family Conflict</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Elder Silvanus -->
-                <div class="character-card antagonists world" data-category="antagonists">
-                    <div class="character-image">
-                        <img src="../../assets/images/characters/elder-silvanus.jpg" alt="Elder Silvanus" class="character-photo">
-                    </div>
-                    <div class="character-info">
-                        <h3 class="character-name">Elder Silvanus</h3>
-                        <p class="character-role">Conservative Elven Leader</p>
-                        <p class="character-description">
-                            A conservative elf opposing intervention in worldly affairs. His isolationist policies create dangerous obstacles when unity is most needed.
-                        </p>
-                        <div class="character-traits">
-                            <span class="trait danger">Isolationism</span>
-                            <span class="trait danger">Conservative Views</span>
-                            <span class="trait danger">Political Opposition</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Corrupted Entities -->
-                <div class="character-card antagonists" data-category="antagonists">
-                    <div class="character-image">
-                        <img src="../../assets/images/characters/shadow-creatures.jpg" alt="Shadow Creatures" class="character-photo">
-                    </div>
-                    <div class="character-info">
-                        <h3 class="character-name">Shadow Creatures</h3>
-                        <p class="character-role">Supernatural Servants</p>
-                        <p class="character-description">
-                            Twisted manifestations of the Devourer's influence, these creatures serve as its primary agents in spreading corruption throughout the realm.
-                        </p>
-                        <div class="character-traits">
-                            <span class="trait danger">Shadow Magic</span>
-                            <span class="trait danger">Corruption Spread</span>
-                            <span class="trait danger">Supernatural Servants</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Corrupted Forest Beings -->
-                <div class="character-card antagonists" data-category="antagonists">
-                    <div class="character-image">
-                        <img src="../../assets/images/characters/corrupted-forest.jpg" alt="Corrupted Forest Beings" class="character-photo">
-                    </div>
-                    <div class="character-info">
-                        <h3 class="character-name">Corrupted Forest Beings</h3>
-                        <p class="character-role">Twisted Guardians</p>
-                        <p class="character-description">
-                            Once-noble forest spirits, wolves, monks, and dwarves transformed by supernatural corruption into grotesque parodies of their former selves.
-                        </p>
-                        <div class="character-traits">
-                            <span class="trait danger">Twisted Nature</span>
-                            <span class="trait danger">Lost Nobility</span>
-                            <span class="trait danger">Supernatural Corruption</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- World Characters Section -->
-    <section class="world-characters-section">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">World Characters</h2>
-            <div class="world-characters-grid" data-aos="fade-up" data-aos-delay="100">
-                
-                <!-- Master Miner Gorak -->
-                <div class="character-card world" data-category="world">
-                    <div class="character-image">
-                        <img src="../../assets/images/characters/master-gorak.jpg" alt="Master Miner Gorak" class="character-photo">
-                    </div>
-                    <div class="character-info">
-                        <h3 class="character-name">Master Miner Gorak</h3>
-                        <p class="character-role">Mine Team Leader</p>
-                        <p class="character-description">
-                            Led the mining team that unknowingly released the Devourer from its ancient prison. His guilt over this catastrophic mistake haunts him throughout the story.
-                        </p>
-                        <div class="character-traits">
-                            <span class="trait">Mining Expertise</span>
-                            <span class="trait">Tragic Guilt</span>
-                            <span class="trait">Leadership Experience</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Berin -->
-                <div class="character-card world" data-category="world">
-                    <div class="character-image">
-                        <img src="../../assets/images/characters/berin.jpg" alt="Berin" class="character-photo">
-                    </div>
-                    <div class="character-info">
-                        <h3 class="character-name">Berin</h3>
-                        <p class="character-role">Young Miner</p>
-                        <p class="character-description">
-                            A young miner who became the first victim of the released supernatural forces. His tragic fate serves as a stark reminder of the stakes involved.
-                        </p>
-                        <div class="character-traits">
-                            <span class="trait">Young Victim</span>
-                            <span class="trait">First Casualty</span>
-                            <span class="trait">Tragic Symbol</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Aldric Grayman -->
-                <div class="character-card world" data-category="world">
-                    <div class="character-image">
-                        <img src="../../assets/images/characters/aldric-grayman.jpg" alt="Aldric Grayman" class="character-photo">
-                    </div>
-                    <div class="character-info">
-                        <h3 class="character-name">Aldric Grayman</h3>
-                        <p class="character-role">Village Elder</p>
-                        <p class="character-description">
-                            Village elder of Millhaven, responsible for the care and protection of seventeen survivors following the supernatural attack on their community.
-                        </p>
-                        <div class="character-traits">
-                            <span class="trait">Village Leadership</span>
-                            <span class="trait">Survivor Care</span>
-                            <span class="trait">Community Wisdom</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Millhaven Villagers -->
-                <div class="character-card world" data-category="world">
-                    <div class="character-image">
-                        <img src="../../assets/images/characters/millhaven-villagers.jpg" alt="Millhaven Villagers" class="character-photo">
-                    </div>
-                    <div class="character-info">
-                        <h3 class="character-name">Millhaven Villagers</h3>
-                        <p class="character-role">Survivors</p>
-                        <p class="character-description">
-                            Seventeen brave survivors of the supernatural attack on their village. Their resilience and determination to rebuild represents hope in the face of darkness.
-                        </p>
-                        <div class="character-traits">
-                            <span class="trait">Survival Instinct</span>
-                            <span class="trait">Community Bonds</span>
-                            <span class="trait">Resilient Hope</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Refugee Populations -->
-                <div class="character-card world" data-category="world">
-                    <div class="character-image">
-                        <img src="../../assets/images/characters/refugees.jpg" alt="Refugee Populations" class="character-photo">
-                    </div>
-                    <div class="character-info">
-                        <h3 class="character-name">Refugee Populations</h3>
-                        <p class="character-role">Displaced Civilians</p>
-                        <p class="character-description">
-                            Displaced civilians fleeing the spreading corruption, representing the human cost of the supernatural crisis and the innocents who need protection.
-                        </p>
-                        <div class="character-traits">
-                            <span class="trait">Displacement</span>
-                            <span class="trait">Vulnerable Innocents</span>
-                            <span class="trait">Crisis Victims</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Various Communities -->
-                <div class="character-card world" data-category="world">
-                    <div class="character-image">
-                        <img src="../../assets/images/characters/communities.jpg" alt="Various Communities" class="character-photo">
-                    </div>
-                    <div class="character-info">
-                        <h3 class="character-name">Various Communities</h3>
-                        <p class="character-role">Background Populations</p>
-                        <p class="character-description">
-                            Border guards, royal advisors, military personnel, scholars, religious communities, and common folk who populate the rich world of the story.
-                        </p>
-                        <div class="character-traits">
-                            <span class="trait">Diverse Roles</span>
-                            <span class="trait">World Building</span>
-                            <span class="trait">Social Fabric</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Character Guide Download Section -->
-    <section class="character-guide-section">
-        <div class="container">
-            <div class="character-guide-card" data-aos="fade-up">
-                <h2 class="section-title">Complete Character Guide</h2>
-                <p class="guide-description">
-                    Get the complete character guide with detailed backstories, relationships, and character development arcs delivered straight to your email.
+            <div class="newsletter-content" data-aos="fade-up">
+                <h2 class="newsletter-title">Want More Free Content?</h2>
+                <p class="newsletter-description">
+                    Subscribe to get exclusive excerpts, character backstories, and early access to new releases.
                 </p>
-                
-                <form class="character-guide-form" id="character-guide-form">
+                <form class="newsletter-form" id="newsletter-form" method="POST" action="https://formspree.io/f/YOUR_FORM_ID">
                     <div class="form-group">
-                        <input type="email" id="guide-email" name="email" placeholder="Enter your email address" required>
-                        <button type="submit" class="btn btn-primary">Send Character Guide</button>
+                        <input type="email" id="email" name="email" class="form-input" placeholder="Enter your email address" required>
+                        <button type="submit" class="btn btn-primary">Get Free Content</button>
+                    </div>
+                    <p class="newsletter-privacy">
+                        Your privacy is important to us. We'll never share your email address.
+                    </p>
+                    <div class="newsletter-success" id="newsletter-success">
+                        Thank you for subscribing! Check your email for a welcome message with exclusive content.
+                    </div>
+                    <div class="newsletter-error" id="newsletter-error">
+                        Sorry, there was an error subscribing. Please try again or contact us directly.
                     </div>
                 </form>
             </div>
@@ -597,34 +454,64 @@
     </section>
 
     <!-- Footer -->
-    <footer class="site-footer">
+    <footer class="main-footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>Brian M. Shoemaker</h3>
-                    <p>Crafting epic fantasy adventures that transport readers to extraordinary worlds of magic, friendship, and heroism.</p>
+                    <h3 class="footer-title">Brian M. Shoemaker</h3>
+                    <p class="footer-description">
+                        Fantasy author creating epic adventures and unforgettable characters in magical realms.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Twitter">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </a>
+                    </div>
                 </div>
                 <div class="footer-section">
-                    <h4>Quick Links</h4>
+                    <h4 class="footer-section-title">Quick Links</h4>
                     <ul class="footer-links">
-                        <li><a href="../../index.html">Home</a></li>
-                        <li><a href="../../about.html">About</a></li>
-                        <li><a href="../index.html">Books</a></li>
-                        <li><a href="../../contact.html">Contact</a></li>
+                        <li><a href="../../about.html" class="footer-link">About Brian</a></li>
+                        <li><a href="../index.html" class="footer-link">Books</a></li>
+                        <li><a href="../../blog/index.html" class="footer-link">Blog</a></li>
+                        <li><a href="../../events.html" class="footer-link">Events</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h4>Connect</h4>
-                    <div class="social-links">
-                        <a href="#" aria-label="Facebook">📘</a>
-                        <a href="#" aria-label="Twitter">🐦</a>
-                        <a href="#" aria-label="Instagram">📷</a>
-                        <a href="#" aria-label="Goodreads">📚</a>
+                    <h4 class="footer-section-title">This Book</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html" class="footer-link">Book Details</a></li>
+                        <li><a href="characters.html" class="footer-link">Character Guide</a></li>
+                        <li><a href="reviews.html" class="footer-link">Reviews</a></li>
+                        <li><a href="../../contact.html" class="footer-link">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-section-title">Get the Book</h4>
+                    <div class="purchase-links">
+                        <a href="#" class="purchase-link">Amazon</a>
+                        <a href="#" class="purchase-link">Barnes & Noble</a>
+                        <a href="#" class="purchase-link">Apple Books</a>
+                        <a href="#" class="purchase-link">Google Play</a>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 Brian M. Shoemaker. All rights reserved.</p>
+                <p class="copyright">
+                    &copy; 2024 Brian M. Shoemaker. All rights reserved.
+                </p>
                 <div class="footer-legal">
                     <a href="#" class="legal-link">Privacy Policy</a>
                     <a href="#" class="legal-link">Terms of Service</a>
@@ -636,7 +523,6 @@
     <!-- JavaScript Files -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script src="../../assets/js/main.js"></script>
-    <script src="../../assets/js/components/newsletter-signup.js"></script>
     
     <!-- Add this JavaScript to make the mobile navigation work -->
     <script>
@@ -676,193 +562,230 @@
     });
     </script>
     
-    <!-- Character Page Specific JavaScript -->
+    <!-- Excerpt Reading Experience JavaScript -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Character filtering functionality
-            const categoryBtns = document.querySelectorAll('.character-nav-btn');
-            const characterCards = document.querySelectorAll('.character-card, .character-profile');
-            const characterSections = document.querySelectorAll('.main-characters-section, .supporting-characters-section, .antagonists-section, .world-characters-section');
+            const excerptText = document.getElementById('excerpt-text');
+            const readingOptions = document.querySelectorAll('.reading-option');
+            const fontSizeSlider = document.getElementById('font-size');
+            const fontSizeDisplay = document.querySelector('.font-size-display');
+            const downloadBtn = document.getElementById('download-pdf');
+            const fullScreenBtn = document.getElementById('full-screen');
+            const newsletterForm = document.getElementById('newsletter-form');
+            const newsletterSuccess = document.getElementById('newsletter-success');
+            const newsletterError = document.getElementById('newsletter-error');
             
-            console.log('Character Guide initialized');
-            console.log('Found buttons:', categoryBtns.length);
-            console.log('Found cards:', characterCards.length);
-            console.log('Found sections:', characterSections.length);
-            
-            // Function to show/hide characters based on category
-            function filterCharacters(category) {
-                console.log('Filtering by category:', category);
-                
-                // Handle "all" category
-                if (category === 'all') {
-                    // Show all character cards
-                    characterCards.forEach(card => {
-                        card.style.display = 'block';
-                        card.style.opacity = '1';
-                    });
+            // Reading mode switching
+            readingOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    const mode = this.getAttribute('data-mode');
                     
-                    // Show all sections
-                    characterSections.forEach(section => {
-                        section.style.display = 'block';
-                        section.style.opacity = '1';
-                    });
-                    
-                    return;
-                }
-                
-                // Handle specific categories
-                characterCards.forEach(card => {
-                    const hasCategory = card.classList.contains(category) || 
-                                       card.hasAttribute('data-category') && card.getAttribute('data-category') === category;
-                    
-                    if (hasCategory) {
-                        card.style.display = 'block';
-                        card.style.opacity = '1';
-                        card.style.transform = 'translateY(0)';
-                    } else {
-                        card.style.display = 'none';
-                        card.style.opacity = '0';
-                        card.style.transform = 'translateY(-20px)';
-                    }
-                });
-                
-                // Show/hide sections based on category
-                characterSections.forEach(section => {
-                    const sectionCategory = getSectionCategory(section);
-                    
-                    if (category === 'all' || sectionCategory === category) {
-                        section.style.display = 'block';
-                        section.style.opacity = '1';
-                    } else {
-                        section.style.display = 'none';
-                        section.style.opacity = '0';
-                    }
-                });
-            }
-            
-            // Function to determine section category
-            function getSectionCategory(section) {
-                if (section.classList.contains('main-characters-section')) return 'main';
-                if (section.classList.contains('supporting-characters-section')) return 'allies';
-                if (section.classList.contains('antagonists-section')) return 'antagonists';
-                if (section.classList.contains('world-characters-section')) return 'world';
-                return 'all';
-            }
-            
-            // Add click event listeners to category buttons
-            categoryBtns.forEach(btn => {
-                btn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    
-                    const category = this.getAttribute('data-category');
-                    console.log('Button clicked:', category);
-                    
-                    // Update active button
-                    categoryBtns.forEach(b => b.classList.remove('active'));
+                    // Update active state
+                    readingOptions.forEach(opt => opt.classList.remove('active'));
                     this.classList.add('active');
                     
-                    // Filter characters with animation
-                    filterCharacters(category);
+                    // Apply reading mode
+                    excerptText.className = `excerpt-text ${mode}-mode`;
                     
-                    // Add visual feedback
-                    this.style.transform = 'scale(0.95)';
-                    setTimeout(() => {
-                        this.style.transform = 'scale(1)';
-                    }, 100);
-                });
-                
-                // Add keyboard support
-                btn.addEventListener('keydown', function(e) {
-                    if (e.key === 'Enter' || e.key === ' ') {
-                        e.preventDefault();
-                        this.click();
-                    }
+                    // Store preference
+                    localStorage.setItem('preferredReadingMode', mode);
                 });
             });
             
-            // Character guide form functionality
-            const guideForm = document.getElementById('character-guide-form');
-            if (guideForm) {
-                guideForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
+            // Load saved reading mode
+            const savedMode = localStorage.getItem('preferredReadingMode');
+            if (savedMode) {
+                const modeButton = document.querySelector(`[data-mode="${savedMode}"]`);
+                if (modeButton) {
+                    modeButton.click();
+                }
+            }
+            
+            // Font size control
+            fontSizeSlider.addEventListener('input', function() {
+                const fontSize = this.value;
+                excerptText.style.fontSize = fontSize + 'px';
+                fontSizeDisplay.textContent = fontSize + 'px';
+                localStorage.setItem('preferredFontSize', fontSize);
+            });
+            
+            // Load saved font size
+            const savedFontSize = localStorage.getItem('preferredFontSize');
+            if (savedFontSize) {
+                fontSizeSlider.value = savedFontSize;
+                excerptText.style.fontSize = savedFontSize + 'px';
+                fontSizeDisplay.textContent = savedFontSize + 'px';
+            }
+            
+            // PDF Generation functionality
+            downloadBtn.addEventListener('click', function() {
+                // Add loading state
+                document.body.classList.add('pdf-generating');
+                
+                // Create PDF using jsPDF
+                try {
+                    const { jsPDF } = window.jspdf;
+                    const doc = new jsPDF('p', 'mm', 'a4');
                     
-                    const email = this.querySelector('#guide-email').value;
-                    const submitBtn = this.querySelector('button[type="submit"]');
+                    // Add title
+                    doc.setFontSize(20);
+                    doc.text('Doraleous and Associates: A Tale of Glory', 20, 30);
                     
-                    if (!email || !isValidEmail(email)) {
-                        showMessage('Please enter a valid email address.', 'error');
-                        return;
+                    doc.setFontSize(14);
+                    doc.text('Chapter 1: The Crimson Contract', 20, 45);
+                    doc.text('by Brian M. Shoemaker', 20, 55);
+                    
+                    // Get excerpt content
+                    const excerptParagraphs = document.querySelectorAll('.excerpt-paragraph');
+                    let yPosition = 75;
+                    const lineHeight = 7;
+                    const pageHeight = 280;
+                    const margin = 20;
+                    const pageWidth = 170;
+                    
+                    doc.setFontSize(11);
+                    
+                    excerptParagraphs.forEach((paragraph, index) => {
+                        let text = paragraph.textContent.trim();
+                        
+                        // Remove drop cap formatting for PDF
+                        if (paragraph.classList.contains('first-paragraph')) {
+                            text = text.replace(/^T/, 'T');
+                        }
+                        
+                        // Split text into lines that fit the page width
+                        const lines = doc.splitTextToSize(text, pageWidth);
+                        
+                        lines.forEach(line => {
+                            // Check if we need a new page
+                            if (yPosition > pageHeight) {
+                                doc.addPage();
+                                yPosition = 30;
+                            }
+                            
+                            doc.text(line, margin, yPosition);
+                            yPosition += lineHeight;
+                        });
+                        
+                        // Add spacing between paragraphs
+                        yPosition += 5;
+                    });
+                    
+                    // Add footer information
+                    const totalPages = doc.internal.getNumberOfPages();
+                    for (let i = 1; i <= totalPages; i++) {
+                        doc.setPage(i);
+                        doc.setFontSize(9);
+                        doc.text('Free excerpt from "Doraleous and Associates: A Tale of Glory" - brianmshoemaker.com', 
+                               20, 290);
+                        doc.text(`Page ${i} of ${totalPages}`, 170, 290);
                     }
                     
-                    // Show loading state
-                    submitBtn.textContent = 'Sending Guide...';
-                    submitBtn.disabled = true;
-                    submitBtn.classList.add('loading');
+                    // Save the PDF
+                    doc.save('Doraleous-and-Associates-Chapter-1.pdf');
                     
-                    // Simulate guide delivery
-                    setTimeout(() => {
-                        showMessage('Character guide sent to your email!', 'success');
-                        
-                        // Reset form
+                } catch (error) {
+                    console.error('Error generating PDF:', error);
+                    alert('Sorry, there was an error generating the PDF. Please try again.');
+                } finally {
+                    // Remove loading state
+                    document.body.classList.remove('pdf-generating');
+                }
+            });
+            
+            // Full screen reading
+            fullScreenBtn.addEventListener('click', function() {
+                if (!document.fullscreenElement) {
+                    excerptText.requestFullscreen().then(() => {
+                        excerptText.classList.add('fullscreen-reading');
+                        this.querySelector('.btn-text').textContent = 'Exit Full Screen';
+                    }).catch(err => {
+                        console.log('Fullscreen error:', err);
+                    });
+                } else {
+                    document.exitFullscreen().then(() => {
+                        excerptText.classList.remove('fullscreen-reading');
+                        this.querySelector('.btn-text').textContent = 'Full Screen';
+                    });
+                }
+            });
+            
+            // Handle fullscreen change events
+            document.addEventListener('fullscreenchange', function() {
+                if (!document.fullscreenElement) {
+                    excerptText.classList.remove('fullscreen-reading');
+                    fullScreenBtn.querySelector('.btn-text').textContent = 'Full Screen';
+                }
+            });
+            
+            // Newsletter form submission
+            newsletterForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const formData = new FormData(this);
+                const email = formData.get('email');
+                
+                // Hide previous messages
+                newsletterSuccess.style.display = 'none';
+                newsletterError.style.display = 'none';
+                
+                // Submit to Formspree
+                fetch(this.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                })
+                .then(response => {
+                    if (response.ok) {
+                        newsletterSuccess.style.display = 'block';
                         this.reset();
-                        submitBtn.textContent = 'Send Character Guide';
-                        submitBtn.disabled = false;
-                        submitBtn.classList.remove('loading');
-                    }, 2000);
+                        // Track successful signup
+                        if (typeof gtag !== 'undefined') {
+                            gtag('event', 'newsletter_signup', {
+                                'event_category': 'engagement',
+                                'event_label': 'excerpt_page'
+                            });
+                        }
+                    } else {
+                        throw new Error('Network response was not ok');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    newsletterError.style.display = 'block';
                 });
+            });
+            
+            // Track reading progress
+            let readingStartTime = Date.now();
+            let hasReadToEnd = false;
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.target.classList.contains('final-paragraph') && entry.isIntersecting && !hasReadToEnd) {
+                        hasReadToEnd = true;
+                        const readingTime = Math.round((Date.now() - readingStartTime) / 1000);
+                        
+                        // Track completion
+                        if (typeof gtag !== 'undefined') {
+                            gtag('event', 'excerpt_complete', {
+                                'event_category': 'engagement',
+                                'event_label': 'chapter_1',
+                                'value': readingTime
+                            });
+                        }
+                    }
+                });
+            }, {
+                threshold: 0.5
+            });
+            
+            const finalParagraph = document.querySelector('.final-paragraph');
+            if (finalParagraph) {
+                observer.observe(finalParagraph);
             }
-            
-            // Email validation function
-            function isValidEmail(email) {
-                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                return emailRegex.test(email);
-            }
-            
-            // Show message function
-            function showMessage(message, type = 'info') {
-                // Remove existing messages
-                const existingMessages = document.querySelectorAll('.message');
-                existingMessages.forEach(msg => msg.remove());
-                
-                // Create new message
-                const messageDiv = document.createElement('div');
-                messageDiv.className = `message message-${type}`;
-                messageDiv.textContent = message;
-                messageDiv.style.cssText = `
-                    position: fixed;
-                    top: 20px;
-                    right: 20px;
-                    padding: 1rem 2rem;
-                    border-radius: 8px;
-                    font-weight: 600;
-                    z-index: 3000;
-                    transform: translateX(100%);
-                    transition: transform 0.3s ease;
-                    ${type === 'success' ? 'background: rgba(76, 175, 80, 0.9); color: white;' : ''}
-                    ${type === 'error' ? 'background: rgba(244, 67, 54, 0.9); color: white;' : ''}
-                    ${type === 'info' ? 'background: rgba(33, 150, 243, 0.9); color: white;' : ''}
-                `;
-                
-                document.body.appendChild(messageDiv);
-                
-                // Animate in
-                setTimeout(() => {
-                    messageDiv.style.transform = 'translateX(0)';
-                }, 100);
-                
-                // Remove after 3 seconds
-                setTimeout(() => {
-                    messageDiv.style.transform = 'translateX(100%)';
-                    setTimeout(() => {
-                        messageDiv.remove();
-                    }, 300);
-                }, 3000);
-            }
-            
-            // Initialize with all characters visible
-            filterCharacters('all');
-            
-            console.log('Character Guide JavaScript loaded successfully');
         });
     </script>
     
