@@ -48,20 +48,26 @@
             <div class="nav-brand">
                 <a href="../../index.html" class="brand-link">
                     <h1 class="brand-name">Brian M. Shoemaker</h1>
-                    <span class="brand-tagline">Fantasy Author</span>
+                    <!-- Fantasy Author tagline removed -->
                 </a>
             </div>
+            
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
             
             <div class="nav-menu" id="nav-menu">
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../../index.html" class="nav-link">Home</a></li>
                     <li class="nav-item"><a href="../../about.html" class="nav-link">About</a></li>
                     <li class="nav-item dropdown">
-                        <a href="../index.html" class="nav-link active">Books</a>
+                        <a href="../index.html" class="nav-link">Books</a>
                         <ul class="dropdown-menu">
                             <li><a href="index.html" class="dropdown-link">Doraleous and Associates</a></li>
-                            <li><a href="characters.html" class="dropdown-link">Character Guide</a></li>
-                            <li><a href="excerpt.html" class="dropdown-link">Read Excerpt</a></li>
+                            <li><a href="characters.html" class="dropdown-link active">Character Guide</a></li>
+                            <li><a href="read-excerpt.html" class="dropdown-link">Read Excerpt</a></li>
                         </ul>
                     </li>
                     <li class="nav-item"><a href="../../blog/index.html" class="nav-link">Blog</a></li>
@@ -69,19 +75,13 @@
                     <li class="nav-item"><a href="../../contact.html" class="nav-link">Contact</a></li>
                 </ul>
             </div>
-            
-            <div class="nav-toggle" id="nav-toggle">
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-            </div>
         </div>
     </nav>
 
     <!-- Page Header -->
-    <section class="page-header">
+    <header class="page-header">
         <div class="container">
-            <div class="header-content" data-aos="fade-up">
+            <div class="header-content">
                 <h1 class="page-title">Character Guide</h1>
                 <p class="page-subtitle">Meet the Heroes of Doraleous and Associates</p>
                 <p class="page-description">
@@ -89,7 +89,7 @@
                 </p>
             </div>
         </div>
-    </section>
+    </header>
 
     <!-- Character Navigation -->
     <section class="character-navigation-section">
@@ -109,14 +109,14 @@
         <div class="container">
             <h2 class="section-title" data-aos="fade-up">The Core Team</h2>
             
-            <!-- Doraleous -->
+            <!-- Doraleous Stormwind -->
             <div class="character-profile main" data-category="main" id="doraleous" data-aos="fade-up">
                 <div class="character-profile-image">
-                    <img src="../../assets/images/characters/doraleous-portrait.jpg" alt="Doraleous - The Leader" class="character-large-image">
+                    <img src="../../assets/images/characters/doraleous-portrait.jpg" alt="Doraleous Stormwind - The Leader" class="character-large-image">
                 </div>
                 <div class="character-profile-content">
-                    <h3 class="character-profile-name">Doraleous</h3>
-                    <p class="character-profile-title">The Leader & Master Strategist</p>
+                    <h3 class="character-profile-name">Doraleous Stormwind</h3>
+                    <p class="character-profile-title">Human Knight & Leader</p>
                     
                     <div class="character-description">
                         <p>
@@ -127,211 +127,89 @@
                         </p>
                     </div>
                     
-                    <div class="character-stats">
-                        <h4 class="stats-title">Abilities & Skills</h4>
-                        <div class="stats-grid">
-                            <div class="stat-item">
-                                <span class="stat-name">Leadership</span>
-                                <div class="stat-bar">
-                                    <div class="stat-fill" style="width: 95%"></div>
-                                </div>
-                                <span class="stat-value">95</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-name">Swordsmanship</span>
-                                <div class="stat-bar">
-                                    <div class="stat-fill" style="width: 88%"></div>
-                                </div>
-                                <span class="stat-value">88</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-name">Tactical Thinking</span>
-                                <div class="stat-bar">
-                                    <div class="stat-fill" style="width: 92%"></div>
-                                </div>
-                                <span class="stat-value">92</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-name">Magic Resistance</span>
-                                <div class="stat-bar">
-                                    <div class="stat-fill" style="width: 75%"></div>
-                                </div>
-                                <span class="stat-value">75</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="character-details">
-                        <div class="detail-section">
-                            <h4 class="detail-title">Background</h4>
-                            <ul class="detail-list">
-                                <li>Former heir to House Valorian</li>
-                                <li>Trained at the Royal Military Academy</li>
-                                <li>Left nobility after a family scandal</li>
-                                <li>Founded the mercenary company at age 25</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="detail-section">
-                            <h4 class="detail-title">Special Abilities</h4>
-                            <ul class="detail-list">
-                                <li>Inspiring Presence - Boosts team morale</li>
-                                <li>Battle Foresight - Predicts enemy moves</li>
-                                <li>Ancient Blade Mastery - Wields ancestral sword</li>
-                                <li>Tactical Coordination - Enhanced team combat</li>
-                            </ul>
-                        </div>
+                    <div class="character-traits">
+                        <span class="trait">Leadership</span>
+                        <span class="trait">Tactical Brilliance</span>
+                        <span class="trait">Swordsmanship</span>
+                        <span class="trait">Moral Compass</span>
                     </div>
                 </div>
             </div>
-            
-            <!-- Zara -->
-            <div class="character-profile main" data-category="main" id="zara" data-aos="fade-up">
-                <div class="character-profile-image">
-                    <img src="../../assets/images/characters/zara-mage.jpg" alt="Zara - The Arcane Scholar" class="character-large-image">
-                </div>
-                <div class="character-profile-content">
-                    <h3 class="character-profile-name">Zara Nightwhisper</h3>
-                    <p class="character-profile-title">The Arcane Scholar & Lore Keeper</p>
-                    
-                    <div class="character-description">
-                        <p>
-                            Zara's insatiable curiosity about ancient magic and forgotten knowledge makes her both the team's greatest asset and occasional liability. Her ability to decipher ancient texts and understand magical artifacts has saved the team countless times, though her tendency to experiment with dangerous magic sometimes puts everyone at risk.
-                        </p>
-                        <p>
-                            Despite her scholarly appearance, Zara possesses surprising resilience and fierce loyalty to her friends. Her past as an apprentice to the legendary Archmage Valdris gives her insights into magical theory that few in the modern world possess.
-                        </p>
+
+            <!-- Character Cards Grid for Main Team -->
+            <div class="characters-grid" data-aos="fade-up" data-aos-delay="100">
+                <!-- Neebs Silverleaf -->
+                <div class="character-card main" data-category="main">
+                    <div class="character-image">
+                        <img src="../../assets/images/characters/neebs-portrait.jpg" alt="Neebs Silverleaf" class="character-photo">
                     </div>
-                    
-                    <div class="character-stats">
-                        <h4 class="stats-title">Abilities & Skills</h4>
-                        <div class="stats-grid">
-                            <div class="stat-item">
-                                <span class="stat-name">Elemental Magic</span>
-                                <div class="stat-bar">
-                                    <div class="stat-fill" style="width: 90%"></div>
-                                </div>
-                                <span class="stat-value">90</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-name">Ancient Lore</span>
-                                <div class="stat-bar">
-                                    <div class="stat-fill" style="width: 96%"></div>
-                                </div>
-                                <span class="stat-value">96</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-name">Spell Crafting</span>
-                                <div class="stat-bar">
-                                    <div class="stat-fill" style="width: 85%"></div>
-                                </div>
-                                <span class="stat-value">85</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-name">Combat Magic</span>
-                                <div class="stat-bar">
-                                    <div class="stat-fill" style="width: 78%"></div>
-                                </div>
-                                <span class="stat-value">78</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="character-details">
-                        <div class="detail-section">
-                            <h4 class="detail-title">Background</h4>
-                            <ul class="detail-list">
-                                <li>Former apprentice to Archmage Valdris</li>
-                                <li>Graduated from the Celestial Academy</li>
-                                <li>Expelled for researching forbidden magic</li>
-                                <li>Joined Doraleous after the Grimhold incident</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="detail-section">
-                            <h4 class="detail-title">Special Abilities</h4>
-                            <ul class="detail-list">
-                                <li>Arcane Sight - Sees magical auras and enchantments</li>
-                                <li>Spell Weaving - Combines multiple magical effects</li>
-                                <li>Ancient Tongue - Reads and speaks dead languages</li>
-                                <li>Mana Manipulation - Controls raw magical energy</li>
-                            </ul>
+                    <div class="character-info">
+                        <h3 class="character-name">Neebs Silverleaf</h3>
+                        <p class="character-role">Elven Archer</p>
+                        <p class="character-description">
+                            A skilled elven archer whose precise aim and deep connection to nature make him an invaluable member of the team. His wisdom often guides the group through difficult decisions.
+                        </p>
+                        <div class="character-traits">
+                            <span class="trait">Archery Mastery</span>
+                            <span class="trait">Nature Connection</span>
+                            <span class="trait">Wisdom</span>
                         </div>
                     </div>
                 </div>
-            </div>
-            
-            <!-- Gareth -->
-            <div class="character-profile main" data-category="main" id="gareth" data-aos="fade-up">
-                <div class="character-profile-image">
-                    <img src="../../assets/images/characters/gareth-warrior.jpg" alt="Gareth - The Shield Bearer" class="character-large-image">
+
+                <!-- Drak Ironforge -->
+                <div class="character-card main" data-category="main">
+                    <div class="character-image">
+                        <img src="../../assets/images/characters/drak-portrait.jpg" alt="Drak Ironforge" class="character-photo">
+                    </div>
+                    <div class="character-info">
+                        <h3 class="character-name">Drak Ironforge</h3>
+                        <p class="character-role">Dwarven Barbarian Prince</p>
+                        <p class="character-description">
+                            The rebellious prince of the dwarven kingdom, torn between duty to his people and his loyalty to his chosen family. His raw strength is matched only by his fierce loyalty.
+                        </p>
+                        <div class="character-traits">
+                            <span class="trait">Barbarian Rage</span>
+                            <span class="trait">Royal Heritage</span>
+                            <span class="trait">Fierce Loyalty</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="character-profile-content">
-                    <h3 class="character-profile-name">Gareth Ironwall</h3>
-                    <p class="character-profile-title">The Shield Bearer & Protector</p>
-                    
-                    <div class="character-description">
-                        <p>
-                            Gareth embodies the ideal of the stalwart defender—his massive shield and unwavering courage have saved his teammates more times than anyone can count. His protective instincts extend beyond mere combat; he serves as the team's emotional anchor, offering stability and wisdom in their darkest moments.
-                        </p>
-                        <p>
-                            Though he speaks little about his past, Gareth's scars tell stories of battles fought not for gold or glory, but for the innocent. His loyalty to Doraleous and the team runs deeper than brotherhood—they are his chosen family, and he would gladly give his life to protect them.
-                        </p>
+
+                <!-- Sir Walkin Brightblade -->
+                <div class="character-card main" data-category="main">
+                    <div class="character-image">
+                        <img src="../../assets/images/characters/walkin-portrait.jpg" alt="Sir Walkin Brightblade" class="character-photo">
                     </div>
-                    
-                    <div class="character-stats">
-                        <h4 class="stats-title">Abilities & Skills</h4>
-                        <div class="stats-grid">
-                            <div class="stat-item">
-                                <span class="stat-name">Defense</span>
-                                <div class="stat-bar">
-                                    <div class="stat-fill" style="width: 94%"></div>
-                                </div>
-                                <span class="stat-value">94</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-name">Protection Magic</span>
-                                <div class="stat-bar">
-                                    <div class="stat-fill" style="width: 82%"></div>
-                                </div>
-                                <span class="stat-value">82</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-name">Physical Strength</span>
-                                <div class="stat-bar">
-                                    <div class="stat-fill" style="width: 91%"></div>
-                                </div>
-                                <span class="stat-value">91</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-name">Endurance</span>
-                                <div class="stat-bar">
-                                    <div class="stat-fill" style="width: 89%"></div>
-                                </div>
-                                <span class="stat-value">89</span>
-                            </div>
+                    <div class="character-info">
+                        <h3 class="character-name">Sir Walkin Brightblade</h3>
+                        <p class="character-role">Noble Knight</p>
+                        <p class="character-description">
+                            A paragon of knightly virtue whose unwavering faith and noble bearing inspire hope in the darkest of times. His dedication to justice drives him forward against impossible odds.
+                        </p>
+                        <div class="character-traits">
+                            <span class="trait">Divine Faith</span>
+                            <span class="trait">Knightly Virtue</span>
+                            <span class="trait">Inspiring Presence</span>
                         </div>
                     </div>
-                    
-                    <div class="character-details">
-                        <div class="detail-section">
-                            <h4 class="detail-title">Background</h4>
-                            <ul class="detail-list">
-                                <li>Former temple guardian of Aegis</li>
-                                <li>Lost his temple to shadow cultists</li>
-                                <li>Wandered for years seeking purpose</li>
-                                <li>Found redemption with Doraleous's team</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="detail-section">
-                            <h4 class="detail-title">Special Abilities</h4>
-                            <ul class="detail-list">
-                                <li>Guardian's Will - Absorbs damage meant for allies</li>
-                                <li>Sacred Barrier - Creates protective shields</li>
-                                <li>Righteous Fury - Powered by desire to protect</li>
-                                <li>Stalwart Presence - Reduces fear in allies</li>
-                            </ul>
+                </div>
+
+                <!-- Varsuuvius the Learned -->
+                <div class="character-card main" data-category="main">
+                    <div class="character-image">
+                        <img src="../../assets/images/characters/varsuuvius-portrait.jpg" alt="Varsuuvius the Learned" class="character-photo">
+                    </div>
+                    <div class="character-info">
+                        <h3 class="character-name">Varsuuvius the Learned</h3>
+                        <p class="character-role">Elderly Sage</p>
+                        <p class="character-description">
+                            The team's brilliant strategist and keeper of ancient knowledge. Their vast wisdom and magical abilities provide the group with crucial advantages in their quest.
+                        </p>
+                        <div class="character-traits">
+                            <span class="trait">Ancient Knowledge</span>
+                            <span class="trait">Strategic Mind</span>
+                            <span class="trait">Magical Prowess</span>
                         </div>
                     </div>
                 </div>
@@ -339,61 +217,122 @@
         </div>
     </section>
 
-    <!-- Supporting Characters -->
+    <!-- Allies Section -->
     <section class="supporting-characters-section">
         <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Allies & Companions</h2>
+            <h2 class="section-title" data-aos="fade-up">Allies & Supporters</h2>
             <div class="supporting-characters-grid" data-aos="fade-up" data-aos-delay="100">
-                <div class="character-card supporting allies" data-category="allies">
+                
+                <!-- The Wyvern King -->
+                <div class="character-card allies" data-category="allies">
                     <div class="character-image">
-                        <img src="../../assets/images/characters/lyanna-ranger.jpg" alt="Lyanna - The Ranger" class="character-photo">
+                        <img src="../../assets/images/characters/wyvern-king.jpg" alt="The Wyvern King" class="character-photo">
                     </div>
                     <div class="character-info">
-                        <h3 class="character-name">Lyanna Swiftarrow</h3>
-                        <p class="character-role">The Master Tracker</p>
+                        <h3 class="character-name">The Wyvern King</h3>
+                        <p class="character-role">Ancient Guardian</p>
                         <p class="character-description">
-                            A ranger who knows the wilderness better than anyone, Lyanna's tracking skills and knowledge of ancient paths prove invaluable to the team.
+                            Ultimate ally despite corruption concerns. This ancient guardian possesses wisdom spanning millennia and power that could tip the balance in the fight against darkness.
                         </p>
                         <div class="character-traits">
-                            <span class="trait">Expert Archer</span>
-                            <span class="trait">Wilderness Survival</span>
-                            <span class="trait">Animal Communication</span>
+                            <span class="trait">Ancient Wisdom</span>
+                            <span class="trait">Draconic Power</span>
+                            <span class="trait">Guardian Spirit</span>
                         </div>
                     </div>
                 </div>
-                
-                <div class="character-card supporting allies" data-category="allies">
+
+                <!-- Elder Moonwhisper -->
+                <div class="character-card allies world" data-category="allies">
                     <div class="character-image">
-                        <img src="../../assets/images/characters/marcus-healer.jpg" alt="Marcus - The Healer" class="character-photo">
+                        <img src="../../assets/images/characters/elder-moonwhisper.jpg" alt="Elder Moonwhisper" class="character-photo">
                     </div>
                     <div class="character-info">
-                        <h3 class="character-name">Marcus Lightbringer</h3>
-                        <p class="character-role">The Divine Healer</p>
+                        <h3 class="character-name">Elder Moonwhisper</h3>
+                        <p class="character-role">Elven Elder</p>
                         <p class="character-description">
-                            A cleric whose healing powers have saved the team countless times. His faith provides both magical healing and spiritual guidance.
+                            An elven elder with ancestral memories that span generations. Her deep connection to the old ways provides crucial insight into the supernatural threats they face.
                         </p>
                         <div class="character-traits">
-                            <span class="trait">Divine Magic</span>
-                            <span class="trait">Healing Arts</span>
-                            <span class="trait">Turn Undead</span>
+                            <span class="trait">Ancestral Memory</span>
+                            <span class="trait">Ancient Lore</span>
+                            <span class="trait">Spiritual Guidance</span>
                         </div>
                     </div>
                 </div>
-                
-                <div class="character-card supporting allies" data-category="allies">
+
+                <!-- Captain Ironbeard -->
+                <div class="character-card allies world" data-category="allies">
                     <div class="character-image">
-                        <img src="../../assets/images/characters/elena-diplomat.jpg" alt="Elena - The Diplomat" class="character-photo">
+                        <img src="../../assets/images/characters/captain-ironbeard.jpg" alt="Captain Ironbeard" class="character-photo">
                     </div>
                     <div class="character-info">
-                        <h3 class="character-name">Elena Goldtongue</h3>
-                        <p class="character-role">The Master Negotiator</p>
+                        <h3 class="character-name">Captain Ironbeard</h3>
+                        <p class="character-role">Dwarven Guard Captain</p>
                         <p class="character-description">
-                            A skilled diplomat whose silver tongue can talk the team out of trouble as often as it gets them lucrative contracts.
+                            A sympathetic dwarven military leader who secretly supports the heroes' mission despite official orders. His tactical knowledge proves invaluable.
                         </p>
                         <div class="character-traits">
-                            <span class="trait">Persuasion</span>
-                            <span class="trait">Languages</span>
-                            <span class="trait">Political Insight</span>
+                            <span class="trait">Military Tactics</span>
+                            <span class="trait">Secret Sympathy</span>
+                            <span class="trait">Dwarven Honor</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- King Aldwin -->
+                <div class="character-card allies world" data-category="allies">
+                    <div class="character-image">
+                        <img src="../../assets/images/characters/king-aldwin.jpg" alt="King Aldwin" class="character-photo">
+                    </div>
+                    <div class="character-info">
+                        <h3 class="character-name">King Aldwin</h3>
+                        <p class="character-role">Ruler of Valdris Kingdom</p>
+                        <p class="character-description">
+                            Human ruler providing limited official support while navigating complex political pressures. His aid comes with diplomatic strings attached.
+                        </p>
+                        <div class="character-traits">
+                            <span class="trait">Political Acumen</span>
+                            <span class="trait">Limited Support</span>
+                            <span class="trait">Royal Authority</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Animal Companions Card -->
+                <div class="character-card allies" data-category="allies">
+                    <div class="character-image">
+                        <img src="../../assets/images/characters/animal-companions.jpg" alt="Animal Companions" class="character-photo">
+                    </div>
+                    <div class="character-info">
+                        <h3 class="character-name">Animal Companions</h3>
+                        <p class="character-role">Faithful Allies</p>
+                        <p class="character-description">
+                            Wisdom the raven, Swiftstrike the eagle, Thunderhoof the destrier, and Stargazer the palfrey. These loyal companions provide reconnaissance, transportation, and unwavering support.
+                        </p>
+                        <div class="character-traits">
+                            <span class="trait">Reconnaissance</span>
+                            <span class="trait">Transportation</span>
+                            <span class="trait">Loyalty</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Group Allies Card -->
+                <div class="character-card allies" data-category="allies">
+                    <div class="character-image">
+                        <img src="../../assets/images/characters/volunteers.jpg" alt="Volunteers and Supporters" class="character-photo">
+                    </div>
+                    <div class="character-info">
+                        <h3 class="character-name">Volunteers & Supporters</h3>
+                        <p class="character-role">Brave Volunteers</p>
+                        <p class="character-description">
+                            Elven and Dwarven volunteers who break with tradition to join the cause, along with Alliance Representatives and High Clerics who provide crucial support.
+                        </p>
+                        <div class="character-traits">
+                            <span class="trait">Breaking Tradition</span>
+                            <span class="trait">Diverse Alliance</span>
+                            <span class="trait">Religious Support</span>
                         </div>
                     </div>
                 </div>
@@ -401,61 +340,103 @@
         </div>
     </section>
 
-    <!-- Antagonists -->
+    <!-- Antagonists Section -->
     <section class="antagonists-section">
         <div class="container">
             <h2 class="section-title" data-aos="fade-up">Forces of Opposition</h2>
             <div class="antagonists-grid" data-aos="fade-up" data-aos-delay="100">
-                <div class="character-card antagonist antagonists" data-category="antagonists">
+                
+                <!-- The Devourer -->
+                <div class="character-card antagonists" data-category="antagonists">
                     <div class="character-image">
-                        <img src="../../assets/images/characters/shadow-lord.jpg" alt="The Shadow Lord" class="character-photo">
+                        <img src="../../assets/images/characters/the-devourer.jpg" alt="The Devourer" class="character-photo">
                     </div>
                     <div class="character-info">
-                        <h3 class="character-name">The Shadow Lord</h3>
-                        <p class="character-role">Ancient Evil Awakened</p>
+                        <h3 class="character-name">The Devourer</h3>
+                        <p class="character-role">Main Supernatural Antagonist</p>
                         <p class="character-description">
-                            An ancient entity of shadow magic whose influence corrupts everything it touches. Its return threatens to plunge the world into eternal darkness.
+                            An ancient entity of pure malevolence, released from its prison by unwitting miners. Its corruption spreads like a plague, twisting everything it touches into instruments of darkness.
+                        </p>
+                        <div class="character-traits">
+                            <span class="trait danger">Ancient Evil</span>
+                            <span class="trait danger">Corruption</span>
+                            <span class="trait danger">Soul Devouring</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- King Thorek Ironforge -->
+                <div class="character-card antagonists world" data-category="antagonists">
+                    <div class="character-image">
+                        <img src="../../assets/images/characters/king-thorek.jpg" alt="King Thorek Ironforge" class="character-photo">
+                    </div>
+                    <div class="character-info">
+                        <h3 class="character-name">King Thorek Ironforge</h3>
+                        <p class="character-role">Dwarven King</p>
+                        <p class="character-description">
+                            Drak's father, representing institutional opposition to the heroes' mission. His rigid adherence to tradition puts him at odds with his own son's noble quest.
+                        </p>
+                        <div class="character-traits">
+                            <span class="trait danger">Institutional Power</span>
+                            <span class="trait danger">Stubborn Tradition</span>
+                            <span class="trait danger">Family Conflict</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Elder Silvanus -->
+                <div class="character-card antagonists world" data-category="antagonists">
+                    <div class="character-image">
+                        <img src="../../assets/images/characters/elder-silvanus.jpg" alt="Elder Silvanus" class="character-photo">
+                    </div>
+                    <div class="character-info">
+                        <h3 class="character-name">Elder Silvanus</h3>
+                        <p class="character-role">Conservative Elven Leader</p>
+                        <p class="character-description">
+                            A conservative elf opposing intervention in worldly affairs. His isolationist policies create dangerous obstacles when unity is most needed.
+                        </p>
+                        <div class="character-traits">
+                            <span class="trait danger">Isolationism</span>
+                            <span class="trait danger">Conservative Views</span>
+                            <span class="trait danger">Political Opposition</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Corrupted Entities -->
+                <div class="character-card antagonists" data-category="antagonists">
+                    <div class="character-image">
+                        <img src="../../assets/images/characters/shadow-creatures.jpg" alt="Shadow Creatures" class="character-photo">
+                    </div>
+                    <div class="character-info">
+                        <h3 class="character-name">Shadow Creatures</h3>
+                        <p class="character-role">Supernatural Servants</p>
+                        <p class="character-description">
+                            Twisted manifestations of the Devourer's influence, these creatures serve as its primary agents in spreading corruption throughout the realm.
                         </p>
                         <div class="character-traits">
                             <span class="trait danger">Shadow Magic</span>
-                            <span class="trait danger">Corruption</span>
-                            <span class="trait danger">Mind Control</span>
+                            <span class="trait danger">Corruption Spread</span>
+                            <span class="trait danger">Supernatural Servants</span>
                         </div>
                     </div>
                 </div>
-                
-                <div class="character-card antagonist antagonists" data-category="antagonists">
+
+                <!-- Corrupted Forest Beings -->
+                <div class="character-card antagonists" data-category="antagonists">
                     <div class="character-image">
-                        <img src="../../assets/images/characters/valorian-brother.jpg" alt="Lord Valorian" class="character-photo">
+                        <img src="../../assets/images/characters/corrupted-forest.jpg" alt="Corrupted Forest Beings" class="character-photo">
                     </div>
                     <div class="character-info">
-                        <h3 class="character-name">Lord Aldric Valorian</h3>
-                        <p class="character-role">Doraleous's Brother</p>
+                        <h3 class="character-name">Corrupted Forest Beings</h3>
+                        <p class="character-role">Twisted Guardians</p>
                         <p class="character-description">
-                            Doraleous's ambitious younger brother who inherited the family title and now sees the mercenary team as a threat to his political aspirations.
+                            Once-noble forest spirits, wolves, monks, and dwarves transformed by supernatural corruption into grotesque parodies of their former selves.
                         </p>
                         <div class="character-traits">
-                            <span class="trait danger">Political Power</span>
-                            <span class="trait danger">Manipulation</span>
-                            <span class="trait danger">Family Secrets</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="character-card antagonist antagonists" data-category="antagonists">
-                    <div class="character-image">
-                        <img src="../../assets/images/characters/rival-mercenaries.jpg" alt="The Iron Wolves" class="character-photo">
-                    </div>
-                    <div class="character-info">
-                        <h3 class="character-name">The Iron Wolves</h3>
-                        <p class="character-role">Rival Mercenary Company</p>
-                        <p class="character-description">
-                            A ruthless mercenary company that operates without honor or morality, often competing directly with Doraleous and Associates for contracts.
-                        </p>
-                        <div class="character-traits">
-                            <span class="trait danger">Ruthless Tactics</span>
-                            <span class="trait danger">No Honor</span>
-                            <span class="trait danger">Dark Connections</span>
+                            <span class="trait danger">Twisted Nature</span>
+                            <span class="trait danger">Lost Nobility</span>
+                            <span class="trait danger">Supernatural Corruption</span>
                         </div>
                     </div>
                 </div>
@@ -463,192 +444,177 @@
         </div>
     </section>
 
-    <!-- World Characters -->
+    <!-- World Characters Section -->
     <section class="world-characters-section">
         <div class="container">
-            <h2 class="section-title" data-aos="fade-up">The Wider World</h2>
+            <h2 class="section-title" data-aos="fade-up">World Characters</h2>
             <div class="world-characters-grid" data-aos="fade-up" data-aos-delay="100">
-                <div class="character-card world-character world" data-category="world">
+                
+                <!-- Master Miner Gorak -->
+                <div class="character-card world" data-category="world">
                     <div class="character-image">
-                        <img src="../../assets/images/characters/queen-lumina.jpg" alt="Queen Lumina" class="character-photo">
+                        <img src="../../assets/images/characters/master-gorak.jpg" alt="Master Miner Gorak" class="character-photo">
                     </div>
                     <div class="character-info">
-                        <h3 class="character-name">Queen Lumina</h3>
-                        <p class="character-role">Ruler of the Eastern Kingdoms</p>
+                        <h3 class="character-name">Master Miner Gorak</h3>
+                        <p class="character-role">Mine Team Leader</p>
                         <p class="character-description">
-                            A wise and just ruler who often employs Doraleous and Associates for sensitive missions that require both skill and discretion.
+                            Led the mining team that unknowingly released the Devourer from its ancient prison. His guilt over this catastrophic mistake haunts him throughout the story.
                         </p>
+                        <div class="character-traits">
+                            <span class="trait">Mining Expertise</span>
+                            <span class="trait">Tragic Guilt</span>
+                            <span class="trait">Leadership Experience</span>
+                        </div>
                     </div>
                 </div>
-                
-                <div class="character-card world-character world" data-category="world">
+
+                <!-- Berin -->
+                <div class="character-card world" data-category="world">
                     <div class="character-image">
-                        <img src="../../assets/images/characters/archmage-council.jpg" alt="The Archmage Council" class="character-photo">
+                        <img src="../../assets/images/characters/berin.jpg" alt="Berin" class="character-photo">
                     </div>
                     <div class="character-info">
-                        <h3 class="character-name">The Archmage Council</h3>
-                        <p class="character-role">Guardians of Magical Knowledge</p>
+                        <h3 class="character-name">Berin</h3>
+                        <p class="character-role">Young Miner</p>
                         <p class="character-description">
-                            The governing body of magical practitioners, whose ancient wisdom and political machinations influence events across the realm.
+                            A young miner who became the first victim of the released supernatural forces. His tragic fate serves as a stark reminder of the stakes involved.
                         </p>
+                        <div class="character-traits">
+                            <span class="trait">Young Victim</span>
+                            <span class="trait">First Casualty</span>
+                            <span class="trait">Tragic Symbol</span>
+                        </div>
                     </div>
                 </div>
-                
-                <div class="character-card world-character world" data-category="world">
+
+                <!-- Aldric Grayman -->
+                <div class="character-card world" data-category="world">
                     <div class="character-image">
-                        <img src="../../assets/images/characters/merchant-guild.jpg" alt="Merchant Guildmaster" class="character-photo">
+                        <img src="../../assets/images/characters/aldric-grayman.jpg" alt="Aldric Grayman" class="character-photo">
                     </div>
                     <div class="character-info">
-                        <h3 class="character-name">Guildmaster Thorne</h3>
-                        <p class="character-role">Leader of the Merchant's Alliance</p>
+                        <h3 class="character-name">Aldric Grayman</h3>
+                        <p class="character-role">Village Elder</p>
                         <p class="character-description">
-                            The shrewd leader of the powerful Merchant's Alliance, whose trade networks span the known world and influence global politics.
+                            Village elder of Millhaven, responsible for the care and protection of seventeen survivors following the supernatural attack on their community.
                         </p>
+                        <div class="character-traits">
+                            <span class="trait">Village Leadership</span>
+                            <span class="trait">Survivor Care</span>
+                            <span class="trait">Community Wisdom</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Millhaven Villagers -->
+                <div class="character-card world" data-category="world">
+                    <div class="character-image">
+                        <img src="../../assets/images/characters/millhaven-villagers.jpg" alt="Millhaven Villagers" class="character-photo">
+                    </div>
+                    <div class="character-info">
+                        <h3 class="character-name">Millhaven Villagers</h3>
+                        <p class="character-role">Survivors</p>
+                        <p class="character-description">
+                            Seventeen brave survivors of the supernatural attack on their village. Their resilience and determination to rebuild represents hope in the face of darkness.
+                        </p>
+                        <div class="character-traits">
+                            <span class="trait">Survival Instinct</span>
+                            <span class="trait">Community Bonds</span>
+                            <span class="trait">Resilient Hope</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Refugee Populations -->
+                <div class="character-card world" data-category="world">
+                    <div class="character-image">
+                        <img src="../../assets/images/characters/refugees.jpg" alt="Refugee Populations" class="character-photo">
+                    </div>
+                    <div class="character-info">
+                        <h3 class="character-name">Refugee Populations</h3>
+                        <p class="character-role">Displaced Civilians</p>
+                        <p class="character-description">
+                            Displaced civilians fleeing the spreading corruption, representing the human cost of the supernatural crisis and the innocents who need protection.
+                        </p>
+                        <div class="character-traits">
+                            <span class="trait">Displacement</span>
+                            <span class="trait">Vulnerable Innocents</span>
+                            <span class="trait">Crisis Victims</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Various Communities -->
+                <div class="character-card world" data-category="world">
+                    <div class="character-image">
+                        <img src="../../assets/images/characters/communities.jpg" alt="Various Communities" class="character-photo">
+                    </div>
+                    <div class="character-info">
+                        <h3 class="character-name">Various Communities</h3>
+                        <p class="character-role">Background Populations</p>
+                        <p class="character-description">
+                            Border guards, royal advisors, military personnel, scholars, religious communities, and common folk who populate the rich world of the story.
+                        </p>
+                        <div class="character-traits">
+                            <span class="trait">Diverse Roles</span>
+                            <span class="trait">World Building</span>
+                            <span class="trait">Social Fabric</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Character Relationships -->
-    <section class="relationships-section">
+    <!-- Character Guide Download Section -->
+    <section class="character-guide-section">
         <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Character Relationships</h2>
-            <div class="relationships-content" data-aos="fade-up" data-aos-delay="100">
-                <div class="relationship-map">
-                    <div class="relationship-item">
-                        <h3 class="relationship-title">Core Team Dynamics</h3>
-                        <p class="relationship-description">
-                            The heart of the story lies in the relationships between Doraleous, Zara, and Gareth. Their friendship, forged through shared trials and mutual respect, forms the emotional core of the series. Each brings unique strengths that complement the others, creating a synergy that makes them greater than the sum of their parts.
-                        </p>
-                    </div>
-                    
-                    <div class="relationship-item">
-                        <h3 class="relationship-title">Mentor-Student Bonds</h3>
-                        <p class="relationship-description">
-                            Doraleous serves as a mentor figure to several younger characters, while Zara's relationship with her former master Archmage Valdris continues to influence her magical development. These mentoring relationships add depth to character growth throughout the series.
-                        </p>
-                    </div>
-                    
-                    <div class="relationship-item">
-                        <h3 class="relationship-title">Family Conflicts</h3>
-                        <p class="relationship-description">
-                            The tension between Doraleous and his brother Aldric represents one of the series' central conflicts. Their relationship explores themes of family loyalty, betrayal, and the different paths that lead to honor or corruption.
-                        </p>
-                    </div>
-                    
-                    <div class="relationship-item">
-                        <h3 class="relationship-title">Political Alliances</h3>
-                        <p class="relationship-description">
-                            The team's relationships with various political figures, from Queen Lumina to the Archmage Council, create a web of alliances and obligations that drive much of the series' plot and add layers of complexity to their missions.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Download Character Guide -->
-    <section class="character-guide-download">
-        <div class="container">
-            <div class="download-content" data-aos="fade-up">
-                <h2 class="download-title">Get the Complete Character Guide</h2>
-                <p class="download-description">
-                    Download our comprehensive character guide featuring detailed backstories, ability descriptions, character art, and relationship maps. Perfect for book clubs, fantasy enthusiasts, and devoted fans.
+            <div class="character-guide-card" data-aos="fade-up">
+                <h2 class="section-title">Complete Character Guide</h2>
+                <p class="guide-description">
+                    Get the complete character guide with detailed backstories, relationships, and character development arcs delivered straight to your email.
                 </p>
-                <div class="download-features">
-                    <div class="feature-list">
-                        <div class="feature-item">
-                            <span class="feature-icon">📖</span>
-                            <span class="feature-text">50+ pages of character lore</span>
-                        </div>
-                        <div class="feature-item">
-                            <span class="feature-icon">🎨</span>
-                            <span class="feature-text">Exclusive character artwork</span>
-                        </div>
-                        <div class="feature-item">
-                            <span class="feature-icon">🗺️</span>
-                            <span class="feature-text">Relationship maps and timelines</span>
-                        </div>
-                        <div class="feature-item">
-                            <span class="feature-icon">📊</span>
-                            <span class="feature-text">Character stats and abilities</span>
-                        </div>
-                    </div>
-                </div>
+                
                 <form class="character-guide-form" id="character-guide-form">
-                    <h3 class="form-title">Get Your Free Character Guide</h3>
                     <div class="form-group">
-                        <input type="email" id="guide-email" name="email" class="form-input" placeholder="Enter your email address" required>
-                        <button type="submit" class="btn btn-primary">Download Free Guide</button>
+                        <input type="email" id="guide-email" name="email" placeholder="Enter your email address" required>
+                        <button type="submit" class="btn btn-primary">Send Character Guide</button>
                     </div>
-                    <p class="form-privacy">
-                        We'll send you the guide and occasional updates about the series. Unsubscribe anytime.
-                    </p>
                 </form>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="main-footer">
+    <footer class="site-footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3 class="footer-title">Brian M. Shoemaker</h3>
-                    <p class="footer-description">
-                        Fantasy author creating epic adventures and unforgettable characters in magical realms.
-                    </p>
+                    <h3>Brian M. Shoemaker</h3>
+                    <p>Crafting epic fantasy adventures that transport readers to extraordinary worlds of magic, friendship, and heroism.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="../../index.html">Home</a></li>
+                        <li><a href="../../about.html">About</a></li>
+                        <li><a href="../index.html">Books</a></li>
+                        <li><a href="../../contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
                     <div class="social-links">
-                        <a href="#" class="social-link" aria-label="Facebook">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                            </svg>
-                        </a>
-                        <a href="#" class="social-link" aria-label="Twitter">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
-                            </svg>
-                        </a>
-                        <a href="#" class="social-link" aria-label="Instagram">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-                <div class="footer-section">
-                    <h4 class="footer-section-title">Quick Links</h4>
-                    <ul class="footer-links">
-                        <li><a href="../../about.html" class="footer-link">About Brian</a></li>
-                        <li><a href="../index.html" class="footer-link">Books</a></li>
-                        <li><a href="../../blog/index.html" class="footer-link">Blog</a></li>
-                        <li><a href="../../events.html" class="footer-link">Events</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4 class="footer-section-title">This Book</h4>
-                    <ul class="footer-links">
-                        <li><a href="index.html" class="footer-link">Book Details</a></li>
-                        <li><a href="excerpt.html" class="footer-link">Read Excerpt</a></li>
-                        <li><a href="reviews.html" class="footer-link">Reviews</a></li>
-                        <li><a href="../../contact.html" class="footer-link">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4 class="footer-section-title">Get the Book</h4>
-                    <div class="purchase-links">
-                        <a href="#" class="purchase-link">Amazon</a>
-                        <a href="#" class="purchase-link">Barnes & Noble</a>
-                        <a href="#" class="purchase-link">Apple Books</a>
-                        <a href="#" class="purchase-link">Google Play</a>
+                        <a href="#" aria-label="Facebook">📘</a>
+                        <a href="#" aria-label="Twitter">🐦</a>
+                        <a href="#" aria-label="Instagram">📷</a>
+                        <a href="#" aria-label="Goodreads">📚</a>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p class="copyright">
-                    &copy; 2024 Brian M. Shoemaker. All rights reserved.
-                </p>
+                <p>&copy; 2024 Brian M. Shoemaker. All rights reserved.</p>
                 <div class="footer-legal">
                     <a href="#" class="legal-link">Privacy Policy</a>
                     <a href="#" class="legal-link">Terms of Service</a>
@@ -665,30 +631,108 @@
     <!-- Character Page Specific JavaScript -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Character filtering
+            // Character filtering functionality
             const categoryBtns = document.querySelectorAll('.character-nav-btn');
             const characterCards = document.querySelectorAll('.character-card, .character-profile');
+            const characterSections = document.querySelectorAll('.main-characters-section, .supporting-characters-section, .antagonists-section, .world-characters-section');
             
+            console.log('Character Guide initialized');
+            console.log('Found buttons:', categoryBtns.length);
+            console.log('Found cards:', characterCards.length);
+            console.log('Found sections:', characterSections.length);
+            
+            // Function to show/hide characters based on category
+            function filterCharacters(category) {
+                console.log('Filtering by category:', category);
+                
+                // Handle "all" category
+                if (category === 'all') {
+                    // Show all character cards
+                    characterCards.forEach(card => {
+                        card.style.display = 'block';
+                        card.style.opacity = '1';
+                    });
+                    
+                    // Show all sections
+                    characterSections.forEach(section => {
+                        section.style.display = 'block';
+                        section.style.opacity = '1';
+                    });
+                    
+                    return;
+                }
+                
+                // Handle specific categories
+                characterCards.forEach(card => {
+                    const hasCategory = card.classList.contains(category) || 
+                                       card.hasAttribute('data-category') && card.getAttribute('data-category') === category;
+                    
+                    if (hasCategory) {
+                        card.style.display = 'block';
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    } else {
+                        card.style.display = 'none';
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(-20px)';
+                    }
+                });
+                
+                // Show/hide sections based on category
+                characterSections.forEach(section => {
+                    const sectionCategory = getSectionCategory(section);
+                    
+                    if (category === 'all' || sectionCategory === category) {
+                        section.style.display = 'block';
+                        section.style.opacity = '1';
+                    } else {
+                        section.style.display = 'none';
+                        section.style.opacity = '0';
+                    }
+                });
+            }
+            
+            // Function to determine section category
+            function getSectionCategory(section) {
+                if (section.classList.contains('main-characters-section')) return 'main';
+                if (section.classList.contains('supporting-characters-section')) return 'allies';
+                if (section.classList.contains('antagonists-section')) return 'antagonists';
+                if (section.classList.contains('world-characters-section')) return 'world';
+                return 'all';
+            }
+            
+            // Add click event listeners to category buttons
             categoryBtns.forEach(btn => {
-                btn.addEventListener('click', function() {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
                     const category = this.getAttribute('data-category');
+                    console.log('Button clicked:', category);
                     
                     // Update active button
                     categoryBtns.forEach(b => b.classList.remove('active'));
                     this.classList.add('active');
                     
-                    // Filter characters
-                    characterCards.forEach(card => {
-                        if (category === 'all' || card.classList.contains(category)) {
-                            card.style.display = 'block';
-                        } else {
-                            card.style.display = 'none';
-                        }
-                    });
+                    // Filter characters with animation
+                    filterCharacters(category);
+                    
+                    // Add visual feedback
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1)';
+                    }, 100);
+                });
+                
+                // Add keyboard support
+                btn.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        this.click();
+                    }
                 });
             });
             
-            // Character guide form
+            // Character guide form functionality
             const guideForm = document.getElementById('character-guide-form');
             if (guideForm) {
                 guideForm.addEventListener('submit', function(e) {
@@ -697,46 +741,122 @@
                     const email = this.querySelector('#guide-email').value;
                     const submitBtn = this.querySelector('button[type="submit"]');
                     
+                    if (!email || !isValidEmail(email)) {
+                        showMessage('Please enter a valid email address.', 'error');
+                        return;
+                    }
+                    
                     // Show loading state
                     submitBtn.textContent = 'Sending Guide...';
                     submitBtn.disabled = true;
+                    submitBtn.classList.add('loading');
                     
                     // Simulate guide delivery
                     setTimeout(() => {
-                        alert('Character guide sent to your email!');
-                        this.reset();
-                        submitBtn.textContent = 'Download Free Guide';
-                        submitBtn.disabled = false;
+                        showMessage('Character guide sent to your email!', 'success');
                         
-                        // Track download
-                        if (typeof AuthorWebsite !== 'undefined') {
-                            AuthorWebsite.trackEvent('character_guide_download', {
-                                email: email,
-                                source: 'characters_page'
-                            });
-                        }
+                        // Reset form
+                        this.reset();
+                        submitBtn.textContent = 'Send Character Guide';
+                        submitBtn.disabled = false;
+                        submitBtn.classList.remove('loading');
                     }, 2000);
                 });
             }
+            
+            // Email validation function
+            function isValidEmail(email) {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return emailRegex.test(email);
+            }
+            
+            // Show message function
+            function showMessage(message, type = 'info') {
+                // Remove existing messages
+                const existingMessages = document.querySelectorAll('.message');
+                existingMessages.forEach(msg => msg.remove());
+                
+                // Create new message
+                const messageDiv = document.createElement('div');
+                messageDiv.className = `message message-${type}`;
+                messageDiv.textContent = message;
+                messageDiv.style.cssText = `
+                    position: fixed;
+                    top: 20px;
+                    right: 20px;
+                    padding: 1rem 2rem;
+                    border-radius: 8px;
+                    font-weight: 600;
+                    z-index: 3000;
+                    transform: translateX(100%);
+                    transition: transform 0.3s ease;
+                    ${type === 'success' ? 'background: rgba(76, 175, 80, 0.9); color: white;' : ''}
+                    ${type === 'error' ? 'background: rgba(244, 67, 54, 0.9); color: white;' : ''}
+                    ${type === 'info' ? 'background: rgba(33, 150, 243, 0.9); color: white;' : ''}
+                `;
+                
+                document.body.appendChild(messageDiv);
+                
+                // Animate in
+                setTimeout(() => {
+                    messageDiv.style.transform = 'translateX(0)';
+                }, 100);
+                
+                // Remove after 3 seconds
+                setTimeout(() => {
+                    messageDiv.style.transform = 'translateX(100%)';
+                    setTimeout(() => {
+                        messageDiv.remove();
+                    }, 300);
+                }, 3000);
+            }
+            
+            // Navigation functionality
+            const navToggle = document.getElementById('nav-toggle');
+            const navMenu = document.getElementById('nav-menu');
+            
+            if (navToggle && navMenu) {
+                navToggle.addEventListener('click', function() {
+                    navMenu.classList.toggle('active');
+                    navToggle.classList.toggle('active');
+                    document.body.classList.toggle('menu-open');
+                });
+            }
+            
+            // Close mobile menu when clicking on a link
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    navMenu.classList.remove('active');
+                    navToggle.classList.remove('active');
+                    document.body.classList.remove('menu-open');
+                });
+            });
+            
+            // Navigation scroll effect
+            const mainNav = document.getElementById('main-nav');
+            if (mainNav) {
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > 50) {
+                        mainNav.classList.add('scrolled');
+                    } else {
+                        mainNav.classList.remove('scrolled');
+                    }
+                });
+            }
+            
+            // Initialize AOS
+            AOS.init({
+                duration: 1000,
+                once: true,
+                offset: 100
+            });
+            
+            // Initialize with all characters visible
+            filterCharacters('all');
+            
+            console.log('Character Guide JavaScript loaded successfully');
         });
-    </script>
-    
-    <!-- Initialize AOS Animation -->
-    <script>
-        AOS.init({
-            duration: 1000,
-            once: true,
-            offset: 100
-        });
-    </script>
-
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'GA_MEASUREMENT_ID');
     </script>
 </body>
 </html>
