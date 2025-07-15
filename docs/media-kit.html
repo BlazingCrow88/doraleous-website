@@ -3,391 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Media Kit - Brian M. Shoemaker | Doraleous and Associates</title>
-    <meta name="description" content="Press resources for Brian M. Shoemaker, author of Doraleous and Associates - photos, bio, and book information.">
+    <title>Media Kit - Doraleous and Associates: A Tale of Glory</title>
+    <meta name="description" content="Press resources for Brian M. Shoemaker, author of Doraleous and Associates: A Tale of Glory - photos, bio, and book information for media use.">
+    <meta name="keywords" content="Brian M. Shoemaker media kit, press resources, author photos, book cover, Doraleous and Associates press">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Media Kit - Doraleous and Associates">
+    <meta property="og:description" content="Press resources for Brian M. Shoemaker, author of Doraleous and Associates: A Tale of Glory.">
+    <meta property="og:image" content="assets/images/author/headshots/brian-shoemaker-professional.jpg">
+    <meta property="og:url" content="https://brianmshoemaker.com/media-kit.html">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Media Kit - Doraleous and Associates">
+    <meta name="twitter:description" content="Press resources for Brian M. Shoemaker, author of Doraleous and Associates.">
+    <meta name="twitter:image" content="assets/images/author/headshots/brian-shoemaker-professional.jpg">
     
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
     
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Open Sans', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: #f8f9fa;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Navigation Styles */
-        .main-navigation {
-            background: #2c3e50;
-            padding: 15px 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .nav-brand .brand-link {
-            color: white;
-            text-decoration: none;
-        }
-
-        .brand-name {
-            font-family: 'Cinzel', serif;
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin: 0;
-        }
-
-        .nav-menu {
-            display: flex;
-        }
-
-        .nav-list {
-            display: flex;
-            list-style: none;
-            gap: 30px;
-            margin: 0;
-            padding: 0;
-        }
-
-        .nav-link {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-            position: relative;
-        }
-
-        .nav-link:hover,
-        .nav-link.active {
-            color: #3498db;
-        }
-
-        .nav-item.dropdown {
-            position: relative;
-        }
-
-        .dropdown-menu {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background: white;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            border-radius: 5px;
-            min-width: 200px;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(-10px);
-            transition: all 0.3s;
-            list-style: none;
-            padding: 10px 0;
-            margin: 0;
-            z-index: 1001;
-        }
-
-        .nav-item.dropdown:hover .dropdown-menu {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-
-        .dropdown-link {
-            display: block;
-            padding: 10px 20px;
-            color: #333;
-            text-decoration: none;
-            transition: background 0.3s;
-        }
-
-        .dropdown-link:hover {
-            background: #f8f9fa;
-        }
-
-        .nav-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-            flex-direction: column;
-            gap: 4px;
-        }
-
-        .hamburger-line {
-            width: 25px;
-            height: 3px;
-            background: white;
-            transition: all 0.3s;
-        }
-
-        /* Header */
-        .header {
-            background: linear-gradient(135deg, #2c3e50, #3498db);
-            color: white;
-            padding: 120px 0 60px;
-            text-align: center;
-            margin-top: 70px;
-        }
-
-        .header h1 {
-            font-family: 'Cinzel', serif;
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
-
-        .header p {
-            font-size: 1.2rem;
-            opacity: 0.9;
-        }
-
-        /* Main Content */
-        .main-content {
-            padding: 60px 0;
-        }
-
-        .section {
-            background: white;
-            margin-bottom: 40px;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        .section-title {
-            font-family: 'Cinzel', serif;
-            font-size: 1.8rem;
-            margin-bottom: 30px;
-            color: #2c3e50;
-            border-bottom: 3px solid #3498db;
-            padding-bottom: 10px;
-        }
-
-        /* Author Section */
-        .author-grid {
-            display: grid;
-            grid-template-columns: 300px 1fr;
-            gap: 40px;
-            align-items: start;
-        }
-
-        .author-photo {
-            width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-
-        .author-info h3 {
-            color: #2c3e50;
-            margin-bottom: 15px;
-        }
-
-        .author-info p {
-            margin-bottom: 15px;
-            text-align: justify;
-        }
-
-        .download-btn {
-            display: inline-block;
-            background: #3498db;
-            color: white;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 5px;
-            margin-top: 15px;
-            transition: background 0.3s;
-        }
-
-        .download-btn:hover {
-            background: #2980b9;
-        }
-
-        /* Book Section */
-        .book-grid {
-            display: grid;
-            grid-template-columns: 250px 1fr;
-            gap: 40px;
-            align-items: start;
-        }
-
-        .book-cover {
-            width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-
-        .book-details h3 {
-            color: #2c3e50;
-            margin-bottom: 20px;
-        }
-
-        .book-meta {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-        }
-
-        .meta-item {
-            display: flex;
-            margin-bottom: 8px;
-        }
-
-        .meta-label {
-            font-weight: 600;
-            min-width: 120px;
-            color: #2c3e50;
-        }
-
-        /* Contact Section */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-        }
-
-        .contact-item {
-            background: #f8f9fa;
-            padding: 25px;
-            border-radius: 8px;
-            text-align: center;
-        }
-
-        .contact-item h3 {
-            color: #2c3e50;
-            margin-bottom: 15px;
-        }
-
-        .contact-item a {
-            color: #3498db;
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        .contact-item a:hover {
-            text-decoration: underline;
-        }
-
-        /* Downloads Section */
-        .downloads-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-        }
-
-        .download-card {
-            background: #f8f9fa;
-            padding: 30px;
-            border-radius: 10px;
-            text-align: center;
-            border: 2px solid transparent;
-            transition: border-color 0.3s;
-        }
-
-        .download-card:hover {
-            border-color: #3498db;
-        }
-
-        .download-card h3 {
-            color: #2c3e50;
-            margin-bottom: 10px;
-        }
-
-        .download-card p {
-            color: #666;
-            margin-bottom: 20px;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-menu {
-                position: fixed;
-                top: 70px;
-                left: -100%;
-                width: 100%;
-                height: calc(100vh - 70px);
-                background: #2c3e50;
-                flex-direction: column;
-                justify-content: start;
-                align-items: center;
-                padding-top: 50px;
-                transition: left 0.3s;
-            }
-
-            .nav-menu.active {
-                left: 0;
-            }
-
-            .nav-list {
-                flex-direction: column;
-                text-align: center;
-                gap: 20px;
-            }
-
-            .nav-toggle {
-                display: flex;
-            }
-
-            .dropdown-menu {
-                position: static;
-                opacity: 1;
-                visibility: visible;
-                transform: none;
-                background: transparent;
-                box-shadow: none;
-                margin-top: 10px;
-            }
-
-            .dropdown-link {
-                color: white;
-                padding: 10px 0;
-            }
-
-            .author-grid,
-            .book-grid,
-            .contact-grid {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .author-photo,
-            .book-cover {
-                max-width: 300px;
-                margin: 0 auto;
-            }
-
-            .header h1 {
-                font-size: 2rem;
-            }
-
-            .section {
-                padding: 20px;
-            }
-        }
-    </style>
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/components/navigation.css">
+    <link rel="stylesheet" href="assets/css/components/downloads.css">
+    <link rel="stylesheet" href="assets/css/components/forms.css">
+    <link rel="stylesheet" href="assets/css/layouts/contact.css">
+    <link rel="stylesheet" href="assets/css/responsive/mobile.css">
+    <link rel="stylesheet" href="assets/css/responsive/tablet.css">
+    <link rel="stylesheet" href="assets/css/responsive/desktop.css">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/images/ui/favicon.ico">
 </head>
 <body>
     <!-- Navigation -->
@@ -395,7 +47,7 @@
         <div class="nav-container">
             <div class="nav-brand">
                 <a href="index.html" class="brand-link">
-                    <h1 class="brand-name">Brian M. Shoemaker</h1>
+                    <h1 class="brand-name">Doraleous and Associates: A Tale of Glory</h1>
                 </a>
             </div>
             
@@ -435,127 +87,258 @@
         </div>
     </nav>
 
-    <!-- Header -->
-    <section class="header">
+    <!-- Page Header -->
+    <section class="page-header">
         <div class="container">
-            <h1>Media Kit</h1>
-            <p>Press resources for Doraleous and Associates</p>
+            <div class="header-content" data-aos="fade-up">
+                <h1 class="page-title">Media Kit</h1>
+                <p class="page-subtitle">Press Resources for Doraleous and Associates</p>
+                <p class="page-description">
+                    Downloadable press materials, author information, and high-resolution images for media use.
+                </p>
+            </div>
         </div>
     </section>
 
-    <!-- Main Content -->
-    <main class="main-content">
+    <!-- Quick Downloads Section -->
+    <section class="downloads-section">
         <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Quick Downloads</h2>
+            <div class="downloads-grid" data-aos="fade-up" data-aos-delay="100">
+                <div class="download-card">
+                    <div class="download-icon">📸</div>
+                    <h3 class="download-title">Author Photo</h3>
+                    <p class="download-description">High-resolution professional headshot for press use</p>
+                    <a href="assets/images/author/headshots/brian-shoemaker-professional.jpg" class="download-btn" download>Download Photo</a>
+                </div>
+                <div class="download-card">
+                    <div class="download-icon">📚</div>
+                    <h3 class="download-title">Book Cover</h3>
+                    <p class="download-description">High-resolution cover image in multiple formats</p>
+                    <a href="assets/images/books/covers/doraleous-associates-full.jpg" class="download-btn" download>Download Cover</a>
+                </div>
+                <div class="download-card">
+                    <div class="download-icon">📄</div>
+                    <h3 class="download-title">Author Bio</h3>
+                    <p class="download-description">Professional biography text for press releases</p>
+                    <a href="assets/documents/author-bio.txt" class="download-btn" download>Download Bio</a>
+                </div>
+                <div class="download-card">
+                    <div class="download-icon">🎨</div>
+                    <h3 class="download-title">Brand Assets</h3>
+                    <p class="download-description">Logos, fonts, and brand guidelines</p>
+                    <a href="assets/documents/brand-assets.zip" class="download-btn" download>Download Assets</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            <!-- Quick Downloads -->
-            <section class="section">
-                <h2 class="section-title">Quick Downloads</h2>
-                <div class="downloads-grid">
-                    <div class="download-card">
-                        <h3>Author Photo</h3>
-                        <p>High-resolution headshot</p>
-                        <a href="assets/images/brian-shoemaker-photo.jpg" class="download-btn" download>Download Photo</a>
-                    </div>
-                    <div class="download-card">
-                        <h3>Book Cover</h3>
-                        <p>High-resolution cover image</p>
-                        <a href="assets/images/doraleous-cover.jpg" class="download-btn" download>Download Cover</a>
-                    </div>
-                    <div class="download-card">
-                        <h3>Author Bio</h3>
-                        <p>Text biography for press use</p>
-                        <a href="assets/documents/author-bio.txt" class="download-btn" download>Download Bio</a>
+    <!-- Media Kit Sections -->
+    <section class="media-kit-section">
+        <div class="container">
+            <div class="media-resources-grid">
+                
+                <!-- Author Information -->
+                <div class="resource-category" data-aos="fade-up">
+                    <h3 class="category-title">Author Information</h3>
+                    <div class="resource-links">
+                        <a href="assets/documents/author-bio-short.txt" class="resource-link" download>
+                            <div class="resource-icon">📝</div>
+                            <div class="resource-info">
+                                <strong>Short Bio (50 words)</strong>
+                                <span>Brief author biography for social media and short introductions</span>
+                            </div>
+                        </a>
+                        <a href="assets/documents/author-bio-medium.txt" class="resource-link" download>
+                            <div class="resource-icon">📝</div>
+                            <div class="resource-info">
+                                <strong>Medium Bio (150 words)</strong>
+                                <span>Standard biography for press releases and book descriptions</span>
+                            </div>
+                        </a>
+                        <a href="assets/documents/author-bio-long.txt" class="resource-link" download>
+                            <div class="resource-icon">📝</div>
+                            <div class="resource-info">
+                                <strong>Extended Bio (300+ words)</strong>
+                                <span>Detailed biography for interviews and feature articles</span>
+                            </div>
+                        </a>
                     </div>
                 </div>
-            </section>
 
-            <!-- Author Information -->
-            <section class="section">
-                <h2 class="section-title">About the Author</h2>
-                <div class="author-grid">
-                    <img src="assets/images/brian-shoemaker-photo.jpg" alt="Brian M. Shoemaker" class="author-photo">
-                    <div class="author-info">
-                        <h3>Brian M. Shoemaker</h3>
-                        <p>
-                            Brian M. Shoemaker is a fantasy author whose debut novel, "Doraleous and Associates: A Tale of Glory," 
-                            brings readers into a rich world of adventure and magic. Drawing inspiration from classic fantasy 
-                            literature and mythology, Brian creates compelling characters and immersive storylines that blend 
-                            action with meaningful character development.
-                        </p>
-                        <p>
-                            With a passion for storytelling that began in childhood, Brian has spent years crafting the world 
-                            of Doraleous and his companions. When not writing, Brian enjoys exploring nature, studying mythology, 
-                            and connecting with fellow fantasy enthusiasts.
-                        </p>
-                        <a href="assets/documents/author-bio.txt" class="download-btn" download>Download Full Bio</a>
+                <!-- Book Materials -->
+                <div class="resource-category" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="category-title">Book Materials</h3>
+                    <div class="resource-links">
+                        <a href="assets/documents/book-summary.txt" class="resource-link" download>
+                            <div class="resource-icon">📖</div>
+                            <div class="resource-info">
+                                <strong>Book Summary</strong>
+                                <span>Plot synopsis and key themes of Doraleous and Associates</span>
+                            </div>
+                        </a>
+                        <a href="assets/documents/character-guide.pdf" class="resource-link" download>
+                            <div class="resource-icon">👥</div>
+                            <div class="resource-info">
+                                <strong>Character Guide</strong>
+                                <span>Main character descriptions and relationships</span>
+                            </div>
+                        </a>
+                        <a href="books/doraleous-associates/read-excerpt.html" class="resource-link">
+                            <div class="resource-icon">📄</div>
+                            <div class="resource-info">
+                                <strong>Sample Chapter</strong>
+                                <span>First chapter available for review and excerpt use</span>
+                            </div>
+                        </a>
                     </div>
                 </div>
-            </section>
 
-            <!-- Book Information -->
-            <section class="section">
-                <h2 class="section-title">About the Book</h2>
-                <div class="book-grid">
-                    <img src="assets/images/doraleous-cover.jpg" alt="Doraleous and Associates Book Cover" class="book-cover">
-                    <div class="book-details">
-                        <h3>Doraleous and Associates: A Tale of Glory</h3>
-                        <div class="book-meta">
-                            <div class="meta-item">
-                                <span class="meta-label">Author:</span>
-                                <span>Brian M. Shoemaker</span>
+                <!-- Visual Assets -->
+                <div class="resource-category" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="category-title">Visual Assets</h3>
+                    <div class="resource-links">
+                        <a href="assets/images/author/headshots/brian-shoemaker-high-res.jpg" class="resource-link" download>
+                            <div class="resource-icon">🖼️</div>
+                            <div class="resource-info">
+                                <strong>Author Photo (High-Res)</strong>
+                                <span>300 DPI professional headshot for print use</span>
                             </div>
-                            <div class="meta-item">
-                                <span class="meta-label">Genre:</span>
-                                <span>Epic Fantasy</span>
+                        </a>
+                        <a href="assets/images/books/covers/doraleous-associates-print-ready.jpg" class="resource-link" download>
+                            <div class="resource-icon">🎨</div>
+                            <div class="resource-info">
+                                <strong>Book Cover (Print Quality)</strong>
+                                <span>High-resolution cover for print publications</span>
                             </div>
-                            <div class="meta-item">
-                                <span class="meta-label">Format:</span>
-                                <span>Paperback, eBook</span>
+                        </a>
+                        <a href="assets/images/marketing/banner-images.zip" class="resource-link" download>
+                            <div class="resource-icon">🏞️</div>
+                            <div class="resource-info">
+                                <strong>Banner Images</strong>
+                                <span>Various sizes for web and social media use</span>
                             </div>
-                            <div class="meta-item">
-                                <span class="meta-label">Pages:</span>
-                                <span>456 pages</span>
-                            </div>
-                            <div class="meta-item">
-                                <span class="meta-label">Publication:</span>
-                                <span>2024</span>
-                            </div>
-                        </div>
-                        <p>
-                            An epic fantasy adventure following Doraleous and his companions as they embark on a quest 
-                            for glory. Filled with rich world-building, compelling characters, and thrilling adventures, 
-                            this debut novel introduces readers to a magical world where friendship and courage are the 
-                            greatest powers of all.
-                        </p>
-                        <a href="assets/images/doraleous-cover-high-res.jpg" class="download-btn" download>Download Cover</a>
+                        </a>
                     </div>
                 </div>
-            </section>
 
-            <!-- Contact Information -->
-            <section class="section">
-                <h2 class="section-title">Media Contact</h2>
-                <div class="contact-grid">
-                    <div class="contact-item">
-                        <h3>General Inquiries</h3>
-                        <p>For interviews, reviews, and media requests</p>
-                        <a href="mailto:media@brianmshoemaker.com">media@brianmshoemaker.com</a>
-                    </div>
-                    <div class="contact-item">
-                        <h3>Events & Speaking</h3>
-                        <p>Book signings, readings, and appearances</p>
-                        <a href="mailto:events@brianmshoemaker.com">events@brianmshoemaker.com</a>
-                    </div>
+            </div>
+
+            <!-- Media Contact Information -->
+            <div class="media-contact" data-aos="fade-up" data-aos-delay="300">
+                <h3>Media Contact Information</h3>
+                <p>For interviews, review copies, and press inquiries, please contact:</p>
+                <div style="margin: 1.5rem 0;">
+                    <strong>Brian M. Shoemaker</strong><br>
+                    <a href="mailto:media@brianmshoemaker.com">media@brianmshoemaker.com</a><br>
+                    <span style="color: rgba(255,255,255,0.8);">Response within 24-48 hours</span>
                 </div>
-                <div style="text-align: center; margin-top: 30px;">
-                    <p><strong>Response Time:</strong> Within 48 hours during business days</p>
-                </div>
-            </section>
+                <p style="font-size: 0.9rem; opacity: 0.8;">
+                    Available for phone, video, or in-person interviews. Speaking engagements and book signing events welcome.
+                </p>
+            </div>
 
         </div>
-    </main>
+    </section>
 
-    <!-- Fixed Navigation JavaScript -->
+    <!-- Author Bio Preview Section -->
+    <section class="author-bio-preview" style="background: rgba(250, 249, 246, 1); padding: 4rem 0;">
+        <div class="container">
+            <div class="author-content" data-aos="fade-up">
+                <div class="author-grid" style="display: grid; grid-template-columns: 300px 1fr; gap: 3rem; align-items: start;">
+                    <div class="author-image">
+                        <img src="assets/images/author/headshots/brian-shoemaker-professional.jpg" alt="Brian M. Shoemaker - Fantasy Author" class="author-photo" style="width: 100%; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                    </div>
+                    <div class="author-text">
+                        <h2 class="section-title" style="text-align: left; margin-bottom: 2rem; color: #1B4332;">About Brian M. Shoemaker</h2>
+                        <p style="color: #333; margin-bottom: 1.5rem; line-height: 1.8;">
+                            Brian M. Shoemaker is a passionate fantasy author who brings magical worlds to life through vivid storytelling and unforgettable characters. With a deep love for epic adventures and mythical realms, Brian crafts tales that transport readers to extraordinary places where heroes rise to meet impossible challenges.
+                        </p>
+                        <p style="color: #333; margin-bottom: 1.5rem; line-height: 1.8;">
+                            Drawing inspiration from classic fantasy literature and modern storytelling techniques, Brian creates immersive experiences that blend action, character development, and world-building into captivating narratives.
+                        </p>
+                        <p style="color: #333; margin-bottom: 2rem; line-height: 1.8;">
+                            When not writing, Brian enjoys exploring nature, studying mythology, and connecting with fellow fantasy enthusiasts at conventions and literary events.
+                        </p>
+                        <a href="assets/documents/author-bio-long.txt" class="btn btn-outline" download>Download Full Biography</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="footer-title">Doraleous and Associates: A Tale of Glory</h3>
+                    <p class="footer-description">
+                        Epic fantasy adventure featuring unforgettable characters in magical realms filled with danger and glory.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Twitter">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-section-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html" class="footer-link">About Brian</a></li>
+                        <li><a href="books/index.html" class="footer-link">Books</a></li>
+                        <li><a href="blog/index.html" class="footer-link">Blog</a></li>
+                        <li><a href="contact.html" class="footer-link">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-section-title">For Press</h4>
+                    <ul class="footer-links">
+                        <li><a href="media-kit.html" class="footer-link">Media Kit</a></li>
+                        <li><a href="assets/documents/author-bio.txt" class="footer-link" download>Author Bio</a></li>
+                        <li><a href="assets/images/author/headshots/brian-shoemaker-professional.jpg" class="footer-link" download>Author Photo</a></li>
+                        <li><a href="mailto:media@brianmshoemaker.com" class="footer-link">Press Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-section-title">Get the Book</h4>
+                    <div class="purchase-links">
+                        <a href="#" class="purchase-link">Amazon</a>
+                        <a href="#" class="purchase-link">Barnes & Noble</a>
+                        <a href="#" class="purchase-link">Apple Books</a>
+                        <a href="#" class="purchase-link">Google Play</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="copyright">
+                    &copy; 2024 Brian M. Shoemaker. All rights reserved.
+                </p>
+                <div class="footer-legal">
+                    <a href="#" class="legal-link">Privacy Policy</a>
+                    <a href="#" class="legal-link">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Files -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="assets/js/main.js"></script>
+    
+    <!-- Navigation JavaScript -->
     <script>
     document.addEventListener('DOMContentLoaded', function() {
         const navToggle = document.getElementById('nav-toggle');
@@ -590,6 +373,13 @@
                 }
             });
         }
+
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
     });
     </script>
 </body>
