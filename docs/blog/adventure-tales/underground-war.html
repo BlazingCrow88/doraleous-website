@@ -1,1 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Underground War: Drak's Campaign Beneath the Mountains - Doraleous and Associates Blog</title>
+    <meta name="description" content="While his companions fought on the surface, Drak Ironforge waged a secret war in the depths, rallying the scattered dwarven clans to reclaim their ancestral home from the corruption that had consumed it.">
+    <meta name="keywords" content="Drak Ironforge, underground war, dwarven clans, corruption, mountains, campaign, leadership">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="The Underground War: Drak's Campaign Beneath the Mountains">
+    <meta property="og:description" content="While his companions fought on the surface, Drak Ironforge waged a secret war in the depths, rallying the scattered dwarven clans">
+    <meta property="og:image" content="../../assets/images/blog/adventure-tales/underground-war.jpg">
+    <meta property="og:url" content="https://brianmshoemaker.com/blog/adventure-tales/underground-war.html">
+    <meta property="og:type" content="article">
+    
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="The Underground War: Drak's Campaign Beneath the Mountains">
+    <meta name="twitter:description" content="While his companions fought on the surface, Drak Ironforge waged a secret war in the depths, rallying the scattered dwarven clans">
+    <meta name="twitter:image" content="../../assets/images/blog/adventure-tales/underground-war.jpg">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            font-family: 'Libre Baskerville', serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-decoration: none;
+            color: #f39c12;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #f39c12;
+        }
+
+        /* Blog Post Header */
+        .blog-post-header {
+            background: linear-gradient(135deg, #4a4a4a 0%, #2c2c2c 100%);
+            color: white;
+            padding: 4rem 0 2rem;
+            text-align: center;
+        }
+
+        .breadcrumb {
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            opacity: 0.8;
+        }
+
+        .breadcrumb a {
+            color: #f39c12;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .post-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .post-meta {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .post-meta span {
+            padding: 0.25rem 0.75rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        /* Blog Post Content */
+        .blog-post-content {
+            padding: 4rem 0;
+        }
+
+        .post-content {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .post-content .lead {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: #34495e;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #f39c12;
+        }
+
+        .post-content p {
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
+        .post-content h2 {
+            font-family: 'Cinzel', serif;
+            color: #2c3e50;
+            margin: 2rem 0 1rem;
+            font-size: 1.5rem;
+        }
+
+        /* Post Navigation */
+        .post-navigation {
+            background: #4a4a4a;
+            padding: 2rem 0;
+            color: white;
+        }
+
+        .nav-links-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: white;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #f39c12;
+        }
+
+        .nav-link span {
+            margin: 0 0.5rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a1a2e;
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            font-family: 'Cinzel', serif;
+            color: #f39c12;
+            margin-bottom: 1rem;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #34495e;
+            opacity: 0.8;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .post-title {
+                font-size: 2rem;
+            }
+            
+            .post-content {
+                padding: 2rem;
+            }
+            
+            .nav-links-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav-container">
+                <a href="../../index.html" class="logo">Doraleous and Associates</a>
+                <ul class="nav-links">
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="../index.html">Blog</a></li>
+                    <li><a href="../../characters.html">Characters</a></li>
+                    <li><a href="../../world.html">World</a></li>
+                    <li><a href="../../episodes.html">Episodes</a></li>
+                    <li><a href="../../about.html">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Blog Post Header -->
+    <section class="blog-post-header">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="../../index.html">Home</a> > 
+                <a href="../index.html">Blog</a> > 
+                <a href="../index.html#adventure-tales">Adventure Tales</a> > 
+                <span>The Underground War</span>
+            </div>
+            <h1 class="post-title">The Underground War: Drak's Campaign Beneath the Mountains</h1>
+            <div class="post-meta">
+                <span class="post-date">May 15, 2024</span>
+                <span class="post-category">Adventure Tales</span>
+                <span class="read-time">10 min read</span>
+                <span class="post-views">5,234 views</span>
+                <span class="post-comments">83 comments</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Post Content -->
+    <article class="blog-post-content">
+        <div class="container">
+            <div class="post-content">
+                <p class="lead">While his companions fought on the surface, Drak Ironforge waged a secret war in the depths, rallying the scattered dwarven clans to reclaim their ancestral home from the corruption that had consumed it.</p>
+                
+                <p>The great dwarven kingdom of Khaz Ankor had been the first to fall when the ancient evil stirred. Its mighty halls, carved from living rock over millennia, had become twisted monuments to corruption. The scattered survivors spoke only in whispers of the darkness that had consumed their homeland, too broken to even dream of return.</p>
+                
+                <p>But Drak Ironforge was not just any dwarf—he was the exiled heir to the Iron Throne, trained in the arts of war and leadership even as he had been cast out by his own people. When the call came to aid the surface dwellers in their struggle, he knew that his true battle lay beneath the earth, in the tunnels and caverns where his people had once thrived.</p>
+                
+                <p>The underground war began not with grand battles, but with careful whispers in refugee camps and hidden gatherings. Drak moved through the scattered dwarven settlements like a shadow, seeking out the clan leaders who had survived the initial catastrophe. Many had given up hope, content to live in exile rather than face the horrors that had claimed their home.</p>
+                
+                <p>But Drak brought more than just hope—he brought a plan. His years of exile had taught him to see beyond the traditional clan rivalries that had weakened his people. He understood that the old ways of thinking had made them vulnerable to the corruption, and that victory would require unity of purpose rather than strength of arms alone.</p>
+                
+                <p>The first clan to join his cause was the Ironbeards, master smiths who had managed to evacuate their most precious forges when the darkness came. They provided not just weapons, but the knowledge needed to craft armor and blades that could resist the corrupting influence of shadow magic.</p>
+                
+                <p>Next came the Stonebreakers, tunnel fighters who knew every secret passage and hidden route through the mountain depths. Their guerrilla tactics had kept them alive in the darkest corners of the kingdom, and they became Drak's advance scouts and saboteurs.</p>
+                
+                <p>The Goldbeards, masters of trade and negotiation, brought resources and connections that proved invaluable. They had maintained contact with allies throughout the surface world, enabling Drak to coordinate his underground campaign with the broader war effort.</p>
+                
+                <p>But the most crucial recruitment was the Lorekeepers, the keepers of dwarven history and tradition. They alone knew the ancient rituals and forgotten passages that could be used to turn the corruption's own power against it. Their knowledge would prove essential in the battles to come.</p>
+                
+                <p>The underground war was fought not in open battle, but through a series of carefully planned strikes against the corruption's anchor points. Each victory required not just military prowess, but deep understanding of dwarven history and the magical principles that governed their ancient home.</p>
+                
+                <p>Drak's forces would emerge from hidden passages to strike at corrupted strongholds, using their intimate knowledge of the terrain to appear and disappear like ghosts. They turned the very architecture of their homeland into a weapon, collapsing tunnels to trap enemies and opening forgotten passages to outflank their foes.</p>
+                
+                <p>The campaign's turning point came when Drak's forces reached the Hall of Ancestors, where the spirits of ancient dwarven kings had been trapped by the corruption. The battle to free them was as much spiritual as physical, requiring the combined efforts of warriors, priests, and loremasters working in perfect harmony.</p>
+                
+                <p>The liberated ancestor spirits proved to be powerful allies, their ancient wisdom and accumulated strength turning the tide of several crucial battles. But more importantly, their presence restored the spiritual connection between the dwarven clans and their homeland, rekindling the flame of hope that had been nearly extinguished.</p>
+                
+                <p>As the underground war progressed, Drak found himself changing from an exiled prince seeking redemption to a true leader who understood that kingship was not about birthright, but about service to his people. The clans that had once rejected him now looked to him not as their rightful ruler, but as the one who had proven worthy of their trust.</p>
+                
+                <p>The final phase of the campaign required coordination with the surface battles, as Drak's forces struck at the corruption's deep roots while his companions fought its manifestations above. The timing had to be perfect—too early and the surface forces would be overwhelmed, too late and the corruption would have time to adapt to the underground assault.</p>
+                
+                <p>When the moment came, Drak led his combined forces in a final assault on the Throne of Iron, the ancient seat of dwarven power that had become the corruption's primary stronghold. The battle was fierce and desperate, with the fate of both the dwarven kingdom and the surface world hanging in the balance.</p>
+                
+                <p>Victory came not through overwhelming force, but through the unity that Drak had forged among his people. The clans fought as one, their combined strength and diverse skills proving more than a match for the corruption's ancient power. The Throne of Iron was cleansed, and the dwarven kingdom was restored to its people.</p>
+                
+                <p>The underground war had been won, but its true victory was not territorial—it was the transformation of a scattered and broken people into a united kingdom stronger than it had ever been. Drak Ironforge had proven that true leadership came not from claiming power, but from earning it through service and sacrifice.</p>
+                
+                <p>When he finally emerged from the depths to rejoin his surface companions, Drak carried with him not just the gratitude of his people, but the knowledge that he had found his true calling. The exiled prince had become a king in the truest sense, not through birthright, but through the trials of leadership and the bonds of brotherhood forged in the fires of war.</p>
+            </div>
+        </div>
+    </article>
+
+    <!-- Post Navigation -->
+    <section class="post-navigation">
+        <div class="container">
+            <div class="nav-links-container">
+                <a href="labyrinth-of-souls.html" class="nav-link">
+                    <span>←</span>
+                    <span>Previous: The Labyrinth of Souls</span>
+                </a>
+                <a href="final-convergence.html" class="nav-link">
+                    <span>Next: The Final Convergence</span>
+                    <span>→</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Doraleous and Associates</h3>
+                    <p>Following the legendary adventures of brave heroes as they face ancient evils and forge unbreakable bonds of friendship.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <p><a href="../../characters.html" style="color: #f39c12;">Characters</a></p>
+                    <p><a href="../../world.html" style="color: #f39c12;">World</a></p>
+                    <p><a href="../../episodes.html" style="color: #f39c12;">Episodes</a></p>
+                    <p><a href="../index.html" style="color: #f39c12;">Blog</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect</h3>
+                    <p>Join our community of fantasy enthusiasts and stay updated on the latest adventures.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Doraleous and Associates. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
