@@ -3,39 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chronicles & Updates - Doraleous and Associates Blog</title>
+    <title>Doraleous and Associates: A Tale of Glory</title>
     <meta name="description" content="Behind-the-scenes content, character insights, and tales from the world of Doraleous and Associates">
     <meta name="keywords" content="Doraleous, fantasy, blog, characters, world building, adventure tales">
     
-    <!-- Open Graph Tags -->
-    <meta property="og:title" content="Chronicles & Updates - Doraleous and Associates Blog">
-    <meta property="og:description" content="Behind-the-scenes content, character insights, and tales from the world of Doraleous and Associates">
-    <meta property="og:image" content="../assets/images/og-blog.jpg">
-    <meta property="og:url" content="https://brianmshoemaker.com/blog/">
-    <meta property="og:type" content="website">
-    
-    <!-- Twitter Card Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Chronicles & Updates - Doraleous and Associates Blog">
-    <meta name="twitter:description" content="Behind-the-scenes content, character insights, and tales from the world of Doraleous and Associates">
-    <meta name="twitter:image" content="../assets/images/og-blog.jpg">
-    
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-    
-    <!-- CSS Files -->
-    <link rel="stylesheet" href="../assets/css/core/reset.css">
-    <link rel="stylesheet" href="../assets/css/core/base.css">
-    <link rel="stylesheet" href="../assets/css/components/navigation.css">
-    <link rel="stylesheet" href="../assets/css/layouts/blog.css">
-    <link rel="stylesheet" href="../assets/css/core/footer.css">
-    <link rel="stylesheet" href="../assets/css/core/responsive.css">
     
     <!-- AOS Animation Library -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
     <style>
-        /* Override existing styles to match homepage theme */
         * {
             margin: 0;
             padding: 0;
@@ -56,7 +34,7 @@
             padding: 0 20px;
         }
 
-        /* Navigation - match homepage style exactly */
+        /* Navigation */
         .navbar {
             background: rgba(0, 0, 0, 0.95);
             backdrop-filter: blur(10px);
@@ -173,23 +151,6 @@
             cursor: pointer;
             transition: all 0.4s ease;
             font-size: 0.9rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .category-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(218, 165, 32, 0.2), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .category-btn:hover::before {
-            left: 100%;
         }
 
         .category-btn:hover,
@@ -213,7 +174,6 @@
             align-items: center;
             background: linear-gradient(135deg, rgba(45, 24, 16, 0.3), rgba(26, 26, 26, 0.3));
             border: 1px solid rgba(218, 165, 32, 0.2);
-            border-radius: 0;
             padding: 2rem;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
@@ -222,7 +182,6 @@
             width: 100%;
             height: 300px;
             object-fit: cover;
-            border-radius: 0;
             filter: sepia(10%) saturate(1.2);
         }
 
@@ -280,8 +239,6 @@
             border: none;
             cursor: pointer;
             transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
         }
 
         .btn-primary:hover {
@@ -312,7 +269,6 @@
         .blog-post-card {
             background: linear-gradient(135deg, rgba(45, 24, 16, 0.4), rgba(26, 26, 26, 0.4));
             border: 1px solid rgba(218, 165, 32, 0.2);
-            border-radius: 0;
             overflow: hidden;
             transition: all 0.4s ease;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
@@ -487,7 +443,6 @@
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            
             .page-title {
                 font-size: 2.5rem;
             }
@@ -538,11 +493,12 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
-            <div class="nav-brand">
-                <a href="../index.html" class="brand-link">
-                    <img src="../assets/images/logo/logo-main.png" alt="Doraleous and Associates" class="brand-logo">
-                    <span class="brand-text">Doraleous and Associates</span>
-                </a>
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <a href="../index.html" class="brand-link">
+                        <span class="brand-text">Doraleous and Associates</span>
+                    </a>
+                </div>
             </div>
         </div>
     </nav>
@@ -551,7 +507,7 @@
     <section class="page-header">
         <div class="container">
             <div class="header-content" data-aos="fade-up">
-                <h1 class="page-title">Chronicles & Updates</h1>
+                <h1 class="page-title">Doraleous and Associates: A Tale of Glory</h1>
                 <p class="page-subtitle">Behind-the-scenes content, character insights, and tales from the world of Doraleous and Associates</p>
             </div>
         </div>
@@ -1057,11 +1013,6 @@
                 <div class="footer-section">
                     <h3>Doraleous and Associates</h3>
                     <p>Join the legendary adventures of brave heroes as they face ancient evils and forge unbreakable bonds of friendship in a world where courage defines destiny.</p>
-                    <div class="social-links">
-                        <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                        <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    </div>
                 </div>
                 <div class="footer-section">
                     <h3>Quick Links</h3>
@@ -1098,7 +1049,6 @@
 
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="../assets/js/core/main.js"></script>
     <script>
         // Initialize AOS
         AOS.init({
