@@ -1,1 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chronicles & Updates - Doraleous and Associates Blog</title>
+    <meta name="description" content="Behind-the-scenes content, character insights, and tales from the world of Doraleous and Associates">
+    <meta name="keywords" content="Doraleous, fantasy, blog, characters, world building, adventure tales">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Chronicles & Updates - Doraleous and Associates Blog">
+    <meta property="og:description" content="Behind-the-scenes content, character insights, and tales from the world of Doraleous and Associates">
+    <meta property="og:image" content="../assets/images/og-blog.jpg">
+    <meta property="og:url" content="https://brianmshoemaker.com/blog/">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Chronicles & Updates - Doraleous and Associates Blog">
+    <meta name="twitter:description" content="Behind-the-scenes content, character insights, and tales from the world of Doraleous and Associates">
+    <meta name="twitter:image" content="../assets/images/og-blog.jpg">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="../assets/css/core/reset.css">
+    <link rel="stylesheet" href="../assets/css/core/base.css">
+    <link rel="stylesheet" href="../assets/css/components/navigation.css">
+    <link rel="stylesheet" href="../assets/css/layouts/blog.css">
+    <link rel="stylesheet" href="../assets/css/core/footer.css">
+    <link rel="stylesheet" href="../assets/css/core/responsive.css">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="../index.html" class="brand-link">
+                    <img src="../assets/images/logo/logo-main.png" alt="Doraleous and Associates" class="brand-logo">
+                    <span class="brand-text">Doraleous and Associates</span>
+                </a>
+            </div>
+            <div class="nav-menu">
+                <ul class="nav-links">
+                    <li class="nav-item">
+                        <a href="../index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../about.html" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="../books/index.html" class="nav-link">Books</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="../books/doraleous-associates/index.html" class="dropdown-link">Doraleous and Associates</a></li>
+                            <li><a href="../books/doraleous-associates/characters.html" class="dropdown-link">Character Guide</a></li>
+                            <li><a href="../books/doraleous-associates/read-excerpt.html" class="dropdown-link">Read Excerpt</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link active">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../media-kit.html" class="nav-link">Media Kit</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../contact.html" class="nav-link">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
 
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <div class="header-content" data-aos="fade-up">
+                <h1 class="page-title">Chronicles & Updates</h1>
+                <p class="page-subtitle">Behind-the-scenes content, character insights, and tales from the world of Doraleous and Associates</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Categories -->
+    <section class="blog-categories-section">
+        <div class="container">
+            <div class="categories-navigation" data-aos="fade-up">
+                <button class="category-btn active" data-category="all">All Posts</button>
+                <button class="category-btn" data-category="character-spotlight">Character Spotlight</button>
+                <button class="category-btn" data-category="world-lore">World Lore</button>
+                <button class="category-btn" data-category="behind-scenes">Behind the Scenes</button>
+                <button class="category-btn" data-category="adventure-tales">Adventure Tales</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Post -->
+    <section class="featured-post-section">
+        <div class="container">
+            <div class="featured-post" data-aos="fade-up">
+                <div class="featured-post-image">
+                    <img src="../assets/images/blog/character-spotlight/doraleous-origin.jpg" alt="The Origin of Doraleous">
+                </div>
+                <div class="featured-post-content">
+                    <div class="post-meta">
+                        <span class="post-category">Character Spotlight</span>
+                        <span class="post-date">March 15, 2024</span>
+                    </div>
+                    <h2 class="featured-post-title">The Origin of Doraleous: From Humble Beginnings to Legendary Hero</h2>
+                    <p class="featured-post-excerpt">
+                        Before he became the leader of the most renowned group of adventurers in the realm, Doraleous was just a young man with a dream and an unbreakable spirit. Discover the untold story of how our hero's journey began and the pivotal moments that shaped him into the warrior we know today.
+                    </p>
+                    <div class="featured-post-actions">
+                        <a href="character-spotlight/doraleous-origin.html" class="btn btn-primary">Read Full Story</a>
+                        <div class="post-stats">
+                            <span class="post-views">4,521 views</span>
+                            <span class="post-comments">67 comments</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Posts Grid -->
+    <section class="blog-posts-section">
+        <div class="container">
+            <div class="blog-posts-grid" data-aos="fade-up" data-aos-delay="100">
+                
+                <!-- CHARACTER SPOTLIGHT POSTS -->
+                <article class="blog-post-card" data-category="character-spotlight">
+                    <div class="post-image">
+                        <img src="../assets/images/blog/character-spotlight/neebs-silverleaf.jpg" alt="Neebs Silverleaf" class="post-thumbnail">
+                    </div>
+                    <div class="post-content">
+                        <div class="post-meta">
+                            <span class="post-category">Character Spotlight</span>
+                            <span class="post-date">March 18, 2024</span>
+                        </div>
+                        <h3 class="post-title">
+                            <a href="character-spotlight/neebs-silverleaf.html">Neebs Silverleaf: The Archer Who Bridged Two Worlds</a>
+                        </h3>
+                        <p class="post-excerpt">
+                            At 127 years old, Neebs Silverleaf represents youth by elven standards, yet his decision to leave the sacred Whisperwood Collective marked him as one of the most revolutionary figures of his generation.
+                        </p>
+                        <div class="post-footer">
+                            <a href="character-spotlight/neebs-silverleaf.html" class="read-more-link">Read More</a>
+                            <span class="post-read-time">7 min read</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="blog-post-card" data-category="character-spotlight">
+                    <div class="post-image">
+                        <img src="../assets/images/blog/character-spotlight/drak-ironforge.jpg" alt="Drak Ironforge" class="post-thumbnail">
+                    </div>
+                    <div class="post-content">
+                        <div class="post-meta">
+                            <span class="post-category">Character Spotlight</span>
+                            <span class="post-date">March 22, 2024</span>
+                        </div>
+                        <h3 class="post-title">
+                            <a href="character-spotlight/drak-ironforge.html">Drak Ironforge: The Exiled Prince Who Chose Honor Over Crown</a>
+                        </h3>
+                        <p class="post-excerpt">
+                            Third son of King Thorek Ironforge, Drak's story represents one of the most painful sacrifices in the chronicles: choosing between family loyalty and moral duty.
+                        </p>
+                        <div class="post-footer">
+                            <a href="character-spotlight/drak-ironforge.html" class="read-more-link">Read More</a>
+                            <span class="post-read-time">9 min read</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="blog-post-card" data-category="character-spotlight">
+                    <div class="post-image">
+                        <img src="../assets/images/blog/character-spotlight/sir-walkin-brightblade.jpg" alt="Sir Walkin Brightblade" class="post-thumbnail">
+                    </div>
+                    <div class="post-content">
+                        <div class="post-meta">
+                            <span class="post-category">Character Spotlight</span>
+                            <span class="post-date">March 25, 2024</span>
+                        </div>
+                        <h3 class="post-title">
+                            <a href="character-spotlight/sir-walkin-brightblade.html">Sir Walkin Brightblade: Faith Tested by Fire</a>
+                        </h3>
+                        <p class="post-excerpt">
+                            The youngest knight in the Order of the Golden Dawn, Sir Walkin represents the next generation of spiritual warriors, bringing unwavering faith and divine calling to bear against supernatural darkness.
+                        </p>
+                        <div class="post-footer">
+                            <a href="character-spotlight/sir-walkin-brightblade.html" class="read-more-link">Read More</a>
+                            <span class="post-read-time">6 min read</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="blog-post-card" data-category="character-spotlight">
+                    <div class="post-image">
+                        <img src="../assets/images/blog/character-spotlight/varsuuvius-learned.jpg" alt="Varsuuvius the Learned" class="post-thumbnail">
+                    </div>
+                    <div class="post-content">
+                        <div class="post-meta">
+                            <span class="post-category">Character Spotlight</span>
+                            <span class="post-date">March 28, 2024</span>
+                        </div>
+                        <h3 class="post-title">
+                            <a href="character-spotlight/varsuuvius-learned.html">Varsuuvius the Learned: The Sage Who Carries the Weight of Ages</a>
+                        </h3>
+                        <p class="post-excerpt">
+                            With purple eyes marking him as one touched by magical forces from birth, Varsuuvius represents 78 years of accumulated wisdom and the burden of knowing how previous heroes failed.
+                        </p>
+                        <div class="post-footer">
+                            <a href="character-spotlight/varsuuvius-learned.html" class="read-more-link">Read More</a>
+                            <span class="post-read-time">10 min read</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- WORLD LORE POSTS -->
+                <article class="blog-post-card" data-category="world-lore">
+                    <div class="post-image">
+                        <img src="../assets/images/blog/world-lore/seven-seals-shadowdepth.jpg" alt="Seven Seals of Shadowdepth" class="post-thumbnail">
+                    </div>
+                    <div class="post-content">
+                        <div class="post-meta">
+                            <span class="post-category">World Lore</span>
+                            <span class="post-date">April 2, 2024</span>
+                        </div>
+                        <h3 class="post-title">
+                            <a href="world-lore/seven-seals-shadowdepth.html">The Seven Seals of Shadowdepth: Ancient Magic That Held Back Darkness</a>
+                        </h3>
+                        <p class="post-excerpt">
+                            Deep beneath the mines outside Drakemount lay one of the most sophisticated magical constructions ever created: a seven-fold prison designed to contain an entity of pure malevolent energy.
+                        </p>
+                        <div class="post-footer">
+                            <a href="world-lore/seven-seals-shadowdepth.html" class="read-more-link">Read More</a>
+                            <span class="post-read-time">8 min read</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="blog-post-card" data-category="world-lore">
+                    <div class="post-image">
+                        <img src="../assets/images/blog/world-lore/whisperwood-collective.jpg" alt="Whisperwood Collective" class="post-thumbnail">
+                    </div>
+                    <div class="post-content">
+                        <div class="post-meta">
+                            <span class="post-category">World Lore</span>
+                            <span class="post-date">April 5, 2024</span>
+                        </div>
+                        <h3 class="post-title">
+                            <a href="world-lore/whisperwood-collective.html">The Whisperwood Collective: Guardians of Ancient Memory</a>
+                        </h3>
+                        <p class="post-excerpt">
+                            For over a thousand years, the elven society of the Whisperwood Collective has maintained one of the most sophisticated information preservation systems in the known world.
+                        </p>
+                        <div class="post-footer">
+                            <a href="world-lore/whisperwood-collective.html" class="read-more-link">Read More</a>
+                            <span class="post-read-time">9 min read</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="blog-post-card" data-category="world-lore">
+                    <div class="post-image">
+                        <img src="../assets/images/blog/world-lore/stoneheart-mountains.jpg" alt="Stoneheart Mountains" class="post-thumbnail">
+                    </div>
+                    <div class="post-content">
+                        <div class="post-meta">
+                            <span class="post-category">World Lore</span>
+                            <span class="post-date">April 8, 2024</span>
+                        </div>
+                        <h3 class="post-title">
+                            <a href="world-lore/stoneheart-mountains.html">The Stoneheart Mountains: Engineering Marvels and Cultural Isolation</a>
+                        </h3>
+                        <p class="post-excerpt">
+                            The dwarven kingdoms carved into the Stoneheart Mountains represent over two millennia of engineering achievement, creating underground cities that rival surface civilizations.
+                        </p>
+                        <div class="post-footer">
+                            <a href="world-lore/stoneheart-mountains.html" class="read-more-link">Read More</a>
+                            <span class="post-read-time">7 min read</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="blog-post-card" data-category="world-lore">
+                    <div class="post-image">
+                        <img src="../assets/images/blog/world-lore/corruption-spread.jpg" alt="Corruption Spread" class="post-thumbnail">
+                    </div>
+                    <div class="post-content">
+                        <div class="post-meta">
+                            <span class="post-category">World Lore</span>
+                            <span class="post-date">April 12, 2024</span>
+                        </div>
+                        <h3 class="post-title">
+                            <a href="world-lore/corruption-spread.html">The Corruption's Spread: How Supernatural Evil Transforms the Natural World</a>
+                        </h3>
+                        <p class="post-excerpt">
+                            The supernatural corruption released from Shadowdepth Mines operates according to principles that challenge conventional understanding of both magical theory and natural law.
+                        </p>
+                        <div class="post-footer">
+                            <a href="world-lore/corruption-spread.html" class="read-more-link">Read More</a>
+                            <span class="post-read-time">11 min read</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="blog-post-card" data-category="world-lore">
+                    <div class="post-image">
+                        <img src="../assets/images/blog/world-lore/ancient-alliances.jpg" alt="Ancient Alliances" class="post-thumbnail">
+                    </div>
+                    <div class="post-content">
+                        <div class="post-meta">
+                            <span class="post-category">World Lore</span>
+                            <span class="post-date">April 15, 2024</span>
+                        </div>
+                        <h3 class="post-title">
+                            <a href="world-lore/ancient-alliances.html">Ancient Alliances: How Different Peoples United Against Ultimate Evil</a>
+                        </h3>
+                        <p class="post-excerpt">
+                            The original alliance that imprisoned the Devourer over a millennium ago represents one of history's most remarkable achievements in inter-cultural cooperation.
+                        </p>
+                        <div class="post-footer">
+                            <a href="world-lore/ancient-alliances.html" class="read-more-link">Read More</a>
+                            <span class="post-read-time">10 min read</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- BEHIND THE SCENES POSTS -->
+                <article class="blog-post-card" data-category="behind-scenes">
+                    <div class="post-image">
+                        <img src="../assets/images/blog/behind-scenes/creating-magic-system.jpg" alt="Creating Magic System" class="post-thumbnail">
+                    </div>
+                    <div class="post-content">
+                        <div class="post-meta">
+                            <span class="post-category">Behind the Scenes</span>
+                            <span class="post-date">April 18, 2024</span>
+                        </div>
+                        <h3 class="post-title">
+                            <a href="behind-scenes/creating-magic-system.html">Creating the Magic System: Balancing Power and Consequence</a>
+                        </h3>
+                        <p class="post-excerpt">
+                            Developing a magic system that serves both narrative drama and logical consistency requires careful attention to the relationship between magical power and personal cost.
+                        </p>
+                        <div class="post-footer">
+                            <a href="behind-scenes/creating-magic-system.html" class="read-more-link">Read More</a>
+                            <span class="post-read-time">8 min read</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="blog-post-card" data-category="behind-scenes">
+                    <div class="post-image">
+                        <img src="../assets/images/blog/behind-scenes/character-development.jpg" alt="Character Development" class="post-thumbnail">
+                    </div>
+                    <div class="post-content">
+                        <div class="post-meta">
+                            <span class="post-category">Behind the Scenes</span>
+                            <span class="post-date">April 22, 2024</span>
+                        </div>
+                        <h3 class="post-title">
+                            <a href="behind-scenes/character-development.html">Character Development Through Conflict: How Heroes Grow Under Pressure</a>
+                        </h3>
+                        <p class="post-excerpt">
+                            Creating authentic character growth requires subjecting protagonists to challenges that test their fundamental beliefs while providing opportunities for moral and practical development.
+                        </p>
+                        <div class="post-footer">
+                            <a href="behind-scenes/character-development.html" class="read-more-link">Read More</a>
+                            <span class="post-read-time">9 min read</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="blog-post-card" data-category="behind-scenes">
+                    <div class="post-image">
+                        <img src="../assets/images/blog/behind-scenes/world-building-philosophy.jpg" alt="World Building Philosophy" class="post-thumbnail">
+                    </div>
+                    <div class="post-content">
+                        <div class="post-meta">
+                            <span class="post-category">Behind the Scenes</span>
+                            <span class="post-date">April 25, 2024</span>
+                        </div>
+                        <h3 class="post-title">
+                            <a href="behind-scenes/world-building-philosophy.html">World-Building Philosophy: Creating Depth Through Interconnection</a>
+                        </h3>
+                        <p class="post-excerpt">
+                            Effective fantasy world-building requires creating systems where political, cultural, magical, and geographical elements influence each other in believable ways.
+                        </p>
+                        <div class="post-footer">
+                            <a href="behind-scenes/world-building-philosophy.html" class="read-more-link">Read More</a>
+                            <span class="post-read-time">12 min read</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="blog-post-card" data-category="behind-scenes">
+                    <div class="post-image">
+                        <img src="../assets/images/blog/behind-scenes/authentic-dialogue.jpg" alt="Authentic Dialogue" class="post-thumbnail">
+                    </div>
+                    <div class="post-content">
+                        <div class="post-meta">
+                            <span class="post-category">Behind the Scenes</span>
+                            <span class="post-date">April 28, 2024</span>
+                        </div>
+                        <h3 class="post-title">
+                            <a href="behind-scenes/authentic-dialogue.html">The Challenge of Authentic Dialogue: Giving Each Culture a Voice</a>
+                        </h3>
+                        <p class="post-excerpt">
+                            Creating distinctive dialogue patterns for different cultures requires balancing authentic linguistic variation with reader comprehension while maintaining character personality.
+                        </p>
+                        <div class="post-footer">
+                            <a href="behind-scenes/authentic-dialogue.html" class="read-more-link">Read More</a>
+                            <span class="post-read-time">7 min read</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="blog-post-card" data-category="behind-scenes">
+                    <div class="post-image">
+                        <img src="../assets/images/blog/behind-scenes/research-inspiration.jpg" alt="Research and Inspiration" class="post-thumbnail">
+                    </div>
+                    <div class="post-content">
+                        <div class="post-meta">
+                            <span class="post-category">Behind the Scenes</span>
+                            <span class="post-date">May 2, 2024</span>
+                        </div>
+                        <h3 class="post-title">
+                            <a href="behind-scenes/research-inspiration.html">Research and Inspiration: Building on Literary Traditions</a>
+                        </h3>
+                        <p class="post-excerpt">
+                            Creating original fantasy that honors classic traditions while offering fresh perspectives requires extensive research into mythological sources and literary precedents.
+                        </p>
+                        <div class="post-footer">
+                            <a href="behind-scenes/research-inspiration.html" class="read-more-link">Read More</a>
+                            <span class="post-read-time">10 min read</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ADVENTURE TALES POSTS -->
+                <article class="blog-post-card" data-category="adventure-tales">
+                    <div class="post-image">
+                        <img src="../assets/images/blog/adventure-tales/battle-of-millbrook.jpg" alt="Battle of Millbrook" class="post-thumbnail">
+                    </div>
+                    <div class="post-content">
+                        <div class="post-meta">
+                            <span class="post-category">Adventure Tales</span>
+                            <span class="post-date">May 5, 2024</span>
+                        </div>
+                        <h3 class="post-title">
+                            <a href="adventure-tales/battle-of-millbrook.html">The Battle of Millbrook: When One Knight Stood Against the Darkness</a>
+                        </h3>
+                        <p class="post-excerpt">
+                            In the annals of heroic deeds, few single-handed defenses compare to Sir Walkin Brightblade's protection of Millbrook village against overwhelming supernatural forces.
+                        </p>
+                        <div class="post-footer">
+                            <a href="adventure-tales/battle-of-millbrook.html" class="read-more-link">Read More</a>
+                            <span class="post-read-time">9 min read</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="blog-post-card" data-category="adventure-tales">
+                    <div class="post-image">
+                        <img src="../assets/images/blog/adventure-tales/heist-at-irongate.jpg" alt="Heist at Irongate" class="post-thumbnail">
+                    </div>
+                    <div class="post-content">
+                        <div class="post-meta">
+                            <span class="post-category">Adventure Tales</span>
+                            <span class="post-date">May 8, 2024</span>
+                        </div>
+                        <h3 class="post-title">
+                            <a href="adventure-tales/heist-at-irongate.html">The Heist at Irongate: Stealing Hope from the Mountain Kings</a>
+                        </h3>
+                        <p class="post-excerpt">
+                            The infiltration of the royal dwarven armories represents one of the most daring operations in resistance history, as Drak Ironforge led volunteer fighters in stealing blessed weapons.
+                        </p>
+                        <div class="post-footer">
+                            <a href="adventure-tales/heist-at-irongate.html" class="read-more-link">Read More</a>
+                            <span class="post-read-time">11 min read</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="blog-post-card" data-category="adventure-tales">
+                    <div class="post-image">
+                        <img src="../assets/images/blog/adventure-tales/labyrinth-of-souls.jpg" alt="Labyrinth of Souls" class="post-thumbnail">
+                    </div>
+                    <div class="post-content">
+                        <div class="post-meta">
+                            <span class="post-category">Adventure Tales</span>
+                            <span class="post-date">May 12, 2024</span>
+                        </div>
+                        <h3 class="post-title">
+                            <a href="adventure-tales/labyrinth-of-souls.html">The Labyrinth of Souls: Personal Trials in the Heart of Darkness</a>
+                        </h3>
+                        <p class="post-excerpt">
+                            Within the Devourer's fortress, each companion faced personalized psychological warfare designed to exploit individual weaknesses and fears while separating them from mutual support.
+                        </p>
+                        <div class="post-footer">
+                            <a href="adventure-tales/labyrinth-of-souls.html" class="read-more-link">Read More</a>
+                            <span class="post-read-time">13 min read</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="blog-post-card" data-category="adventure-tales">
+                    <div class="post-image">
+                        <img src="../assets/images/blog/adventure-tales/underground-war.jpg" alt="Underground War" class="post-thumbnail">
+                    </div>
+                    <div class="post-content">
+                        <div class="post-meta">
+                            <span class="post-category">Adventure Tales</span>
+                            <span class="post-date">May 15, 2024</span>
+                        </div>
+                        <h3 class="post-title">
+                            <a href="adventure-tales/underground-war.html">The Underground War: Drak's Campaign Beneath the Mountains</a>
+                        </h3>
+                        <p class="post-excerpt">
+                            While surface forces prepared for open battle, Drak Ironforge led a shadow campaign through underground networks that revealed the true scope of supernatural corruption's expansion strategy.
+                        </p>
+                        <div class="post-footer">
+                            <a href="adventure-tales/underground-war.html" class="read-more-link">Read More</a>
+                            <span class="post-read-time">10 min read</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="blog-post-card" data-category="adventure-tales">
+                    <div class="post-image">
+                        <img src="../assets/images/blog/adventure-tales/final-convergence.jpg" alt="Final Convergence" class="post-thumbnail">
+                    </div>
+                    <div class="post-content">
+                        <div class="post-meta">
+                            <span class="post-category">Adventure Tales</span>
+                            <span class="post-date">May 18, 2024</span>
+                        </div>
+                        <h3 class="post-title">
+                            <a href="adventure-tales/final-convergence.html">The Final Convergence: When Heroes Unite Against Ultimate Evil</a>
+                        </h3>
+                        <p class="post-excerpt">
+                            The climactic battle in the Devourer's central chamber represents the pinnacle of coordinated heroism, as five companions combined their unique capabilities in sophisticated tactical cooperation.
+                        </p>
+                        <div class="post-footer">
+                            <a href="adventure-tales/final-convergence.html" class="read-more-link">Read More</a>
+                            <span class="post-read-time">12 min read</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="blog-post-card" data-category="adventure-tales">
+                    <div class="post-image">
+                        <img src="../assets/images/blog/adventure-tales/wyvern-king-sacrifice.jpg" alt="Wyvern King Sacrifice" class="post-thumbnail">
+                    </div>
+                    <div class="post-content">
+                        <div class="post-meta">
+                            <span class="post-category">Adventure Tales</span>
+                            <span class="post-date">May 22, 2024</span>
+                        </div>
+                        <h3 class="post-title">
+                            <a href="adventure-tales/wyvern-king-sacrifice.html">The Wyvern King's Sacrifice: Redemption Through Ultimate Choice</a>
+                        </h3>
+                        <p class="post-excerpt">
+                            The ancient guardian's final decision to resist corruption and support the resistance required sacrificing accumulated power and potentially his existence to break the spiritual connection.
+                        </p>
+                        <div class="post-footer">
+                            <a href="adventure-tales/wyvern-king-sacrifice.html" class="read-more-link">Read More</a>
+                            <span class="post-read-time">14 min read</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Doraleous and Associates</h3>
+                    <p>Join the legendary adventures of brave heroes as they face ancient evils and forge unbreakable bonds of friendship in a world where courage defines destiny.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="../about.html">About</a></li>
+                        <li><a href="../books/index.html">Books</a></li>
+                        <li><a href="index.html">Blog</a></li>
+                        <li><a href="../contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Categories</h3>
+                    <ul class="footer-links">
+                        <li><a href="#character-spotlight">Character Spotlight</a></li>
+                        <li><a href="#world-lore">World Lore</a></li>
+                        <li><a href="#behind-scenes">Behind the Scenes</a></li>
+                        <li><a href="#adventure-tales">Adventure Tales</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Stay Updated</h3>
+                    <p>Subscribe to our newsletter for the latest updates and exclusive content.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email address" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Doraleous and Associates. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="../assets/js/core/main.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+
+        // Blog category filtering
+        document.addEventListener('DOMContentLoaded', function() {
+            const categoryBtns = document.querySelectorAll('.category-btn');
+            const blogCards = document.querySelectorAll('.blog-post-card');
+
+            categoryBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const category = this.dataset.category;
+                    
+                    // Update active button
+                    categoryBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Filter posts
+                    blogCards.forEach(card => {
+                        if (category === 'all' || card.dataset.category === category) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
