@@ -1,1 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Heist at Irongate: Stealing Hope from the Mountain Kings - Doraleous and Associates Blog</title>
+    <meta name="description" content="When the dwarven fortress of Irongate fell to corruption, the heroes faced an impossible task: infiltrate the impregnable stronghold and retrieve the sacred artifacts needed to save the realm.">
+    <meta name="keywords" content="Irongate, dwarven fortress, heist, adventure tales, fantasy, sacred artifacts, corruption">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="The Heist at Irongate: Stealing Hope from the Mountain Kings">
+    <meta property="og:description" content="When the dwarven fortress of Irongate fell to corruption, the heroes faced an impossible task: infiltrate the impregnable stronghold">
+    <meta property="og:image" content="../../assets/images/blog/adventure-tales/heist-at-irongate.jpg">
+    <meta property="og:url" content="https://brianmshoemaker.com/blog/adventure-tales/heist-at-irongate.html">
+    <meta property="og:type" content="article">
+    
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="The Heist at Irongate: Stealing Hope from the Mountain Kings">
+    <meta name="twitter:description" content="When the dwarven fortress of Irongate fell to corruption, the heroes faced an impossible task: infiltrate the impregnable stronghold">
+    <meta name="twitter:image" content="../../assets/images/blog/adventure-tales/heist-at-irongate.jpg">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            font-family: 'Libre Baskerville', serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-decoration: none;
+            color: #f39c12;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #f39c12;
+        }
+
+        /* Blog Post Header */
+        .blog-post-header {
+            background: linear-gradient(135deg, #5d4e75 0%, #4a3d5b 100%);
+            color: white;
+            padding: 4rem 0 2rem;
+            text-align: center;
+        }
+
+        .breadcrumb {
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            opacity: 0.8;
+        }
+
+        .breadcrumb a {
+            color: #f39c12;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .post-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .post-meta {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .post-meta span {
+            padding: 0.25rem 0.75rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        /* Blog Post Content */
+        .blog-post-content {
+            padding: 4rem 0;
+        }
+
+        .post-content {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .post-content .lead {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: #34495e;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #f39c12;
+        }
+
+        .post-content p {
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
+        .post-content h2 {
+            font-family: 'Cinzel', serif;
+            color: #2c3e50;
+            margin: 2rem 0 1rem;
+            font-size: 1.5rem;
+        }
+
+        /* Post Navigation */
+        .post-navigation {
+            background: #5d4e75;
+            padding: 2rem 0;
+            color: white;
+        }
+
+        .nav-links-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: white;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #f39c12;
+        }
+
+        .nav-link span {
+            margin: 0 0.5rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a1a2e;
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            font-family: 'Cinzel', serif;
+            color: #f39c12;
+            margin-bottom: 1rem;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #34495e;
+            opacity: 0.8;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .post-title {
+                font-size: 2rem;
+            }
+            
+            .post-content {
+                padding: 2rem;
+            }
+            
+            .nav-links-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav-container">
+                <a href="../../index.html" class="logo">Doraleous and Associates</a>
+                <ul class="nav-links">
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="../index.html">Blog</a></li>
+                    <li><a href="../../characters.html">Characters</a></li>
+                    <li><a href="../../world.html">World</a></li>
+                    <li><a href="../../episodes.html">Episodes</a></li>
+                    <li><a href="../../about.html">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Blog Post Header -->
+    <section class="blog-post-header">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="../../index.html">Home</a> > 
+                <a href="../index.html">Blog</a> > 
+                <a href="../index.html#adventure-tales">Adventure Tales</a> > 
+                <span>The Heist at Irongate</span>
+            </div>
+            <h1 class="post-title">The Heist at Irongate: Stealing Hope from the Mountain Kings</h1>
+            <div class="post-meta">
+                <span class="post-date">May 8, 2024</span>
+                <span class="post-category">Adventure Tales</span>
+                <span class="read-time">11 min read</span>
+                <span class="post-views">6,789 views</span>
+                <span class="post-comments">98 comments</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Post Content -->
+    <article class="blog-post-content">
+        <div class="container">
+            <div class="post-content">
+                <p class="lead">When the dwarven fortress of Irongate fell to corruption, the heroes faced an impossible task: infiltrate the impregnable stronghold and retrieve the sacred artifacts needed to save the realm.</p>
+                
+                <p>The fortress of Irongate had stood unconquered for over a thousand years, its massive walls carved directly from the living rock of Mount Stormhold. Even in its corrupted state, with shadow magic twisting its ancient defenses, the stronghold remained a masterpiece of dwarven engineering that had never been breached by enemy forces.</p>
+                
+                <p>But the heroes weren't planning to lay siege to Irongate—they were going to steal from it. Hidden within the fortress's deepest vaults lay the Hammer of Kings, a sacred artifact that could shatter the magical bonds holding the realm's protectors in thrall. Without it, the corruption would spread beyond any hope of containment.</p>
+                
+                <p>The plan required every member of the company to play a crucial role. Neebs would use his elven stealth and knowledge of ancient passages to guide them through the fortress's outer defenses. Varsuuvius had studied the magical wards that protected the vault, finding a narrow window of vulnerability that would last only minutes.</p>
+                
+                <p>Drak's intimate knowledge of dwarven architecture, gained during his years of exile among the mountain folk, provided the key to navigating the fortress's labyrinthine interior. Meanwhile, Doraleous would lead the assault team that would create a diversion, drawing the corrupted guards away from the vault level.</p>
+                
+                <p>Sir Walkin's role was perhaps the most dangerous: he would face the corrupted dwarven king in single combat, buying precious time for the others to complete their mission. The king had been transformed into something monstrous by the shadow magic, but traces of his former nobility remained—making him vulnerable to the knight's unwavering faith.</p>
+                
+                <p>The infiltration began at midnight, when the fortress's magical defenses were at their weakest. Neebs led the team through a forgotten mining tunnel that connected to the fortress's lower levels, a passage so narrow that they had to crawl through sections of collapsed stonework.</p>
+                
+                <p>Inside the fortress, the corruption had transformed the once-proud halls into a nightmare landscape. The walls wept with dark ichor, and the very air seemed to whisper with malevolent voices. Corrupted dwarven guards patrolled the corridors, their eyes glowing with unnatural light and their beards stained black with shadow magic.</p>
+                
+                <p>Varsuuvius worked frantically to disable the vault's magical protections while the others held their position. The wards were more complex than anticipated, requiring delicate manipulation of spell components while under constant threat of discovery. One wrong move would trigger alarms that would bring the entire fortress down upon them.</p>
+                
+                <p>The diversion worked perfectly—almost too perfectly. Doraleous's team found themselves facing not just corrupted guards, but twisted creatures born from the shadow magic itself. The battle was fierce and desperate, with the fate of the mission hanging in the balance as they fought to maintain their position.</p>
+                
+                <p>In the throne room, Sir Walkin faced the corrupted king in a battle that was as much spiritual as physical. The king retained enough of his former self to remember honor and duty, creating openings that the knight could exploit while appealing to the monarch's buried nobility.</p>
+                
+                <p>The moment of triumph came when Drak's team reached the vault and claimed the Hammer of Kings. The sacred weapon's power immediately began to push back against the corruption, creating a expanding bubble of purified air that allowed the heroes to breathe freely for the first time since entering the fortress.</p>
+                
+                <p>But their escape was anything but guaranteed. The fortress's defenses, now fully awakened, turned the very architecture against them. Passages sealed themselves, stairs crumbled, and the walls themselves seemed to reach out with grasping stone fingers.</p>
+                
+                <p>The heroes fought their way through collapsing corridors and past increasingly desperate enemies, the Hammer of Kings blazing with divine light that cut through the shadow magic like a sword through silk. By the time they reached the tunnel entrance, the entire fortress was shaking itself apart in its fury.</p>
+                
+                <p>They emerged into the dawn light battered and exhausted, but victorious. The Hammer of Kings had been rescued from the darkness, and with it, the hope of restoring the realm's defenders. The heist at Irongate had succeeded against impossible odds, proving that even the most impregnable fortress could be breached by heroes willing to risk everything for the greater good.</p>
+                
+                <p>The fortress of Irongate eventually collapsed in on itself, but its sacrifice had not been in vain. The sacred hammer would play a crucial role in the final battle against the forces of corruption, its power magnified by the courage of those who had dared to steal hope from the very heart of darkness.</p>
+            </div>
+        </div>
+    </article>
+
+    <!-- Post Navigation -->
+    <section class="post-navigation">
+        <div class="container">
+            <div class="nav-links-container">
+                <a href="battle-of-millbrook.html" class="nav-link">
+                    <span>←</span>
+                    <span>Previous: The Battle of Millbrook</span>
+                </a>
+                <a href="labyrinth-of-souls.html" class="nav-link">
+                    <span>Next: The Labyrinth of Souls</span>
+                    <span>→</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Doraleous and Associates</h3>
+                    <p>Following the legendary adventures of brave heroes as they face ancient evils and forge unbreakable bonds of friendship.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <p><a href="../../characters.html" style="color: #f39c12;">Characters</a></p>
+                    <p><a href="../../world.html" style="color: #f39c12;">World</a></p>
+                    <p><a href="../../episodes.html" style="color: #f39c12;">Episodes</a></p>
+                    <p><a href="../index.html" style="color: #f39c12;">Blog</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect</h3>
+                    <p>Join our community of fantasy enthusiasts and stay updated on the latest adventures.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Doraleous and Associates. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
