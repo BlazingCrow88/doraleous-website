@@ -69,9 +69,15 @@
             border-bottom: 1px solid rgba(218, 165, 32, 0.3);
         }
 
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
         .nav-brand .brand-link {
             font-family: 'Cinzel', serif;
-            font-size: 1.4rem;
+            font-size: 1.8rem;
             font-weight: 700;
             color: #DAA520;
             text-decoration: none;
@@ -85,45 +91,6 @@
         .brand-logo {
             height: 32px;
             width: auto;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-link {
-            color: #e8e8e8;
-            text-decoration: none;
-            font-family: 'Cinzel', serif;
-            font-weight: 500;
-            font-size: 0.95rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .nav-link:hover,
-        .nav-link.active {
-            color: #DAA520;
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, #DAA520, #B8860B);
-            transition: width 0.3s ease;
-        }
-
-        .nav-link:hover::after,
-        .nav-link.active::after {
-            width: 100%;
         }
 
         /* Page Header */
@@ -518,30 +485,8 @@
             font-family: 'Crimson Text', serif;
         }
 
-        /* Mobile Navigation Toggle */
-        .nav-toggle {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            gap: 3px;
-        }
-
-        .nav-toggle span {
-            width: 25px;
-            height: 3px;
-            background: #DAA520;
-            transition: all 0.3s ease;
-        }
-
         /* Responsive Design */
         @media (max-width: 768px) {
-            .nav-toggle {
-                display: flex;
-            }
-            
-            .nav-links {
-                display: none;
-            }
             
             .page-title {
                 font-size: 2.5rem;
@@ -571,6 +516,10 @@
                 padding: 0 15px;
             }
             
+            .nav-brand .brand-link {
+                font-size: 1.2rem;
+            }
+            
             .page-header {
                 padding: 10rem 0 4rem;
             }
@@ -592,40 +541,8 @@
             <div class="nav-brand">
                 <a href="../index.html" class="brand-link">
                     <img src="../assets/images/logo/logo-main.png" alt="Doraleous and Associates" class="brand-logo">
-                    <span class="brand-text">The Chronicles</span>
+                    <span class="brand-text">Doraleous and Associates</span>
                 </a>
-            </div>
-            <div class="nav-menu">
-                <ul class="nav-links">
-                    <li class="nav-item">
-                        <a href="../index.html" class="nav-link">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="../about.html" class="nav-link">About</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a href="../books/index.html" class="nav-link">Books</a>
-                        <ul class="dropdown-menu">
-                            <li><a href="../books/doraleous-associates/index.html" class="dropdown-link">Doraleous and Associates</a></li>
-                            <li><a href="../books/doraleous-associates/characters.html" class="dropdown-link">Character Guide</a></li>
-                            <li><a href="../books/doraleous-associates/read-excerpt.html" class="dropdown-link">Read Excerpt</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a href="index.html" class="nav-link active">Blog</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="../media-kit.html" class="nav-link">Media Kit</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="../contact.html" class="nav-link">Contact</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="nav-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
             </div>
         </div>
     </nav>
