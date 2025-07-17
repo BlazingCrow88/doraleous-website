@@ -126,12 +126,42 @@
             background: rgba(255, 215, 0, 0.1);
         }
 
-        /* Page Header */
+        /* Page Header - Matches Books Page Styling */
         .page-header {
-            background: linear-gradient(135deg, rgba(20, 20, 20, 0.9), rgba(27, 67, 50, 0.7));
+            background: linear-gradient(135deg, 
+                rgba(10, 10, 10, 0.9) 0%, 
+                rgba(27, 67, 50, 0.7) 25%, 
+                rgba(139, 0, 0, 0.6) 50%, 
+                rgba(27, 67, 50, 0.7) 75%, 
+                rgba(10, 10, 10, 0.9) 100%);
             padding: 8rem 0 4rem 0;
             text-align: center;
             border-bottom: 3px solid rgba(255, 215, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="1" fill="rgba(255,215,0,0.05)"/></svg>') repeat;
+            background-size: 100px 100px;
+            animation: sparkle 30s linear infinite;
+            z-index: 1;
+        }
+
+        @keyframes sparkle {
+            0% { transform: translateX(0) translateY(0); }
+            100% { transform: translateX(-100px) translateY(-100px); }
+        }
+
+        .page-header .container {
+            position: relative;
+            z-index: 2;
         }
 
         .page-title {
