@@ -1,8 +1,3 @@
-/* ===================================
- CONTACT PAGE HTML
- File: contact.html
- =================================== */
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,66 +25,506 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
     
-    <!-- CSS Files -->
-    <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="stylesheet" href="assets/css/components/navigation.css">
-    <link rel="stylesheet" href="assets/css/components/forms.css">
-    <link rel="stylesheet" href="assets/css/layouts/contact.css">
-    <link rel="stylesheet" href="assets/css/responsive/mobile.css">
-    <link rel="stylesheet" href="assets/css/responsive/tablet.css">
-    <link rel="stylesheet" href="assets/css/responsive/desktop.css">
-    
     <!-- AOS Animation Library -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
     
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="assets/images/ui/favicon.ico">
+    
+    <style>
+        /* ===================================
+           ENHANCED CONTACT FORM STYLES
+           Dark Fantasy Theme for Doraleous and Associates
+           =================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: linear-gradient(135deg, 
+                rgba(10, 10, 10, 0.95) 0%, 
+                rgba(27, 67, 50, 0.4) 30%, 
+                rgba(139, 0, 0, 0.4) 70%, 
+                rgba(10, 10, 10, 0.95) 100%);
+            min-height: 100vh;
+            color: #e0e0e0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Navigation Styles */
+        .main-navigation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid rgba(255, 215, 0, 0.3);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 80px;
+        }
+
+        .brand-name {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #FFD700, #B7881F);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-list {
+            display: flex;
+            list-style: none;
+            gap: 3rem;
+            margin: 0;
+            padding: 0;
+            align-items: center;
+        }
+
+        .nav-link {
+            font-family: 'Cinzel', serif;
+            font-weight: 500;
+            font-size: 1rem;
+            color: #FFD700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border-radius: 5px;
+        }
+
+        .nav-link:hover {
+            color: #B7881F;
+            background: rgba(255, 215, 0, 0.1);
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, rgba(20, 20, 20, 0.9), rgba(27, 67, 50, 0.7));
+            padding: 8rem 0 4rem 0;
+            text-align: center;
+            border-bottom: 3px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .page-title {
+            font-family: 'Cinzel', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #FFD700;
+            margin-bottom: 1rem;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
+        }
+
+        .page-subtitle {
+            font-size: 1.3rem;
+            color: #d0d0d0;
+            font-weight: 300;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Contact Methods Section */
+        .contact-methods-section {
+            padding: 4rem 0;
+            background: rgba(20, 20, 20, 0.5);
+        }
+
+        .contact-methods-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-method {
+            background: rgba(30, 30, 30, 0.8);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            border: 2px solid rgba(255, 215, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .contact-method:hover {
+            border-color: rgba(255, 215, 0, 0.5);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(255, 215, 0, 0.1);
+        }
+
+        .method-icon {
+            color: #FFD700;
+            margin-bottom: 1rem;
+        }
+
+        .method-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            color: #FFD700;
+            margin-bottom: 1rem;
+        }
+
+        .method-description {
+            color: #b0b0b0;
+            margin-bottom: 1rem;
+        }
+
+        .method-contact {
+            color: #FFD700;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .method-contact:hover {
+            color: #B7881F;
+        }
+
+        /* ENHANCED CONTACT FORM SECTION */
+        .contact-form-section {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, 
+                rgba(20, 20, 20, 0.9) 0%, 
+                rgba(27, 67, 50, 0.6) 50%, 
+                rgba(20, 20, 20, 0.9) 100%);
+        }
+
+        .contact-form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(30, 30, 30, 0.95);
+            padding: 3rem;
+            border-radius: 15px;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .form-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            color: #FFD700;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        .form-description {
+            color: #c0c0c0;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        /* FORM STYLING - MADE HIGHLY VISIBLE */
+        .contact-form {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-label {
+            font-family: 'Cinzel', serif;
+            font-weight: 600;
+            color: #FFD700;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        /* HIGHLY VISIBLE FORM INPUTS */
+        .form-input,
+        .form-select,
+        .form-textarea {
+            width: 100%;
+            padding: 1.2rem 1rem;
+            background: rgba(50, 50, 50, 0.9);
+            border: 2px solid rgba(255, 215, 0, 0.4);
+            border-radius: 8px;
+            color: #ffffff;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            outline: none;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .form-input::placeholder,
+        .form-textarea::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+            font-style: italic;
+        }
+
+        /* FOCUS AND HOVER STATES */
+        .form-input:focus,
+        .form-select:focus,
+        .form-textarea:focus {
+            border-color: #FFD700;
+            background: rgba(60, 60, 60, 0.95);
+            box-shadow: 
+                inset 0 2px 4px rgba(0, 0, 0, 0.3),
+                0 0 0 3px rgba(255, 215, 0, 0.2);
+            color: #ffffff;
+        }
+
+        .form-input:hover,
+        .form-select:hover,
+        .form-textarea:hover {
+            border-color: rgba(255, 215, 0, 0.6);
+            background: rgba(55, 55, 55, 0.9);
+        }
+
+        /* SELECT DROPDOWN STYLING */
+        .form-select {
+            cursor: pointer;
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23FFD700' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+            background-position: right 1rem center;
+            background-repeat: no-repeat;
+            background-size: 1.5em 1.5em;
+            padding-right: 3rem;
+        }
+
+        .form-select option {
+            background: #333333;
+            color: #ffffff;
+            padding: 0.5rem;
+        }
+
+        /* TEXTAREA SPECIFIC */
+        .form-textarea {
+            min-height: 120px;
+            resize: vertical;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        /* CHECKBOX STYLING */
+        .form-checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: #c0c0c0;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+
+        .form-checkbox {
+            width: 18px;
+            height: 18px;
+            accent-color: #FFD700;
+            cursor: pointer;
+        }
+
+        .checkbox-text {
+            font-size: 0.95rem;
+            line-height: 1.4;
+        }
+
+        /* SUBMIT BUTTON */
+        .form-actions {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, #FFD700, #B7881F);
+            color: #1a1a1a;
+            border: none;
+            border-radius: 8px;
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+        }
+
+        .btn:hover {
+            background: linear-gradient(135deg, #B7881F, #FFD700);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .form-privacy {
+            color: #a0a0a0;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            line-height: 1.4;
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 0 1rem;
+            }
+
+            .page-title {
+                font-size: 2.5rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-form-container {
+                padding: 2rem;
+                margin: 0 1rem;
+            }
+
+            .nav-list {
+                gap: 1.5rem;
+            }
+
+            .nav-link {
+                font-size: 0.9rem;
+                padding: 0.25rem 0.75rem;
+            }
+        }
+
+        /* Additional sections styling */
+        .response-info-section,
+        .social-media-section,
+        .faq-section {
+            padding: 4rem 0;
+            background: rgba(20, 20, 20, 0.6);
+        }
+
+        .section-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            color: #FFD700;
+            text-align: center;
+            margin-bottom: 3rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        .timeline-item,
+        .faq-item {
+            background: rgba(30, 30, 30, 0.8);
+            padding: 2rem;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            margin-bottom: 1.5rem;
+        }
+
+        .timeline-title,
+        .faq-question {
+            font-family: 'Cinzel', serif;
+            color: #FFD700;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-description,
+        .faq-answer {
+            color: #c0c0c0;
+            line-height: 1.6;
+        }
+
+        /* Mobile navigation toggle */
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: #FFD700;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .nav-toggle {
+                display: block;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
-   <nav class="main-navigation" id="main-nav">
-    <div class="nav-container">
-        <div class="nav-brand">
-            <a href="index.html" class="brand-link">
-                <h1 class="brand-name">Doraleous and Associates</h1>
-            </a>
+    <nav class="main-navigation" id="main-nav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="index.html" class="brand-link">
+                    <h1 class="brand-name">Doraleous and Associates</h1>
+                </a>
+            </div>
+            
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+                <span>☰</span>
+            </button>
+            
+            <div class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="books/index.html" class="nav-link">Books</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="blog/index.html" class="nav-link">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="media-kit.html" class="nav-link">Media Kit</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">Contact</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-        
-        <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
-        </button>
-        
-        <div class="nav-menu" id="nav-menu">
-            <ul class="nav-list">
-                <li class="nav-item">
-                    <a href="index.html" class="nav-link">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a href="about.html" class="nav-link">About</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a href="books/index.html" class="nav-link">Books</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="books/doraleous-associates/index.html" class="dropdown-link">Doraleous and Associates</a></li>
-                        <li><a href="books/doraleous-associates/characters.html" class="dropdown-link">Character Guide</a></li>
-                        <li><a href="books/doraleous-associates/read-excerpt.html" class="dropdown-link">Read Excerpt</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a href="blog/index.html" class="nav-link">Blog</a>
-                </li>
-                <li class="nav-item">
-                    <a href="media-kit.html" class="nav-link">Media Kit</a>
-                </li>
-                <li class="nav-item">
-                    <a href="contact.html" class="nav-link">Contact</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
+    </nav>
 
     <!-- Page Header -->
     <section class="page-header">
@@ -160,18 +595,18 @@
                     <div class="form-row">
                         <div class="form-group">
                             <label for="contact-name" class="form-label">Full Name *</label>
-                            <input type="text" id="contact-name" name="name" class="form-input" required>
+                            <input type="text" id="contact-name" name="name" class="form-input" required placeholder="Enter your full name">
                         </div>
                         <div class="form-group">
                             <label for="contact-email" class="form-label">Email Address *</label>
-                            <input type="email" id="contact-email" name="email" class="form-input" required>
+                            <input type="email" id="contact-email" name="email" class="form-input" required placeholder="your.email@example.com">
                         </div>
                     </div>
                     
                     <div class="form-row">
                         <div class="form-group">
                             <label for="contact-phone" class="form-label">Phone Number</label>
-                            <input type="tel" id="contact-phone" name="phone" class="form-input">
+                            <input type="tel" id="contact-phone" name="phone" class="form-input" placeholder="(555) 123-4567">
                         </div>
                         <div class="form-group">
                             <label for="contact-subject" class="form-label">Subject *</label>
@@ -215,67 +650,20 @@
     <section class="response-info-section">
         <div class="container">
             <div class="response-info-content" data-aos="fade-up">
-                <h2 class="response-title">What to Expect</h2>
+                <h2 class="section-title">What to Expect</h2>
                 <div class="response-timeline">
                     <div class="timeline-item">
-                        <div class="timeline-marker"></div>
-                        <div class="timeline-content">
-                            <h3 class="timeline-title">Immediate Confirmation</h3>
-                            <p class="timeline-description">You will receive an automated confirmation email within minutes of submitting your message.</p>
-                        </div>
+                        <h3 class="timeline-title">Immediate Confirmation</h3>
+                        <p class="timeline-description">You will receive an automated confirmation email within minutes of submitting your message.</p>
                     </div>
                     <div class="timeline-item">
-                        <div class="timeline-marker"></div>
-                        <div class="timeline-content">
-                            <h3 class="timeline-title">Personal Response</h3>
-                            <p class="timeline-description">Brian personally reviews and responds to all messages within 48 hours during business days.</p>
-                        </div>
+                        <h3 class="timeline-title">Personal Response</h3>
+                        <p class="timeline-description">Brian personally reviews and responds to all messages within 48 hours during business days.</p>
                     </div>
                     <div class="timeline-item">
-                        <div class="timeline-marker"></div>
-                        <div class="timeline-content">
-                            <h3 class="timeline-title">Follow-up</h3>
-                            <p class="timeline-description">For complex inquiries or collaboration opportunities, expect follow-up communication within one week.</p>
-                        </div>
+                        <h3 class="timeline-title">Follow-up</h3>
+                        <p class="timeline-description">For complex inquiries or collaboration opportunities, expect follow-up communication within one week.</p>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Social Media Section -->
-    <section class="social-media-section">
-        <div class="container">
-            <div class="social-media-content" data-aos="fade-up">
-                <h2 class="social-title">Connect on Social Media</h2>
-                <p class="social-description">
-                    Follow Brian on social media for daily updates, behind-the-scenes content, and engaging discussions about fantasy literature.
-                </p>
-                <div class="social-links-large">
-                    <a href="#" class="social-link-large facebook" aria-label="Follow on Facebook">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                        </svg>
-                        <span class="social-text">Facebook</span>
-                    </a>
-                    <a href="#" class="social-link-large twitter" aria-label="Follow on Twitter">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
-                        </svg>
-                        <span class="social-text">Twitter</span>
-                    </a>
-                    <a href="#" class="social-link-large instagram" aria-label="Follow on Instagram">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                        </svg>
-                        <span class="social-text">Instagram</span>
-                    </a>
-                    <a href="#" class="social-link-large linkedin" aria-label="Follow on LinkedIn">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                        </svg>
-                        <span class="social-text">LinkedIn</span>
-                    </a>
                 </div>
             </div>
         </div>
@@ -310,80 +698,69 @@
                         Book club visits are one of Brian's favorite activities. Contact us with your club's meeting details, preferred format (in-person or virtual), and any specific topics you'd like to discuss. Virtual visits are available for clubs anywhere in the world.
                     </p>
                 </div>
-                <div class="faq-item">
-                    <h3 class="faq-question">When will the next book in the series be released?</h3>
-                    <p class="faq-answer">
-                        The second book in the Doraleous series is currently in development with an expected release in Spring 2025. Subscribe to the newsletter for the latest updates on publication dates and exclusive previews.
-                    </p>
-                </div>
-                <div class="faq-item">
-                    <h3 class="faq-question">Do you offer personalized book dedications?</h3>
-                    <p class="faq-answer">
-                        Yes! For special occasions or gifts, Brian can provide personalized dedications. Please contact us with your request, including the recipient's name and any specific message you'd like included.
-                    </p>
-                </div>
             </div>
         </div>
     </section>
 
-    <!-- JavaScript Files -->
+    <!-- JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script src="assets/js/main.js"></script>
-    
-    <!-- Add this JavaScript to make the mobile navigation work -->
     <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const navToggle = document.getElementById('nav-toggle');
-        const navMenu = document.getElementById('nav-menu');
-        
-        if (navToggle && navMenu) {
-            navToggle.addEventListener('click', function() {
-                navMenu.classList.toggle('active');
-                navToggle.classList.toggle('active');
-                document.body.classList.toggle('menu-open');
-            });
-        }
-        
-        // Close mobile menu when clicking on a link
-        const navLinks = document.querySelectorAll('.nav-link');
-        navLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                navMenu.classList.remove('active');
-                navToggle.classList.remove('active');
-                document.body.classList.remove('menu-open');
-            });
-        });
-        
-        // Navigation scroll effect
-        const mainNav = document.getElementById('main-nav');
-        if (mainNav) {
-            window.addEventListener('scroll', function() {
-                if (window.scrollY > 50) {
-                    mainNav.classList.add('scrolled');
-                } else {
-                    mainNav.classList.remove('scrolled');
-                }
-            });
-        }
-    });
-    </script>
-    
-    <!-- Initialize AOS Animation -->
-    <script>
+        // Initialize AOS Animation
         AOS.init({
             duration: 1000,
             once: true,
             offset: 100
         });
-    </script>
 
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'GA_MEASUREMENT_ID');
+        // Form submission handling
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Simple form validation
+            const name = document.getElementById('contact-name').value.trim();
+            const email = document.getElementById('contact-email').value.trim();
+            const subject = document.getElementById('contact-subject').value;
+            const message = document.getElementById('contact-message').value.trim();
+            
+            if (!name || !email || !subject || !message) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+            
+            if (!isValidEmail(email)) {
+                alert('Please enter a valid email address.');
+                return;
+            }
+            
+            // Simulate form submission
+            const submitBtn = document.querySelector('.btn');
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                alert('Thank you for your message! We will respond within 48 hours.');
+                this.reset();
+                submitBtn.textContent = 'Send Message';
+                submitBtn.disabled = false;
+            }, 2000);
+        });
+        
+        function isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        // Mobile navigation toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const navToggle = document.getElementById('nav-toggle');
+            const navMenu = document.getElementById('nav-menu');
+            
+            if (navToggle && navMenu) {
+                navToggle.addEventListener('click', function() {
+                    navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
+                });
+            }
+        });
     </script>
 </body>
 </html>
