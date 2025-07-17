@@ -49,6 +49,18 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
     
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="../../assets/css/main.css">
+    <link rel="stylesheet" href="../../assets/css/components/navigation.css">
+    <link rel="stylesheet" href="../../assets/css/components/book-showcase.css">
+    <link rel="stylesheet" href="../../assets/css/components/character-cards.css">
+    <link rel="stylesheet" href="../../assets/css/components/testimonials.css">
+    <link rel="stylesheet" href="../../assets/css/components/forms.css">
+    <link rel="stylesheet" href="../../assets/css/layouts/book-pages.css">
+    <link rel="stylesheet" href="../../assets/css/responsive/mobile.css">
+    <link rel="stylesheet" href="../../assets/css/responsive/tablet.css">
+    <link rel="stylesheet" href="../../assets/css/responsive/desktop.css">
+    
     <!-- AOS Animation Library -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
     
@@ -56,876 +68,83 @@
     <link rel="icon" type="image/x-icon" href="../../assets/images/ui/favicon.ico">
     
     <style>
-        /* ===================================
-           DARK FANTASY THEME FOR DORALEOUS BOOK PAGE
-           =================================== */
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        /* Override the background with dark fantasy theme */
         body {
-            font-family: 'Open Sans', sans-serif;
             background: linear-gradient(135deg, 
                 rgba(10, 10, 10, 0.95) 0%, 
                 rgba(27, 67, 50, 0.4) 30%, 
                 rgba(139, 0, 0, 0.4) 70%, 
-                rgba(10, 10, 10, 0.95) 100%);
+                rgba(10, 10, 10, 0.95) 100%) !important;
             min-height: 100vh;
-            color: #e0e0e0;
-            line-height: 1.6;
         }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        /* Navigation Styles */
-        .main-navigation {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: rgba(10, 10, 10, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 2px solid rgba(255, 215, 0, 0.3);
-            z-index: 1000;
-            transition: all 0.3s ease;
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            min-height: 80px;
-        }
-
-        .brand-name {
-            font-family: 'Cinzel', serif;
-            font-size: 1.8rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, #FFD700, #B7881F);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-            text-decoration: none;
-        }
-
-        .nav-menu {
-            display: flex;
-            align-items: center;
-        }
-
-        .nav-list {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-            margin: 0;
-        }
-
-        .nav-link {
-            color: #e0e0e0;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .nav-link:hover,
-        .nav-link.active {
-            color: #FFD700;
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(135deg, #FFD700, #B7881F);
-            transition: width 0.3s ease;
-        }
-
-        .nav-link:hover::after,
-        .nav-link.active::after {
-            width: 100%;
-        }
-
-        .nav-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: #e0e0e0;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        /* Book Hero Section */
+        
+        /* Ensure sections have the dark theme */
         .book-hero-section {
-            padding: 120px 0 80px;
             background: radial-gradient(ellipse at center, rgba(139, 0, 0, 0.2) 0%, transparent 70%);
         }
-
-        .book-hero-content {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .book-cover-container {
-            position: relative;
-            text-align: center;
-        }
-
-        .hero-book-cover {
-            max-width: 100%;
-            height: auto;
-            border-radius: 12px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
-            transition: transform 0.3s ease;
-        }
-
-        .hero-book-cover:hover {
-            transform: translateY(-5px);
-        }
-
-        .book-awards {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-            margin-top: 1rem;
-        }
-
-        .award-badge {
-            background: linear-gradient(135deg, #B8860B, #DAA520);
-            color: #000;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            text-align: center;
-        }
-
-        .book-info-container h1 {
-            font-family: 'Cinzel', serif;
-            font-size: 3rem;
-            font-weight: 700;
-            color: #FFD700;
-            margin-bottom: 0.5rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-        }
-
-        .book-subtitle {
-            font-family: 'Cinzel', serif;
-            font-size: 1.8rem;
-            color: #B8860B;
-            margin-bottom: 1rem;
-            font-style: italic;
-        }
-
-        .book-author {
-            font-size: 1.2rem;
-            color: #ccc;
-            margin-bottom: 1.5rem;
-        }
-
-        .book-rating {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-
-        .stars {
-            color: #FFD700;
-            font-size: 1.2rem;
-        }
-
-        .rating-text {
-            color: #aaa;
-        }
-
-        .book-description-hero {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 2rem;
-            color: #ddd;
-        }
-
-        .book-meta-hero {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-
-        .meta-item {
-            color: #bbb;
-            font-size: 0.95rem;
-        }
-
-        .meta-item strong {
-            color: #FFD700;
-        }
-
-        .book-actions-hero {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-
-        .purchase-buttons {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .btn {
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 8px;
-            font-weight: 600;
-            text-decoration: none;
-            text-align: center;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, #B8860B, #DAA520);
-            color: #000;
-        }
-
-        .btn-primary:hover {
-            background: linear-gradient(135deg, #DAA520, #FFD700);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(218, 165, 32, 0.4);
-        }
-
-        .btn-secondary {
-            background: rgba(255, 255, 255, 0.1);
-            color: #fff;
-            border: 2px solid #FFD700;
-        }
-
-        .btn-secondary:hover {
-            background: rgba(255, 215, 0, 0.1);
-            transform: translateY(-2px);
-        }
-
-        .secondary-actions {
-            display: flex;
-            gap: 2rem;
-        }
-
-        .action-link {
-            color: #FFD700;
-            text-decoration: none;
-            font-weight: 500;
-            border-bottom: 1px dotted #FFD700;
-            transition: all 0.3s ease;
-        }
-
-        .action-link:hover {
-            color: #fff;
-            border-bottom-color: #fff;
-        }
-
-        /* Book Navigation Tabs */
+        
         .book-navigation-section {
             background: rgba(0, 0, 0, 0.3);
-            border-top: 1px solid rgba(255, 215, 0, 0.2);
-            border-bottom: 1px solid rgba(255, 215, 0, 0.2);
-            padding: 1rem 0;
         }
-
-        .book-nav-tabs {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-        }
-
-        .nav-tab {
-            color: #bbb;
-            text-decoration: none;
-            padding: 0.75rem 1.5rem;
-            border-radius: 6px;
-            transition: all 0.3s ease;
-            font-weight: 500;
-        }
-
-        .nav-tab:hover,
-        .nav-tab.active {
-            color: #FFD700;
-            background: rgba(255, 215, 0, 0.1);
-        }
-
-        /* Section Styles */
-        .section-title {
-            font-family: 'Cinzel', serif;
-            font-size: 2.5rem;
-            color: #FFD700;
-            text-align: center;
-            margin-bottom: 3rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-        }
-
-        section {
-            padding: 4rem 0;
-        }
-
-        /* Description Section */
-        .description-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 3rem;
-        }
-
-        .description-paragraph {
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: #ddd;
-        }
-
-        .book-details-card,
-        .themes-card {
-            background: rgba(0, 0, 0, 0.4);
-            border: 1px solid rgba(255, 215, 0, 0.2);
-            border-radius: 12px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .details-title,
-        .themes-title {
-            font-family: 'Cinzel', serif;
-            color: #FFD700;
-            margin-bottom: 1.5rem;
-            font-size: 1.3rem;
-        }
-
-        .detail-item {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 0.75rem;
-            padding-bottom: 0.75rem;
-            border-bottom: 1px solid rgba(255, 215, 0, 0.1);
-        }
-
-        .detail-label {
-            color: #bbb;
-            font-weight: 500;
-        }
-
-        .detail-value {
-            color: #fff;
-        }
-
-        .themes-list {
-            list-style: none;
-        }
-
-        .themes-list li {
-            padding: 0.5rem 0;
-            color: #ddd;
-            border-bottom: 1px solid rgba(255, 215, 0, 0.1);
-        }
-
-        .themes-list li:before {
-            content: "⚔️ ";
-            margin-right: 0.5rem;
-        }
-
-        /* Character Cards */
-        .characters-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        .character-card {
-            background: rgba(0, 0, 0, 0.4);
-            border: 1px solid rgba(255, 215, 0, 0.2);
-            border-radius: 12px;
-            padding: 2rem;
-            text-align: center;
-            transition: transform 0.3s ease;
-        }
-
-        .character-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(255, 215, 0, 0.4);
-        }
-
-        .character-image {
-            margin-bottom: 1.5rem;
-        }
-
-        .character-photo {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid #FFD700;
-        }
-
-        .character-name {
-            font-family: 'Cinzel', serif;
-            color: #FFD700;
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .character-role {
-            color: #B8860B;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        .character-description {
-            color: #ddd;
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-        }
-
-        .character-traits {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            justify-content: center;
-        }
-
-        .trait {
-            background: rgba(255, 215, 0, 0.2);
-            color: #FFD700;
-            padding: 0.3rem 0.8rem;
-            border-radius: 15px;
-            font-size: 0.85rem;
-            font-weight: 500;
-        }
-
-        /* World Building */
-        .world-content {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 3rem;
-        }
-
-        .world-paragraph {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: #ddd;
-            margin-bottom: 1.5rem;
-        }
-
-        .world-features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .feature-item {
-            background: rgba(0, 0, 0, 0.4);
-            border: 1px solid rgba(255, 215, 0, 0.2);
-            border-radius: 12px;
-            padding: 2rem;
-        }
-
-        .feature-title {
-            font-family: 'Cinzel', serif;
-            color: #FFD700;
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
-        }
-
-        .feature-description {
-            color: #ddd;
-            line-height: 1.6;
-        }
-
-        /* Reviews Section */
-        .reviews-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        .review-card {
-            background: rgba(0, 0, 0, 0.4);
-            border: 1px solid rgba(255, 215, 0, 0.2);
-            border-radius: 12px;
-            padding: 2rem;
-        }
-
-        .review-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1rem;
-        }
-
-        .review-rating {
-            color: #FFD700;
-            font-size: 1.1rem;
-        }
-
-        .review-source {
-            color: #bbb;
-            font-size: 0.9rem;
-        }
-
-        .review-text {
-            color: #ddd;
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-            font-style: italic;
-        }
-
-        .review-author {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .author-name {
-            color: #FFD700;
-            font-weight: 600;
-        }
-
-        .author-status {
-            color: #aaa;
-            font-size: 0.85rem;
-        }
-
-        /* Purchase Section */
+        
         .purchase-section {
             background: rgba(0, 0, 0, 0.3);
-            border-top: 1px solid rgba(255, 215, 0, 0.2);
         }
-
-        .purchase-title {
-            font-family: 'Cinzel', serif;
-            font-size: 2.5rem;
-            color: #FFD700;
-            text-align: center;
-            margin-bottom: 1rem;
-        }
-
-        .purchase-description {
-            text-align: center;
-            color: #ddd;
-            font-size: 1.1rem;
-            margin-bottom: 3rem;
-        }
-
-        .purchase-options {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .format-option {
-            background: rgba(0, 0, 0, 0.4);
-            border: 1px solid rgba(255, 215, 0, 0.2);
-            border-radius: 12px;
-            padding: 2rem;
-            text-align: center;
-            transition: transform 0.3s ease;
-        }
-
-        .format-option:hover {
-            transform: translateY(-5px);
-            border-color: rgba(255, 215, 0, 0.4);
-        }
-
-        .format-title {
-            font-family: 'Cinzel', serif;
-            color: #FFD700;
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .format-price {
-            color: #B8860B;
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-
-        .format-description {
-            color: #bbb;
-            margin-bottom: 1.5rem;
-        }
-
-        .format-stores {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-
-        .store-link {
-            color: #FFD700;
-            text-decoration: none;
-            padding: 0.5rem;
-            border: 1px solid rgba(255, 215, 0, 0.3);
-            border-radius: 6px;
-            transition: all 0.3s ease;
-        }
-
-        .store-link:hover {
-            background: rgba(255, 215, 0, 0.1);
-            color: #fff;
-        }
-
-        /* Newsletter Section */
+        
         .newsletter-signup {
             background: rgba(139, 0, 0, 0.2);
-            border-top: 1px solid rgba(255, 215, 0, 0.2);
         }
-
-        .newsletter-title {
-            font-family: 'Cinzel', serif;
-            font-size: 2rem;
-            color: #FFD700;
-            text-align: center;
-            margin-bottom: 1rem;
-        }
-
-        .newsletter-description {
-            text-align: center;
-            color: #ddd;
-            margin-bottom: 2rem;
-        }
-
-        .newsletter-form {
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        .form-group {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .form-input {
-            flex: 1;
-            padding: 1rem;
-            border: 1px solid rgba(255, 215, 0, 0.3);
-            border-radius: 6px;
-            background: rgba(0, 0, 0, 0.4);
-            color: #fff;
-            font-size: 1rem;
-        }
-
-        .form-input:focus {
-            outline: none;
-            border-color: #FFD700;
-            box-shadow: 0 0 0 2px rgba(255, 215, 0, 0.2);
-        }
-
-        .newsletter-privacy {
-            text-align: center;
-            color: #aaa;
-            font-size: 0.85rem;
-            margin-top: 1rem;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav-list {
-                display: none;
-            }
-
-            .nav-toggle {
-                display: block;
-            }
-
-            .book-hero-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-                text-align: center;
-            }
-
-            .book-info-container h1 {
-                font-size: 2rem;
-            }
-
-            .book-subtitle {
-                font-size: 1.3rem;
-            }
-
-            .purchase-buttons {
-                flex-direction: column;
-            }
-
-            .secondary-actions {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .description-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .book-nav-tabs {
-                flex-wrap: wrap;
-                gap: 1rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .form-group {
-                flex-direction: column;
-            }
-
-            .container {
-                padding: 0 1rem;
-            }
-        }
-
-        /* Additional utility classes */
-        .btn-outline {
-            background: transparent;
-            color: #FFD700;
-            border: 2px solid #FFD700;
-        }
-
-        .btn-outline:hover {
-            background: #FFD700;
-            color: #000;
-        }
-
-        .character-cta {
-            text-align: center;
-        }
-
-        .reviews-cta {
-            text-align: center;
-        }
-
-        .reviews-cta h3 {
-            font-family: 'Cinzel', serif;
-            color: #FFD700;
-            margin-bottom: 1.5rem;
-        }
-
-        .review-links {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .review-btn {
-            padding: 0.75rem 1.5rem;
-            border: 1px solid #FFD700;
-            border-radius: 6px;
-            color: #FFD700;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .review-btn:hover {
-            background: #FFD700;
-            color: #000;
-        }
-
-        /* Author Notes Section */
+        
         .author-notes-section {
             background: rgba(0, 0, 0, 0.3);
-        }
-
-        .notes-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .notes-paragraph {
-            color: #ddd;
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-        }
-
-        .author-signature {
-            color: #FFD700;
-            font-style: italic;
-            font-size: 1.1rem;
-            margin-top: 2rem;
-        }
-
-        .author-writing-photo {
-            width: 100%;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-        }
-
-        @media (max-width: 768px) {
-            .notes-grid {
-                grid-template-columns: 1fr;
-            }
         }
     </style>
 </head>
 <body>
     <!-- Navigation -->
     <nav class="main-navigation" id="main-nav">
-        <div class="nav-container">
-            <div class="nav-brand">
-                <a href="../../index.html" class="brand-link">
-                    <h1 class="brand-name">Doraleous and Associates</h1>
-                </a>
-            </div>
-            
-            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-            </button>
-            
-            <div class="nav-menu" id="nav-menu">
-                <ul class="nav-list">
-                    <li class="nav-item">
-                        <a href="../../index.html" class="nav-link">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="../../about.html" class="nav-link">About</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a href="../index.html" class="nav-link active">Books</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="../../blog/index.html" class="nav-link">Blog</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="../../media-kit.html" class="nav-link">Media Kit</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="../../contact.html" class="nav-link">Contact</a>
-                    </li>
-                </ul>
-            </div>
+    <div class="nav-container">
+        <div class="nav-brand">
+            <a href="../../index.html" class="brand-link">
+                <h1 class="brand-name">Doraleous and Associates</h1>
+            </a>
         </div>
-    </nav>
+        
+        <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
+        
+        <div class="nav-menu" id="nav-menu">
+            <ul class="nav-list">
+                <li class="nav-item">
+                    <a href="../../index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../../about.html" class="nav-link">About</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="../index.html" class="nav-link active">Books</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="index.html" class="dropdown-link">Doraleous and Associates</a></li>
+                        <li><a href="characters.html" class="dropdown-link">Character Guide</a></li>
+                        <li><a href="read-excerpt.html" class="dropdown-link">Read Excerpt</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="../../blog/index.html" class="nav-link">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../../media-kit.html" class="nav-link">Media Kit</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../../contact.html" class="nav-link">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
 
     <!-- Book Hero Section -->
     <section class="book-hero-section">
@@ -951,4 +170,408 @@
                     </div>
                     
                     <p class="book-description-hero">
-                        In a world where magic flows through ancient lands and legendary creatures roam the wilderness, Doraleous leads a band of skilled mercenaries on their most dangerous quest yet. When a mysterious client
+                        In a world where magic flows through ancient lands and legendary creatures roam the wilderness, Doraleous leads a band of skilled mercenaries on their most dangerous quest yet. When a mysterious client offers them a fortune to retrieve a powerful artifact from the depths of the Shadowlands, the team must navigate treacherous political intrigue, face mythical beasts, and confront their own demons.
+                    </p>
+                    
+                    <div class="book-meta-hero">
+                        <span class="meta-item"><strong>Genre:</strong> Epic Fantasy</span>
+                        <span class="meta-item"><strong>Pages:</strong> 456</span>
+                        <span class="meta-item"><strong>Published:</strong> March 2024</span>
+                        <span class="meta-item"><strong>Format:</strong> Hardcover, Paperback, eBook, Audiobook</span>
+                    </div>
+                    
+                    <div class="book-actions-hero">
+                        <div class="purchase-buttons">
+                            <a href="#" class="btn btn-primary purchase-btn amazon" data-store="amazon">
+                                <span class="btn-icon">📚</span>
+                                <span class="btn-text">Buy on Amazon</span>
+                                <span class="btn-price">$24.99</span>
+                            </a>
+                            <a href="#" class="btn btn-secondary purchase-btn barnes-noble" data-store="barnes-noble">
+                                <span class="btn-icon">📖</span>
+                                <span class="btn-text">Barnes & Noble</span>
+                                <span class="btn-price">$24.99</span>
+                            </a>
+                        </div>
+                        <div class="secondary-actions">
+                            <a href="read-excerpt.html" class="action-link">Read Free Excerpt</a>
+                            <a href="characters.html" class="action-link">Meet the Characters</a>
+                            <a href="#reviews" class="action-link">Read Reviews</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Book Navigation -->
+    <section class="book-navigation-section">
+        <div class="container">
+            <div class="book-nav-tabs" data-aos="fade-up">
+                <a href="#overview" class="nav-tab active">Overview</a>
+                <a href="read-excerpt.html" class="nav-tab">Read Excerpt</a>
+                <a href="characters.html" class="nav-tab">Characters</a>
+                <a href="#reviews" class="nav-tab">Reviews</a>
+                <a href="#author-notes" class="nav-tab">Author's Notes</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detailed Description -->
+    <section class="book-description-section" id="overview">
+        <div class="container">
+            <div class="description-content" data-aos="fade-up">
+                <h2 class="section-title">About the Book</h2>
+                <div class="description-grid">
+                    <div class="description-main">
+                        <p class="description-paragraph">
+                            In the mystical realm of Aethermoor, where ancient magics weave through the very fabric of reality, a legendary band of mercenaries known as Doraleous and Associates has built a reputation for taking on the impossible. Led by the enigmatic and brilliant tactician Doraleous, this diverse group of warriors, scholars, and rogues operates by a strict code of honor while navigating the complex political landscape of warring kingdoms and hidden magical societies.
+                        </p>
+                        <p class="description-paragraph">
+                            When a mysterious benefactor approaches them with an offer too lucrative to refuse—retrieve the lost Crown of Shadows from the cursed Shadowlands—the team knows they're walking into something far more dangerous than a simple treasure hunt. The Crown, lost for over a thousand years, is said to contain the power to control the ancient shadow magic that once nearly destroyed the world.
+                        </p>
+                        <p class="description-paragraph">
+                            As Doraleous and his associates venture into territories where reality itself becomes unstable, they discover that their mission is inextricably linked to a prophecy that speaks of either salvation or destruction for all the realms. Old alliances crumble, unexpected enemies emerge from the shadows, and the team must confront not only external threats but their own personal demons and hidden pasts.
+                        </p>
+                        <p class="description-paragraph">
+                            Brian M. Shoemaker weaves a masterful tale that combines heart-pounding action with deep character development, creating a fantasy epic that will resonate with readers long after the final page. With its richly detailed world-building, complex magic system, and unforgettable characters, "Doraleous and Associates: A Tale of Glory" establishes the foundation for what promises to be one of fantasy literature's most compelling new series.
+                        </p>
+                    </div>
+                    <div class="description-sidebar">
+                        <div class="book-details-card">
+                            <h3 class="details-title">Book Details</h3>
+                            <div class="detail-item">
+                                <span class="detail-label">ISBN (Hardcover)</span>
+                                <span class="detail-value">978-0-XXXXX-XXX-X</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">ISBN (Paperback)</span>
+                                <span class="detail-value">978-0-XXXXX-XXX-X</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">ISBN (eBook)</span>
+                                <span class="detail-value">978-0-XXXXX-XXX-X</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Publisher</span>
+                                <span class="detail-value">Independent</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Language</span>
+                                <span class="detail-value">English</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Print Length</span>
+                                <span class="detail-value">456 pages</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Dimensions</span>
+                                <span class="detail-value">6 x 9 inches</span>
+                            </div>
+                        </div>
+                        
+                        <div class="themes-card">
+                            <h3 class="themes-title">Key Themes</h3>
+                            <ul class="themes-list">
+                                <li>Friendship and loyalty</li>
+                                <li>The price of power</li>
+                                <li>Redemption and sacrifice</li>
+                                <li>Honor versus pragmatism</li>
+                                <li>Ancient magic and prophecy</li>
+                                <li>Political intrigue</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Character Showcase -->
+    <section class="character-showcase-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Meet the Characters</h2>
+            <div class="characters-grid" data-aos="fade-up" data-aos-delay="100">
+                <div class="character-card">
+                    <div class="character-image">
+                        <img src="../../assets/images/characters/doraleous-portrait.jpg" alt="Doraleous - The Leader" class="character-photo">
+                    </div>
+                    <div class="character-info">
+                        <h3 class="character-name">Doraleous</h3>
+                        <p class="character-role">The Leader & Strategist</p>
+                        <p class="character-description">
+                            A former noble turned mercenary, Doraleous combines tactical brilliance with unwavering moral principles. His ability to inspire loyalty and devise impossible strategies makes him a natural leader.
+                        </p>
+                        <div class="character-traits">
+                            <span class="trait">Strategic Mind</span>
+                            <span class="trait">Swordsmanship</span>
+                            <span class="trait">Leadership</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="character-card">
+                    <div class="character-image">
+                        <img src="../../assets/images/characters/zara-mage.jpg" alt="Zara - The Mage" class="character-photo">
+                    </div>
+                    <div class="character-info">
+                        <h3 class="character-name">Zara</h3>
+                        <p class="character-role">The Arcane Scholar</p>
+                        <p class="character-description">
+                            A brilliant mage with an insatiable curiosity about ancient magic. Her knowledge of forgotten spells and magical artifacts often proves invaluable to the team's success.
+                        </p>
+                        <div class="character-traits">
+                            <span class="trait">Elemental Magic</span>
+                            <span class="trait">Ancient Lore</span>
+                            <span class="trait">Spell Crafting</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="character-card">
+                    <div class="character-image">
+                        <img src="../../assets/images/characters/gareth-warrior.jpg" alt="Gareth - The Warrior" class="character-photo">
+                    </div>
+                    <div class="character-info">
+                        <h3 class="character-name">Gareth</h3>
+                        <p class="character-role">The Shield Bearer</p>
+                        <p class="character-description">
+                            A stalwart defender whose unbreakable spirit and protective instincts make him the team's anchor. His loyalty to his friends knows no bounds.
+                        </p>
+                        <div class="character-traits">
+                            <span class="trait">Combat Prowess</span>
+                            <span class="trait">Protection Magic</span>
+                            <span class="trait">Unwavering Loyalty</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="character-cta">
+                <a href="characters.html" class="btn btn-outline">Explore All Characters</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- World Building -->
+    <section class="world-building-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">The World of Aethermoor</h2>
+            <div class="world-content" data-aos="fade-up" data-aos-delay="100">
+                <div class="world-description">
+                    <p class="world-paragraph">
+                        Aethermoor is a realm where magic is as natural as breathing, yet as dangerous as wildfire. Five great kingdoms maintain an uneasy peace, while ancient powers stir in forgotten corners of the world. The Shadowlands, once the seat of a mighty empire, now serve as a cursed wasteland where reality itself bends and breaks.
+                    </p>
+                    <p class="world-paragraph">
+                        The magic system of Aethermoor operates on the principle of elemental harmony and personal will. Practitioners must not only master the technical aspects of spellcasting but also maintain balance within themselves and with the natural world. This creates a magic system with meaningful limitations and consequences.
+                    </p>
+                </div>
+                <div class="world-features">
+                    <div class="feature-item">
+                        <h3 class="feature-title">The Five Kingdoms</h3>
+                        <p class="feature-description">Each kingdom represents a different approach to magic and governance, from the scholarly Halls of Lumina to the warrior clans of Ironhold.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3 class="feature-title">Ancient Magic</h3>
+                        <p class="feature-description">Powerful artifacts and forgotten spells from the Age of Shadows still influence the modern world, often in unexpected ways.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3 class="feature-title">The Shadowlands</h3>
+                        <p class="feature-description">A cursed realm where shadow magic runs wild, twisting the landscape and creating challenges that test both mind and spirit.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="reviews-section" id="reviews">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">What Readers Are Saying</h2>
+            <div class="reviews-grid" data-aos="fade-up" data-aos-delay="100">
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-rating">★★★★★</div>
+                        <div class="review-source">Amazon Review</div>
+                    </div>
+                    <p class="review-text">
+                        "Brian M. Shoemaker has created something truly special with Doraleous and Associates. The world-building is exceptional, and every character feels like someone you'd want to have a drink with. I couldn't put it down!"
+                    </p>
+                    <div class="review-author">
+                        <span class="author-name">Sarah M.</span>
+                        <span class="author-status">Verified Purchase</span>
+                    </div>
+                </div>
+                
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-rating">★★★★★</div>
+                        <div class="review-source">Goodreads</div>
+                    </div>
+                    <p class="review-text">
+                        "Finally, a fantasy novel that doesn't rely on tired tropes! The magic system is logical and fascinating, and the political intrigue kept me guessing until the very end. Highly recommended."
+                    </p>
+                    <div class="review-author">
+                        <span class="author-name">Michael R.</span>
+                        <span class="author-status">Fantasy Enthusiast</span>
+                    </div>
+                </div>
+                
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-rating">★★★★☆</div>
+                        <div class="review-source">BookBub</div>
+                    </div>
+                    <p class="review-text">
+                        "A thrilling adventure that balances action with genuine character development. Doraleous is a hero worth following, and I'm already eager for the next book in the series."
+                    </p>
+                    <div class="review-author">
+                        <span class="author-name">Emma L.</span>
+                        <span class="author-status">Book Club Member</span>
+                    </div>
+                </div>
+                
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-rating">★★★★★</div>
+                        <div class="review-source">Fantasy Book Review</div>
+                    </div>
+                    <p class="review-text">
+                        "Shoemaker demonstrates a masterful understanding of what makes fantasy compelling: memorable characters, a well-developed magic system, and a plot that keeps you turning pages well into the night."
+                    </p>
+                    <div class="review-author">
+                        <span class="author-name">David K.</span>
+                        <span class="author-status">Professional Reviewer</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Enhanced call-to-action to review platforms -->
+            <div class="reviews-cta">
+                <h3>Enjoyed the book? Share your thoughts!</h3>
+                <div class="review-links">
+                    <a href="https://goodreads.com/your-book" class="review-btn goodreads">
+                        Review on Goodreads
+                    </a>
+                    <a href="https://amazon.com/your-book" class="review-btn amazon">
+                        Review on Amazon
+                    </a>
+                    <a href="https://barnesandnoble.com/your-book" class="review-btn bn">
+                        Review on Barnes & Noble
+                    </a>
+                </div>
+                <div class="additional-review-actions">
+                    <a href="reviews.html" class="btn btn-outline">Read All Reviews</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Author's Notes -->
+    <section class="author-notes-section" id="author-notes">
+        <div class="container">
+            <div class="author-notes-content" data-aos="fade-up">
+                <h2 class="section-title">A Note from the Author</h2>
+                <div class="notes-grid">
+                    <div class="notes-text">
+                        <p class="notes-paragraph">
+                            Writing "Doraleous and Associates: A Tale of Glory" has been a journey of discovery that spans over five years. What began as a simple story about a group of mercenaries evolved into something much deeper—an exploration of friendship, loyalty, and the choices that define us when everything is on the line.
+                        </p>
+                        <p class="notes-paragraph">
+                            I've always been fascinated by stories where the bonds between characters are as important as the external conflicts they face. In creating Doraleous and his team, I wanted to explore how people from vastly different backgrounds can come together to form something greater than the sum of their parts. Each character brings their own strengths, weaknesses, and personal demons to the group, and it's in navigating these relationships that they truly grow.
+                        </p>
+                        <p class="notes-paragraph">
+                            The world of Aethermoor was built to support these character-driven stories while providing enough depth and mystery to sustain a long series. I hope readers will find themselves as invested in this world and these characters as I've become over the years of crafting their adventures.
+                        </p>
+                        <p class="author-signature">
+                            — Brian M. Shoemaker
+                        </p>
+                    </div>
+                    <div class="notes-image">
+                        <img src="../../assets/images/author/lifestyle/brian-writing.jpg" alt="Brian M. Shoemaker writing" class="author-writing-photo">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Purchase Section -->
+    <section class="purchase-section">
+        <div class="container">
+            <div class="purchase-content" data-aos="fade-up">
+                <h2 class="purchase-title">Get Your Copy Today</h2>
+                <p class="purchase-description">
+                    Available in multiple formats to suit your reading preferences. Start your adventure with Doraleous and Associates today.
+                </p>
+                <div class="purchase-options">
+                    <div class="format-option">
+                        <h3 class="format-title">Hardcover</h3>
+                        <p class="format-price">$24.99</p>
+                        <p class="format-description">Premium edition with dust jacket</p>
+                        <div class="format-stores">
+                            <a href="#" class="store-link">Amazon</a>
+                            <a href="#" class="store-link">Barnes & Noble</a>
+                            <a href="#" class="store-link">Local Bookstores</a>
+                        </div>
+                    </div>
+                    
+                    <div class="format-option">
+                        <h3 class="format-title">Paperback</h3>
+                        <p class="format-price">$16.99</p>
+                        <p class="format-description">Trade paperback edition</p>
+                        <div class="format-stores">
+                            <a href="#" class="store-link">Amazon</a>
+                            <a href="#" class="store-link">Barnes & Noble</a>
+                            <a href="#" class="store-link">Target</a>
+                        </div>
+                    </div>
+                    
+                    <div class="format-option">
+                        <h3 class="format-title">eBook</h3>
+                        <p class="format-price">$9.99</p>
+                        <p class="format-description">Digital edition for all devices</p>
+                        <div class="format-stores">
+                            <a href="#" class="store-link">Kindle</a>
+                            <a href="#" class="store-link">Apple Books</a>
+                            <a href="#" class="store-link">Google Play</a>
+                        </div>
+                    </div>
+                    
+                    <div class="format-option">
+                        <h3 class="format-title">Audiobook</h3>
+                        <p class="format-price">$19.99</p>
+                        <p class="format-description">Professional narration</p>
+                        <div class="format-stores">
+                            <a href="#" class="store-link">Audible</a>
+                            <a href="#" class="store-link">Google Play</a>
+                            <a href="#" class="store-link">Apple Books</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Signup -->
+    <section class="newsletter-signup">
+        <div class="container">
+            <div class="newsletter-content" data-aos="fade-up">
+                <h2 class="newsletter-title">Stay Connected</h2>
+                <p class="newsletter-description">
+                    Get exclusive updates about the next book in the series, behind-the-scenes content, and special offers for fans.
+                </p>
+                <form class="newsletter-form" id="newsletter-form">
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" class="form-input" placeholder="Enter your email address" required>
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </div>
+                    <p class="newsletter-privacy">
+                        Your privacy is important to us. We'll never share your email address.
+                    </p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- JavaScript Files -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="../../assets/js/main.js
