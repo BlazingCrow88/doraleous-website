@@ -1,3 +1,8 @@
+/* ===================================
+ DORALEOUS AND ASSOCIATES INDEX PAGE HTML
+ File: books/doraleous-associates/index.html
+ =================================== */
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -66,39 +71,6 @@
     
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="../../assets/images/ui/favicon.ico">
-    
-    <style>
-        /* Override the background with dark fantasy theme */
-        body {
-            background: linear-gradient(135deg, 
-                rgba(10, 10, 10, 0.95) 0%, 
-                rgba(27, 67, 50, 0.4) 30%, 
-                rgba(139, 0, 0, 0.4) 70%, 
-                rgba(10, 10, 10, 0.95) 100%) !important;
-            min-height: 100vh;
-        }
-        
-        /* Ensure sections have the dark theme */
-        .book-hero-section {
-            background: radial-gradient(ellipse at center, rgba(139, 0, 0, 0.2) 0%, transparent 70%);
-        }
-        
-        .book-navigation-section {
-            background: rgba(0, 0, 0, 0.3);
-        }
-        
-        .purchase-section {
-            background: rgba(0, 0, 0, 0.3);
-        }
-        
-        .newsletter-signup {
-            background: rgba(139, 0, 0, 0.2);
-        }
-        
-        .author-notes-section {
-            background: rgba(0, 0, 0, 0.3);
-        }
-    </style>
 </head>
 <body>
     <!-- Navigation -->
@@ -574,4 +546,115 @@
 
     <!-- JavaScript Files -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script src="../../assets/js/main.js
+    <script src="../../assets/js/main.js"></script>
+    <script src="../../assets/js/components/newsletter-signup.js"></script>
+    
+    <!-- Add this JavaScript to make the mobile navigation work -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const navToggle = document.getElementById('nav-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        
+        if (navToggle && navMenu) {
+            navToggle.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+                navToggle.classList.toggle('active');
+                document.body.classList.toggle('menu-open');
+            });
+        }
+        
+        // Close mobile menu when clicking on a link
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                navMenu.classList.remove('active');
+                navToggle.classList.remove('active');
+                document.body.classList.remove('menu-open');
+            });
+        });
+        
+        // Navigation scroll effect
+        const mainNav = document.getElementById('main-nav');
+        if (mainNav) {
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    mainNav.classList.add('scrolled');
+                } else {
+                    mainNav.classList.remove('scrolled');
+                }
+            });
+        }
+    });
+    </script>
+    
+    <!-- Book Page Specific JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Track purchase button clicks
+            const purchaseButtons = document.querySelectorAll('.purchase-btn');
+            
+            purchaseButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    const store = this.getAttribute('data-store');
+                    const format = this.closest('.format-option')?.querySelector('.format-title')?.textContent || 'Unknown';
+                    
+                    if (typeof AuthorWebsite !== 'undefined') {
+                        AuthorWebsite.trackEvent('purchase_intent', {
+                            book_title: 'Doraleous and Associates: A Tale of Glory',
+                            store: store,
+                            format: format
+                        });
+                    }
+                });
+            });
+            
+            // Smooth scroll for navigation tabs
+            const navTabs = document.querySelectorAll('.nav-tab');
+            
+            navTabs.forEach(tab => {
+                tab.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    
+                    if (href.startsWith('#')) {
+                        e.preventDefault();
+                        const target = document.querySelector(href);
+                        
+                        if (target) {
+                            const headerOffset = 100;
+                            const elementPosition = target.offsetTop;
+                            const offsetPosition = elementPosition - headerOffset;
+                            
+                            window.scrollTo({
+                                top: offsetPosition,
+                                behavior: 'smooth'
+                            });
+                            
+                            // Update active tab
+                            navTabs.forEach(t => t.classList.remove('active'));
+                            this.classList.add('active');
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+    
+    <!-- Initialize AOS Animation -->
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+    </script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+</body>
+</html>
