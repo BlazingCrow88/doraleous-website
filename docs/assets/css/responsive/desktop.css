@@ -1,7 +1,6 @@
 /* ===================================
    DESKTOP RESPONSIVE STYLES
    File: assets/css/responsive/desktop.css
-   Updated with Doraleous-specific image fix
    =================================== */
 
 /* Desktop and Large Screen Styles */
@@ -631,12 +630,9 @@
         }
     }
 
-    /* DORALEOUS-SPECIFIC IMAGE FIX - Desktop */
-    .character-large-image[src*="doraleous-portrait"],
-    .character-large-image[alt*="Doraleous"],
-    img[src*="doraleous-portrait"] {
-        height: 600px !important;
-        object-position: center top;
+    /* DORALEOUS IMAGE FIX - Add this at the very end */
+    .character-large-image {
+        height: 1500px !important;
     }
 }
 
@@ -662,13 +658,6 @@
     .testimonials-grid {
         grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
     }
-
-    /* DORALEOUS-SPECIFIC IMAGE FIX - Large Desktop */
-    .character-large-image[src*="doraleous-portrait"],
-    .character-large-image[alt*="Doraleous"],
-    img[src*="doraleous-portrait"] {
-        height: 650px !important;
-    }
 }
 
 /* Ultra-wide Desktop Screens */
@@ -689,12 +678,5 @@
     .testimonials-grid {
         grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
         gap: 3rem;
-    }
-
-    /* DORALEOUS-SPECIFIC IMAGE FIX - Ultra-wide Desktop */
-    .character-large-image[src*="doraleous-portrait"],
-    .character-large-image[alt*="Doraleous"],
-    img[src*="doraleous-portrait"] {
-        height: 700px !important;
     }
 }
