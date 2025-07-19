@@ -1,7 +1,7 @@
 /* ===================================
    DESKTOP RESPONSIVE STYLES
    File: assets/css/responsive/desktop.css
-   UPDATED - Character Image Fix Applied
+   Updated with Doraleous-specific image fix
    =================================== */
 
 /* Desktop and Large Screen Styles */
@@ -194,7 +194,7 @@
         transform: translateY(-3px);
     }
 
-    /* Character Cards Desktop Excellence - UPDATED */
+    /* Character Cards Desktop Excellence */
     .character-grid {
         grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
         gap: 2.5rem;
@@ -231,21 +231,6 @@
 
     .character-name {
         font-size: 1.5rem;
-    }
-
-    /* Character Profile Desktop Enhancements - UPDATED */
-    .character-profile {
-        grid-template-columns: 400px 1fr;
-        gap: 4rem;
-    }
-
-    .character-large-image {
-        height: 450px;
-        object-position: center top;
-    }
-
-    .character-profile-content {
-        padding-left: 2rem;
     }
 
     /* Character Carousel Desktop */
@@ -288,7 +273,7 @@
     }
 
     .testimonial-stats {
-        grid-template-columns: repeat(auto-fit, minmin(200px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         gap: 3rem;
         padding: 3rem;
     }
@@ -646,7 +631,13 @@
         }
     }
 
-    /* CHARACTER IMAGE FIX APPLIED - No more 1500px override */
+    /* DORALEOUS-SPECIFIC IMAGE FIX - Desktop */
+    .character-large-image[src*="doraleous-portrait"],
+    .character-large-image[alt*="Doraleous"],
+    img[src*="doraleous-portrait"] {
+        height: 600px !important;
+        object-position: center top;
+    }
 }
 
 /* Large Desktop Screens */
@@ -672,9 +663,11 @@
         grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
     }
 
-    /* Character Profile for larger screens */
-    .character-large-image {
-        height: 500px;
+    /* DORALEOUS-SPECIFIC IMAGE FIX - Large Desktop */
+    .character-large-image[src*="doraleous-portrait"],
+    .character-large-image[alt*="Doraleous"],
+    img[src*="doraleous-portrait"] {
+        height: 650px !important;
     }
 }
 
@@ -698,8 +691,10 @@
         gap: 3rem;
     }
 
-    /* Character Profile for ultra-wide screens */
-    .character-large-image {
-        height: 550px;
+    /* DORALEOUS-SPECIFIC IMAGE FIX - Ultra-wide Desktop */
+    .character-large-image[src*="doraleous-portrait"],
+    .character-large-image[alt*="Doraleous"],
+    img[src*="doraleous-portrait"] {
+        height: 700px !important;
     }
 }
