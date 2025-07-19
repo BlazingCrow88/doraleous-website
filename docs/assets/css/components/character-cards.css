@@ -1,7 +1,7 @@
 /* ===================================
    CHARACTER CARDS COMPONENT STYLES
    File: assets/css/components/character-cards.css
-   Updated with Dark Fantasy Theme
+   Updated with Doraleous-specific image fix
    =================================== */
 
 /* Character Showcase Section */
@@ -47,7 +47,7 @@
     padding: 3rem;
     margin: 3rem 0;
     display: grid;
-    grid-template-columns: 350px 1fr;
+    grid-template-columns: 300px 1fr;
     gap: 3rem;
     align-items: start;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
@@ -83,14 +83,12 @@
 
 .character-profile-image {
     text-align: center;
-    overflow: visible;
 }
 
 .character-large-image {
     width: 100%;
-    height: 400px;
+    height: 350px;
     object-fit: cover;
-    object-position: center top;
     border-radius: 12px;
     border: 3px solid rgba(255, 215, 0, 0.5);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
@@ -324,7 +322,6 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center top;
 }
 
 .character-name {
@@ -411,7 +408,6 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center top;
     transition: transform 0.3s ease;
 }
 
@@ -521,7 +517,6 @@
     width: 150px;
     height: 150px;
     object-fit: cover;
-    object-position: center top;
     border-radius: 10px;
     border: 2px solid rgba(255, 215, 0, 0.5);
     flex-shrink: 0;
@@ -594,10 +589,6 @@
         grid-template-columns: 1fr;
         gap: 2rem;
         padding: 2rem;
-    }
-    
-    .character-large-image {
-        height: 300px;
     }
     
     .character-profile-content {
@@ -676,4 +667,12 @@
     .modal-footer {
         padding: 1.5rem;
     }
+}
+
+/* DORALEOUS-SPECIFIC IMAGE FIX */
+.character-large-image[src*="doraleous-portrait"],
+.character-large-image[alt*="Doraleous"],
+img[src*="doraleous-portrait"] {
+    height: 500px !important;
+    object-position: center top;
 }
