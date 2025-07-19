@@ -688,3 +688,9 @@
         font-size: 2.5rem;
     }
 }
+/* DORALEOUS IMAGE FIX - Mobile */
+@media screen and (max-width: 767px) {
+    .character-large-image {
+        height: 600px !important; /* Slightly smaller for mobile */
+    }
+}
