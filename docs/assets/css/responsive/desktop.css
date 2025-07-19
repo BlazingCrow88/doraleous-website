@@ -629,6 +629,11 @@
             page-break-inside: avoid;
         }
     }
+
+    /* DORALEOUS IMAGE FIX - Add this at the very end */
+    .character-large-image {
+        height: 750px !important;
+    }
 }
 
 /* Large Desktop Screens */
