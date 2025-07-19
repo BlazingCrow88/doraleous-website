@@ -775,3 +775,10 @@
         padding: 1.5rem;
     }
 }
+
+/* DORALEOUS-SPECIFIC IMAGE HEIGHT - 750px */
+.character-large-image[src*="doraleous-portrait"],
+.character-large-image[alt*="Doraleous"],
+img[src*="doraleous-portrait"] {
+    height: 750px !important;
+}
