@@ -547,11 +547,38 @@
             transform: translateY(0);
         }
 
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
         .form-privacy {
             color: #a0a0a0;
             font-size: 0.9rem;
             margin-top: 1rem;
             line-height: 1.4;
+        }
+
+        /* Success/Error Message Styling */
+        .form-message {
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .form-message.success {
+            background: rgba(34, 197, 94, 0.2);
+            border: 2px solid rgba(34, 197, 94, 0.5);
+            color: #22c55e;
+        }
+
+        .form-message.error {
+            background: rgba(239, 68, 68, 0.2);
+            border: 2px solid rgba(239, 68, 68, 0.5);
+            color: #ef4444;
         }
 
         /* Additional sections styling */
@@ -744,7 +771,7 @@
                     </div>
                     <h3 class="method-title">General Inquiries</h3>
                     <p class="method-description">Questions about books, writing, or general correspondence</p>
-                    <a href="mailto:hello@brianmshoemaker.com" class="method-contact">hello@brianmshoemaker.com</a>
+                    <a href="mailto:greysilas2022@gmail.com" class="method-contact">greysilas2022@gmail.com</a>
                 </div>
                 
                 <div class="contact-method">
@@ -755,7 +782,7 @@
                     </div>
                     <h3 class="method-title">Media Requests</h3>
                     <p class="method-description">Interviews, press releases, and media opportunities</p>
-                    <a href="mailto:media@brianmshoemaker.com" class="method-contact">media@brianmshoemaker.com</a>
+                    <a href="mailto:greysilas2022@gmail.com" class="method-contact">greysilas2022@gmail.com</a>
                 </div>
                 
                 <div class="contact-method">
@@ -769,7 +796,7 @@
                     </div>
                     <h3 class="method-title">Speaking Engagements</h3>
                     <p class="method-description">Book clubs, conferences, and literary events</p>
-                    <a href="mailto:events@brianmshoemaker.com" class="method-contact">events@brianmshoemaker.com</a>
+                    <a href="mailto:greysilas2022@gmail.com" class="method-contact">greysilas2022@gmail.com</a>
                 </div>
             </div>
         </div>
@@ -786,7 +813,9 @@
                     </p>
                 </div>
                 
-                <form class="contact-form" id="contact-form" action="#" method="post">
+                <div id="form-message"></div>
+                
+                <form class="contact-form" id="contact-form" action="mailto:greysilas2022@gmail.com" method="post" enctype="text/plain">
                     <div class="form-row">
                         <div class="form-group">
                             <label for="contact-name" class="form-label">Full Name *</label>
@@ -831,7 +860,7 @@
                     </div>
                     
                     <div class="form-actions">
-                        <button type="submit" class="btn btn-primary">Send Message</button>
+                        <button type="submit" class="btn btn-primary" id="submit-btn">Send Message</button>
                         <p class="form-privacy">
                             Your information is kept private and secure. We respect your privacy and will never share your contact details.
                         </p>
@@ -907,9 +936,12 @@
             offset: 100
         });
 
-        // Form submission handling
+        // Enhanced form submission handling
         document.getElementById('contact-form').addEventListener('submit', function(e) {
             e.preventDefault();
+            
+            // Clear any previous messages
+            document.getElementById('form-message').innerHTML = '';
             
             // Simple form validation
             const name = document.getElementById('contact-name').value.trim();
@@ -918,27 +950,76 @@
             const message = document.getElementById('contact-message').value.trim();
             
             if (!name || !email || !subject || !message) {
-                alert('Please fill in all required fields.');
+                showMessage('Please fill in all required fields.', 'error');
                 return;
             }
             
             if (!isValidEmail(email)) {
-                alert('Please enter a valid email address.');
+                showMessage('Please enter a valid email address.', 'error');
                 return;
             }
             
-            // Simulate form submission
-            const submitBtn = document.querySelector('.btn');
+            // Get form data
+            const formData = new FormData(this);
+            const submitBtn = document.getElementById('submit-btn');
+            
+            // Update button state
             submitBtn.textContent = 'Sending...';
             submitBtn.disabled = true;
             
-            setTimeout(() => {
-                alert('Thank you for your message! We will respond within 48 hours.');
-                this.reset();
+            // Create mailto link with form data
+            const mailtoLink = createMailtoLink(formData);
+            
+            // Try to open email client
+            try {
+                window.location.href = mailtoLink;
+                
+                setTimeout(() => {
+                    showMessage('Your email client should have opened with the message. If not, please copy the information and send it manually to greysilas2022@gmail.com', 'success');
+                    // Reset form
+                    this.reset();
+                    submitBtn.textContent = 'Send Message';
+                    submitBtn.disabled = false;
+                }, 1000);
+                
+            } catch (error) {
+                showMessage('Unable to open email client. Please copy the form information and send it manually to greysilas2022@gmail.com', 'error');
                 submitBtn.textContent = 'Send Message';
                 submitBtn.disabled = false;
-            }, 2000);
+            }
         });
+        
+        function createMailtoLink(formData) {
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const phone = formData.get('phone') || 'Not provided';
+            const subject = formData.get('subject');
+            const message = formData.get('message');
+            const newsletter = formData.get('newsletter') === 'yes' ? 'Yes' : 'No';
+            
+            const emailSubject = `Contact Form Submission: ${subject}`;
+            const emailBody = `
+Name: ${name}
+Email: ${email}
+Phone: ${phone}
+Subject: ${subject}
+Newsletter Signup: ${newsletter}
+
+Message:
+${message}
+
+---
+Sent from the website contact form
+            `.trim();
+            
+            return `mailto:greysilas2022@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+        }
+        
+        function showMessage(text, type) {
+            const messageDiv = document.getElementById('form-message');
+            messageDiv.innerHTML = `<div class="form-message ${type}">${text}</div>`;
+            messageDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
         
         function isValidEmail(email) {
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
