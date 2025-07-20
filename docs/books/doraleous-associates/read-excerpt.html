@@ -38,183 +38,64 @@
     <!-- AOS Animation Library -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
     
-    <!-- jsPDF Library for PDF Generation -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="../../assets/images/ui/favicon.ico">
-    
-    <style>
-        /* PDF Generation Styles */
-        .pdf-generating {
-            opacity: 0.7;
-            pointer-events: none;
-        }
-        
-        .pdf-generating::after {
-            content: 'Generating PDF...';
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: rgba(0, 0, 0, 0.8);
-            color: white;
-            padding: 20px;
-            border-radius: 8px;
-            z-index: 1000;
-        }
-        
-        /* Newsletter Success Message */
-        .newsletter-success {
-            background: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
-            padding: 15px;
-            border-radius: 4px;
-            margin-top: 10px;
-            display: none;
-        }
-        
-        .newsletter-error {
-            background: #f8d7da;
-            color: #721c24;
-            border: 1px solid #f5c6cb;
-            padding: 15px;
-            border-radius: 4px;
-            margin-top: 10px;
-            display: none;
-        }
-        
-        /* Reading modes */
-        .excerpt-text.dark-mode {
-            background: #1a1a1a;
-            color: #e0e0e0;
-            padding: 30px;
-            border-radius: 8px;
-        }
-        
-        /* Drop cap styling */
-        .drop-cap {
-            float: left;
-            font-size: 3.5em;
-            line-height: 0.8;
-            margin: 0.1em 0.1em 0 0;
-            font-family: 'Cinzel', serif;
-            font-weight: bold;
-        }
-        
-        /* Fullscreen reading */
-        .fullscreen-reading {
-            position: fixed !important;
-            top: 0;
-            left: 0;
-            width: 100vw !important;
-            height: 100vh !important;
-            z-index: 9999;
-            padding: 40px;
-            overflow-y: auto;
-            font-size: 20px !important;
-            line-height: 1.8;
-        }
-        
-        /* Poem styling */
-        .prologue-poem {
-            font-style: italic;
-            text-align: center;
-            margin: 2em 0;
-            font-family: 'Cinzel', serif;
-            font-size: 0.95em;
-            line-height: 1.4;
-        }
-        
-        .poem-divider {
-            text-align: center;
-            margin: 3em 0;
-            font-size: 1.5em;
-            color: #888;
-        }
-    </style>
 </head>
 <body>
     <!-- Navigation -->
     <nav class="main-navigation" id="main-nav">
-    <div class="nav-container">
-        <div class="nav-brand">
-            <a href="../../index.html" class="brand-link">
-                <h1 class="brand-name">Doraleous and Associates</h1>
-            </a>
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="../../index.html" class="brand-link">
+                    <h1 class="brand-name">Brian M. Shoemaker</h1>
+                </a>
+            </div>
+            
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+            
+            <div class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="../../index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../../about.html" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="../index.html" class="nav-link active">Books</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="index.html" class="dropdown-link">Doraleous and Associates</a></li>
+                            <li><a href="characters.html" class="dropdown-link">Character Guide</a></li>
+                            <li><a href="read-excerpt.html" class="dropdown-link">Read Excerpt</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../../blog/index.html" class="nav-link">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../../media-kit.html" class="nav-link">Media Kit</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../../contact.html" class="nav-link">Contact</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-        
-        <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
-        </button>
-        
-        <div class="nav-menu" id="nav-menu">
-            <ul class="nav-list">
-                <li class="nav-item">
-                    <a href="../../index.html" class="nav-link">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a href="../../about.html" class="nav-link">About</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a href="../index.html" class="nav-link active">Books</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="index.html" class="dropdown-link">Doraleous and Associates</a></li>
-                        <li><a href="characters.html" class="dropdown-link">Character Guide</a></li>
-                        <li><a href="read-excerpt.html" class="dropdown-link">Read Excerpt</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a href="../../blog/index.html" class="nav-link">Blog</a>
-                </li>
-                <li class="nav-item">
-                    <a href="../../media-kit.html" class="nav-link">Media Kit</a>
-                </li>
-                <li class="nav-item">
-                    <a href="../../contact.html" class="nav-link">Contact</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
+    </nav>
 
     <!-- Page Header -->
     <section class="page-header">
         <div class="container">
             <div class="header-content" data-aos="fade-up">
                 <h1 class="page-title">Free Excerpt</h1>
-                <p class="page-subtitle">Prologue: The Unsealing</p>
+                <p class="page-subtitle">Experience the Epic Adventure</p>
                 <p class="page-description">
-                    Experience the prologue of "Doraleous and Associates: A Tale of Glory" and discover why readers can't put this epic fantasy adventure down.
+                    Read the opening prologue of Doraleous and Associates: A Tale of Glory and discover the world that has captivated fantasy readers everywhere.
                 </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Excerpt Controls -->
-    <section class="excerpt-controls-section">
-        <div class="container">
-            <div class="excerpt-controls" data-aos="fade-up">
-                <div class="reading-options">
-                    <button class="reading-option active" data-mode="dark">
-                        <span class="option-icon">🌙</span>
-                        <span class="option-text">Dark Mode</span>
-                    </button>
-                </div>
-                
-                <div class="excerpt-actions">
-                    <button class="action-btn" id="download-pdf">
-                        <span class="btn-icon">📄</span>
-                        <span class="btn-text">Download PDF</span>
-                    </button>
-                    <button class="action-btn" id="full-screen">
-                        <span class="btn-icon">⛶</span>
-                        <span class="btn-text">Full Screen</span>
-                    </button>
-                </div>
             </div>
         </div>
     </section>
@@ -234,463 +115,270 @@
                 </div>
                 
                 <div class="excerpt-text" id="excerpt-text">
-                    <div class="prologue-poem">
-                        Deep beneath the mountain's stone,<br>
+                    <div class="poem-epigraph">
+                        <p><em>Deep beneath the mountain's stone,<br>
                         Ancient seals lay carved in bone,<br>
                         Warnings etched in scripts of old,<br>
-                        Stories that should not be told.<br><br>
+                        Stories that should not be told.</em></p>
                         
-                        Seven locks of power bound<br>
+                        <p><em>Seven locks of power bound<br>
                         What was meant to stay unfound,<br>
                         Yet greed calls louder than fear,<br>
-                        As mortal hearts refuse to hear.<br><br>
+                        As mortal hearts refuse to hear.</em></p>
                         
-                        The darkness stirs beneath the earth,<br>
+                        <p><em>The darkness stirs beneath the earth,<br>
                         Awaiting its unholy birth,<br>
                         When folly breaks what wisdom sealed,<br>
-                        And ancient hunger is revealed.
+                        And ancient hunger is revealed.</em></p>
                     </div>
-                    
-                    <div class="poem-divider">
-                        ________________________________________
-                    </div>
-                    
+
+                    <div class="chapter-divider">* * *</div>
+
                     <p class="excerpt-paragraph first-paragraph">
                         <span class="drop-cap">T</span>hunder crashed across the Shadowdepth Mountains as Master Miner Gorak descended deeper into the earth than any living man had ventured before. The storm above sent tremors through the ancient stone, causing his torch to flicker with each rolling peal that echoed through the tunnels. Behind him, eleven miners followed in nervous silence, their picks and shovels clanging against the carved walls as they navigated passages that grew increasingly unnatural with each step.
                     </p>
-                    
+
                     <p class="excerpt-paragraph">
                         "These ain't natural formations, Master Gorak," muttered Hendric, the eldest of the crew, running his weathered fingers along symbols carved into the tunnel wall. The markings were deep and precise, cut with tools that left edges sharper than any iron chisel could achieve. "Look at these signs—they're deliberate, like someone was trying to tell us something."
                     </p>
-                    
+
                     <p class="excerpt-paragraph">
                         Gorak raised his torch higher, illuminating intricate carvings that spiraled along the ceiling in patterns that made his eyes water to follow. The symbols bore no resemblance to any script he knew, yet something about their angular geometry suggested warning, prohibition, danger. His gut clenched with unease, but the memory of the mine owners' expectations—and the promise of silver rich enough to feed his family through the coming winter—drove him forward.
                     </p>
-                    
+
                     <p class="excerpt-paragraph">
                         "The vein runs deep," he said, his voice echoing strangely in the confined space. "The surface deposits were just the beginning. Whatever built these tunnels, they knew where the real treasure lay."
                     </p>
-                    
+
                     <p class="excerpt-paragraph">
                         Lightning struck directly overhead, and in that brilliant instant, the carved warnings seemed to writhe and shift in the dancing torchlight. Young Berin, barely sixteen and on his first deep excavation, pressed closer to the group as unnatural shadows flickered between the ancient symbols.
                     </p>
-                    
+
                     <p class="excerpt-paragraph">
                         The passage opened into a vast chamber that swallowed their torchlight before revealing its true dimensions. Gorak's breath caught in his throat as he stepped into the space, his footsteps echoing with the hollow sound of vastness. The chamber was perfectly circular, carved from black stone that seemed to absorb light rather than reflect it. Along the walls, murals depicted battles between beings of radiant light and creatures of living shadow, their conflict frozen in stone relief that spoke of ancient conflicts beyond mortal understanding.
                     </p>
-                    
+
                     <p class="excerpt-paragraph">
                         But it was the far wall that drew every eye and stilled every tongue.
                     </p>
-                    
+
                     <p class="excerpt-paragraph">
                         A massive stone door dominated the chamber's northern end, its surface covered in seven distinct sealing mechanisms. Each lock bore the craftsmanship of a different people: the geometric precision of dwarven metalwork, the flowing curves of elven script, the solid practicality of human engineering, and four others worked in styles that belonged to no living civilization. The seals were integrated into the door's structure so seamlessly that they appeared to have been created by the same hand, despite their wildly different origins.
                     </p>
-                    
+
                     <p class="excerpt-paragraph">
                         "By the deep fires," whispered Korven, the crew's dwarf engineer, stepping closer to examine the locks. "These bindings... they're not just keeping something out. They're keeping something in."
                     </p>
-                    
+
                     <p class="excerpt-paragraph">
                         Gorak felt the weight of decision pressing down upon him like the mountain itself. Every instinct developed through twenty years of mining screamed danger, but the gleam of silver veins visible beyond the door's crystal viewing ports overwhelmed his caution. The mine owners had invested everything in this excavation. Failure would mean not just his position, but the livelihood of every family in the settlement above.
                     </p>
-                    
+
                     <p class="excerpt-paragraph">
                         "We've come this far," he said, his voice carrying forced confidence. "Those seals are ancient. Whatever they were built to contain is long dead. That silver could change everything for our people."
                     </p>
-                    
+
                     <p class="excerpt-paragraph">
                         The work began with Korven's careful examination of the dwarven lock, its mechanisms still precise despite centuries of age. As his tools found purchase in the ancient tumblers, the first seal released with a whisper of stale air that carried scents of age and something else—something that made the torches flicker and die momentarily before roaring back to life with unusual intensity.
                     </p>
-                    
+
                     <p class="excerpt-paragraph">
                         One by one, they worked through the seals. The elven lock required delicate manipulation of crystalline components that sang with faint harmonics when touched. The human mechanism responded to traditional techniques, though its internal construction showed sophistication beyond contemporary engineering. The four unknown seals demanded careful experimentation, their alien geometries yielding only to persistence and intuition.
                     </p>
-                    
+
                     <p class="excerpt-paragraph">
                         With each breaking seal, the air grew colder and more oppressive. Strange whispers seemed to emanate from beyond the door, speaking in languages that predated current civilization. The words were incomprehensible, yet their meaning crept into the miners' minds like shadows: hunger, expansion, freedom, consumption.
                     </p>
-                    
+
                     <p class="excerpt-paragraph">
                         Young Berin was the first to voice what they all felt. "Master Gorak, perhaps we should—"
                     </p>
-                    
+
                     <p class="excerpt-paragraph">
                         His words were cut off by thunder that seemed to originate from within the mountain itself. The final seal gave way with a sound like breaking bones, and the massive door swung open with grinding inevitability. Beyond lay a chamber carved from the same black stone, but this space radiated wrongness that made their torches burn fitfully and their shadows behave independently of their movements.
                     </p>
-                    
+
                     <p class="excerpt-paragraph">
                         At the chamber's center yawned a circular pit with stairs carved into its walls, descending into darkness so absolute that their torchlight simply vanished into it without revealing depth or bottom. The whispers grew stronger, more insistent, and now they could distinguish multiple voices speaking in unison, their words carrying promises of power and threats of consequences in equal measure.
                     </p>
-                    
+
                     <p class="excerpt-paragraph">
                         "We should not be here," Korven said, his voice barely audible above the growing susurrus from below. "These seals weren't placed by treasure hunters. They were put here by people who knew what they were doing."
                     </p>
-                    
+
                     <p class="excerpt-paragraph">
                         But as Gorak stepped closer to the pit's edge, young Berin lost his footing on stone made slick by condensation that had no natural source. His cry of surprise echoed down the stairwell as he tumbled into the darkness, his voice growing fainter with each impact until it cut off with abrupt finality.
                     </p>
-                    
+
                     <p class="excerpt-paragraph">
                         The silence that followed was worse than any scream.
                     </p>
-                    
+
                     <p class="excerpt-paragraph">
                         "Berin!" Korven called into the pit, but only whispers answered—whispers that now carried a note of satisfaction that made every man present step back from the opening.
                     </p>
-                    
+
                     <p class="excerpt-paragraph">
                         "We're leaving," Gorak commanded, his voice cracking with authority and fear. "Now. All of us."
                     </p>
-                    
+
                     <p class="excerpt-paragraph">
                         But as they turned to flee, their shadows lingered behind them, moving independently in the torchlight. By the time they reached the tunnel entrance, three more miners had simply vanished, leaving only their tools scattered on the stone floor and the echo of satisfied whispers following them toward the surface.
                     </p>
-                    
+
                     <p class="excerpt-paragraph">
                         Gorak survived to report the "accident" to the mine owners, speaking of a cave-in and tragic losses while carefully omitting any mention of seals, chambers, or whispers. He died three days later in his sleep, his final words recorded by his terrified wife: "The hunger in the dark. It's free now. It's so very hungry."
                     </p>
-                    
+
                     <p class="excerpt-paragraph">
                         The Shadowdepth Mines were officially closed due to unstable conditions, but the damage was already done. That very night, livestock in the surrounding valleys began behaving strangely, their eyes reflecting an intelligence that belonged to no natural beast. Plants withered without cause, and sensitive individuals reported dreams filled with whispers in languages they had never heard but somehow understood.
                     </p>
-                    
-                    <p class="excerpt-paragraph final-paragraph">
-                        Ancient warnings, carved in stone and sealed with the wisdom of seven peoples, had been ignored for the promise of silver. Now something that had been imprisoned for over a millennium was free to remember its hunger and begin the slow work of feeding. The unsealing was complete. The spreading shadow had begun.
+
+                    <p class="excerpt-paragraph">
+                        Ancient warnings, carved in stone and sealed with the wisdom of seven peoples, had been ignored for the promise of silver. Now something that had been imprisoned for over a millennium was free to remember its hunger and begin the slow work of feeding.
                     </p>
+
+                    <p class="excerpt-paragraph">
+                        The unsealing was complete. The spreading shadow had begun.
+                    </p>
+
+                    <div class="chapter-divider">* * *</div>
                 </div>
-                
-                <div class="excerpt-end-notice">
-                    <div class="end-notice-content">
-                        <h3 class="end-notice-title">End of Prologue</h3>
-                        <p class="end-notice-text">
-                            This concludes the free excerpt from "Doraleous and Associates: A Tale of Glory." 
-                            To continue the adventure and discover what happens next, get your copy today!
-                        </p>
-                        <div class="end-notice-actions">
-                            <a href="index.html" class="btn btn-primary">Get the Full Book</a>
-                            <a href="characters.html" class="btn btn-secondary">Meet the Characters</a>
-                        </div>
+
+                <div class="excerpt-footer">
+                    <p class="excerpt-note">
+                        <strong>This is just the beginning!</strong> Continue reading to follow Doraleous and his companions as they navigate a world forever changed by the events of the Unsealing.
+                    </p>
+                    <div class="excerpt-actions">
+                        <a href="#" class="btn btn-primary">Get the Full Book</a>
+                        <a href="index.html" class="btn btn-secondary">Back to Book Details</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Newsletter Signup -->
-    <section class="newsletter-signup">
+    <!-- Purchase Section -->
+    <section class="purchase-section">
+        <div class="container">
+            <div class="purchase-content" data-aos="fade-up">
+                <h2 class="purchase-title">Get Your Copy Today</h2>
+                <p class="purchase-description">
+                    Don't miss out on this epic fantasy adventure. Get your copy of Doraleous and Associates: A Tale of Glory and experience the full story.
+                </p>
+                <div class="purchase-links">
+                    <a href="#" class="purchase-btn">
+                        <img src="../../assets/images/store-icons/amazon.png" alt="Amazon" class="store-icon">
+                        <span>Amazon</span>
+                    </a>
+                    <a href="#" class="purchase-btn">
+                        <img src="../../assets/images/store-icons/barnes-noble.png" alt="Barnes & Noble" class="store-icon">
+                        <span>Barnes & Noble</span>
+                    </a>
+                    <a href="#" class="purchase-btn">
+                        <img src="../../assets/images/store-icons/apple-books.png" alt="Apple Books" class="store-icon">
+                        <span>Apple Books</span>
+                    </a>
+                    <a href="#" class="purchase-btn">
+                        <img src="../../assets/images/store-icons/google-play.png" alt="Google Play" class="store-icon">
+                        <span>Google Play</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
         <div class="container">
             <div class="newsletter-content" data-aos="fade-up">
                 <h2 class="newsletter-title">Want More Free Content?</h2>
                 <p class="newsletter-description">
-                    Subscribe to get exclusive excerpts, character backstories, and early access to new releases.
+                    Join Brian's newsletter for exclusive excerpts, character profiles, world-building insights, and updates on upcoming releases.
                 </p>
-                <form class="newsletter-form" id="newsletter-form" method="POST" action="https://formspree.io/f/YOUR_FORM_ID">
+                <form class="newsletter-form" id="newsletter-form">
                     <div class="form-group">
-                        <input type="email" id="email" name="email" class="form-input" placeholder="Enter your email address" required>
-                        <button type="submit" class="btn btn-primary">Get Free Content</button>
+                        <label for="newsletter-email" class="sr-only">Email Address</label>
+                        <input type="email" id="newsletter-email" name="email" placeholder="Enter your email address" class="form-input" required>
                     </div>
-                    <p class="newsletter-privacy">
-                        Your privacy is important to us. We'll never share your email address.
-                    </p>
-                    <div class="newsletter-success" id="newsletter-success">
-                        Thank you for subscribing! Check your email for a welcome message with exclusive content.
-                    </div>
-                    <div class="newsletter-error" id="newsletter-error">
-                        Sorry, there was an error subscribing. Please try again or contact us directly.
-                    </div>
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
                 </form>
+                <p class="newsletter-note">
+                    No spam, ever. Unsubscribe at any time. We respect your privacy.
+                </p>
             </div>
         </div>
     </section>
 
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="footer-title">Brian M. Shoemaker</h3>
+                    <p class="footer-description">
+                        Fantasy author creating epic adventures and unforgettable characters in magical realms.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Twitter">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-section-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="../../about.html" class="footer-link">About Brian</a></li>
+                        <li><a href="../index.html" class="footer-link">Books</a></li>
+                        <li><a href="../../blog/index.html" class="footer-link">Blog</a></li>
+                        <li><a href="../../events.html" class="footer-link">Events</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-section-title">This Book</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html" class="footer-link">Book Details</a></li>
+                        <li><a href="characters.html" class="footer-link">Character Guide</a></li>
+                        <li><a href="reviews.html" class="footer-link">Reviews</a></li>
+                        <li><a href="../../contact.html" class="footer-link">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-section-title">Get the Book</h4>
+                    <div class="purchase-links">
+                        <a href="#" class="purchase-link">Amazon</a>
+                        <a href="#" class="purchase-link">Barnes & Noble</a>
+                        <a href="#" class="purchase-link">Apple Books</a>
+                        <a href="#" class="purchase-link">Google Play</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="copyright">
+                    &copy; 2024 Brian M. Shoemaker. All rights reserved.
+                </p>
+                <div class="footer-legal">
+                    <a href="#" class="legal-link">Privacy Policy</a>
+                    <a href="#" class="legal-link">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
     <!-- JavaScript Files -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script src="../../assets/js/main.js"></script>
-    
-    <!-- Add this JavaScript to make the mobile navigation work -->
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const navToggle = document.getElementById('nav-toggle');
-        const navMenu = document.getElementById('nav-menu');
-        
-        if (navToggle && navMenu) {
-            navToggle.addEventListener('click', function() {
-                navMenu.classList.toggle('active');
-                navToggle.classList.toggle('active');
-                document.body.classList.toggle('menu-open');
-            });
-        }
-        
-        // Close mobile menu when clicking on a link
-        const navLinks = document.querySelectorAll('.nav-link');
-        navLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                navMenu.classList.remove('active');
-                navToggle.classList.remove('active');
-                document.body.classList.remove('menu-open');
-            });
-        });
-        
-        // Navigation scroll effect
-        const mainNav = document.getElementById('main-nav');
-        if (mainNav) {
-            window.addEventListener('scroll', function() {
-                if (window.scrollY > 50) {
-                    mainNav.classList.add('scrolled');
-                } else {
-                    mainNav.classList.remove('scrolled');
-                }
-            });
-        }
-    });
-    </script>
-    
-    <!-- Excerpt Reading Experience JavaScript -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const excerptText = document.getElementById('excerpt-text');
-            const readingOptions = document.querySelectorAll('.reading-option');
-            const downloadBtn = document.getElementById('download-pdf');
-            const fullScreenBtn = document.getElementById('full-screen');
-            const newsletterForm = document.getElementById('newsletter-form');
-            const newsletterSuccess = document.getElementById('newsletter-success');
-            const newsletterError = document.getElementById('newsletter-error');
-            
-            // Reading mode switching - Dark mode toggle only
-            readingOptions.forEach(option => {
-                option.addEventListener('click', function() {
-                    const mode = this.getAttribute('data-mode');
-                    
-                    if (mode === 'dark') {
-                        if (excerptText.classList.contains('dark-mode')) {
-                            // Toggle off dark mode
-                            excerptText.classList.remove('dark-mode');
-                            this.classList.remove('active');
-                            localStorage.setItem('preferredReadingMode', 'normal');
-                        } else {
-                            // Toggle on dark mode
-                            excerptText.classList.add('dark-mode');
-                            this.classList.add('active');
-                            localStorage.setItem('preferredReadingMode', 'dark');
-                        }
-                    }
-                });
-            });
-            
-            // Load saved reading mode
-            const savedMode = localStorage.getItem('preferredReadingMode');
-            if (savedMode === 'dark') {
-                excerptText.classList.add('dark-mode');
-                const darkModeButton = document.querySelector('[data-mode="dark"]');
-                if (darkModeButton) {
-                    darkModeButton.classList.add('active');
-                }
-            }
-            
-            // PDF Generation functionality
-            downloadBtn.addEventListener('click', function() {
-                // Add loading state
-                document.body.classList.add('pdf-generating');
-                
-                // Create PDF using jsPDF
-                try {
-                    const { jsPDF } = window.jspdf;
-                    const doc = new jsPDF('p', 'mm', 'a4');
-                    
-                    // Add title
-                    doc.setFontSize(20);
-                    doc.text('Doraleous and Associates: A Tale of Glory', 20, 30);
-                    
-                    doc.setFontSize(14);
-                    doc.text('Prologue: The Unsealing', 20, 45);
-                    doc.text('by Brian M. Shoemaker', 20, 55);
-                    
-                    // Get excerpt content
-                    const excerptParagraphs = document.querySelectorAll('.excerpt-paragraph');
-                    let yPosition = 75;
-                    const lineHeight = 7;
-                    const pageHeight = 280;
-                    const margin = 20;
-                    const pageWidth = 170;
-                    
-                    doc.setFontSize(11);
-                    
-                    // Add the poem first
-                    const poem = document.querySelector('.prologue-poem');
-                    if (poem) {
-                        const poemLines = poem.textContent.split('\n').filter(line => line.trim());
-                        poemLines.forEach(line => {
-                            if (yPosition > pageHeight) {
-                                doc.addPage();
-                                yPosition = 30;
-                            }
-                            doc.text(line.trim(), 105, yPosition, { align: 'center' });
-                            yPosition += lineHeight;
-                        });
-                        yPosition += 15; // Extra space after poem
-                    }
-                    
-                    excerptParagraphs.forEach((paragraph, index) => {
-                        let text = paragraph.textContent.trim();
-                        
-                        // Remove drop cap formatting for PDF
-                        if (paragraph.classList.contains('first-paragraph')) {
-                            text = text.replace(/^T/, 'T');
-                        }
-                        
-                        // Split text into lines that fit the page width
-                        const lines = doc.splitTextToSize(text, pageWidth);
-                        
-                        lines.forEach(line => {
-                            // Check if we need a new page
-                            if (yPosition > pageHeight) {
-                                doc.addPage();
-                                yPosition = 30;
-                            }
-                            
-                            doc.text(line, margin, yPosition);
-                            yPosition += lineHeight;
-                        });
-                        
-                        // Add spacing between paragraphs
-                        yPosition += 5;
-                    });
-                    
-                    // Add footer information
-                    const totalPages = doc.internal.getNumberOfPages();
-                    for (let i = 1; i <= totalPages; i++) {
-                        doc.setPage(i);
-                        doc.setFontSize(9);
-                        doc.text('Free excerpt from "Doraleous and Associates: A Tale of Glory" - brianmshoemaker.com', 
-                               20, 290);
-                        doc.text(`Page ${i} of ${totalPages}`, 170, 290);
-                    }
-                    
-                    // Save the PDF
-                    doc.save('Doraleous-and-Associates-Prologue.pdf');
-                    
-                } catch (error) {
-                    console.error('Error generating PDF:', error);
-                    alert('Sorry, there was an error generating the PDF. Please try again.');
-                } finally {
-                    // Remove loading state
-                    document.body.classList.remove('pdf-generating');
-                }
-            });
-            
-            // Full screen reading
-            fullScreenBtn.addEventListener('click', function() {
-                if (!document.fullscreenElement) {
-                    excerptText.requestFullscreen().then(() => {
-                        excerptText.classList.add('fullscreen-reading');
-                        this.querySelector('.btn-text').textContent = 'Exit Full Screen';
-                    }).catch(err => {
-                        console.log('Fullscreen error:', err);
-                    });
-                } else {
-                    document.exitFullscreen().then(() => {
-                        excerptText.classList.remove('fullscreen-reading');
-                        this.querySelector('.btn-text').textContent = 'Full Screen';
-                    });
-                }
-            });
-            
-            // Handle fullscreen change events
-            document.addEventListener('fullscreenchange', function() {
-                if (!document.fullscreenElement) {
-                    excerptText.classList.remove('fullscreen-reading');
-                    fullScreenBtn.querySelector('.btn-text').textContent = 'Full Screen';
-                }
-            });
-            
-            // Newsletter form submission
-            newsletterForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                const formData = new FormData(this);
-                const email = formData.get('email');
-                
-                // Hide previous messages
-                newsletterSuccess.style.display = 'none';
-                newsletterError.style.display = 'none';
-                
-                // Submit to Formspree
-                fetch(this.action, {
-                    method: 'POST',
-                    body: formData,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                })
-                .then(response => {
-                    if (response.ok) {
-                        newsletterSuccess.style.display = 'block';
-                        this.reset();
-                        // Track successful signup
-                        if (typeof gtag !== 'undefined') {
-                            gtag('event', 'newsletter_signup', {
-                                'event_category': 'engagement',
-                                'event_label': 'excerpt_page'
-                            });
-                        }
-                    } else {
-                        throw new Error('Network response was not ok');
-                    }
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    newsletterError.style.display = 'block';
-                });
-            });
-            
-            // Track reading progress
-            let readingStartTime = Date.now();
-            let hasReadToEnd = false;
-            
-            const observer = new IntersectionObserver(function(entries) {
-                entries.forEach(entry => {
-                    if (entry.target.classList.contains('final-paragraph') && entry.isIntersecting && !hasReadToEnd) {
-                        hasReadToEnd = true;
-                        const readingTime = Math.round((Date.now() - readingStartTime) / 1000);
-                        
-                        // Track completion
-                        if (typeof gtag !== 'undefined') {
-                            gtag('event', 'excerpt_complete', {
-                                'event_category': 'engagement',
-                                'event_label': 'prologue',
-                                'value': readingTime
-                            });
-                        }
-                    }
-                });
-            }, {
-                threshold: 0.5
-            });
-            
-            const finalParagraph = document.querySelector('.final-paragraph');
-            if (finalParagraph) {
-                observer.observe(finalParagraph);
-            }
-        });
-    </script>
-    
-    <!-- Initialize AOS Animation -->
-    <script>
-        AOS.init({
-            duration: 1000,
-            once: true,
-            offset: 100
-        });
-    </script>
-
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'GA_MEASUREMENT_ID');
-    </script>
 </body>
 </html>
