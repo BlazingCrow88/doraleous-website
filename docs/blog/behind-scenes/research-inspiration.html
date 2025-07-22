@@ -136,8 +136,9 @@
             position: relative;
         }
 
-        .nav-link {
-            color: #FFD700;
+        /* FIXED: Made main navigation links more specific */
+        .main-navigation .nav-link {
+            color: #FFD700 !important;
             text-decoration: none;
             font-family: 'Cinzel', serif;
             font-weight: 500;
@@ -151,9 +152,9 @@
             opacity: 1;
         }
 
-        .nav-link:hover,
-        .nav-link.active {
-            color: #FFD700;
+        .main-navigation .nav-link:hover,
+        .main-navigation .nav-link.active {
+            color: #FFD700 !important;
             opacity: 1;
         }
 
@@ -325,7 +326,7 @@
             letter-spacing: 1px;
         }
 
-        /* Post Navigation */
+        /* Post Navigation - FIXED: Renamed class to avoid conflict */
         .post-navigation {
             background: linear-gradient(135deg, #DAA520, #B8860B);
             padding: 2rem 0;
@@ -338,7 +339,7 @@
             align-items: center;
         }
 
-        .nav-link {
+        .post-nav-link {
             display: flex;
             align-items: center;
             text-decoration: none;
@@ -352,12 +353,12 @@
             background: rgba(0, 0, 0, 0.1);
         }
 
-        .nav-link:hover {
+        .post-nav-link:hover {
             background: rgba(0, 0, 0, 0.2);
             transform: translateY(-2px);
         }
 
-        .nav-link span {
+        .post-nav-link span {
             margin: 0 0.5rem;
         }
 
@@ -449,9 +450,9 @@
                 text-align: center;
             }
 
-            .nav-link {
-                font-size: 1.2rem;
-                padding: 1rem 0;
+            .main-navigation .nav-link {
+                font-size: 1.2rem !important;
+                padding: 1rem 0 !important;
             }
 
             .dropdown-menu {
@@ -494,7 +495,7 @@
                 gap: 1rem;
             }
             
-            .nav-link {
+            .post-nav-link {
                 text-align: center;
                 padding: 0.8rem 1.5rem;
             }
@@ -519,8 +520,8 @@
                 padding: 1.5rem 0.75rem;
             }
             
-            .nav-link {
-                font-size: 1rem;
+            .main-navigation .nav-link {
+                font-size: 1rem !important;
             }
             
             .blog-post-header {
@@ -676,11 +677,11 @@
     <section class="post-navigation">
         <div class="container">
             <div class="nav-links-container">
-                <a href="authentic-dialogue.html" class="nav-link">
+                <a href="authentic-dialogue.html" class="post-nav-link">
                     <span>←</span>
                     <span>Previous: Authentic Dialogue</span>
                 </a>
-                <a href="../adventure-tales/battle-of-millbrook.html" class="nav-link">
+                <a href="../adventure-tales/battle-of-millbrook.html" class="post-nav-link">
                     <span>Next: Battle of Millbrook</span>
                     <span>→</span>
                 </a>
