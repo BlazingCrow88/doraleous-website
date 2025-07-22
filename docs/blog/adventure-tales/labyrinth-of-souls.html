@@ -21,7 +21,7 @@
     <meta name="twitter:image" content="../../assets/images/blog/adventure-tales/labyrinth-of-souls.jpg">
     
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     
     <!-- CSS -->
     <style>
@@ -32,10 +32,11 @@
         }
 
         body {
-            font-family: 'Libre Baskerville', serif;
+            font-family: 'Crimson Text', serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 25%, #2d1810 50%, #1a1a1a 75%, #0a0a0a 100%);
+            color: #e8e8e8;
+            min-height: 100vh;
             line-height: 1.6;
-            color: #2c3e50;
-            background-color: #f8f9fa;
         }
 
         .container {
@@ -44,67 +45,187 @@
             padding: 0 20px;
         }
 
-        /* Header */
-        .header {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            color: white;
-            padding: 1rem 0;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        /* Navigation */
+        .main-navigation {
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            border-bottom: 2px solid rgba(255, 215, 0, 0.3);
+            transition: all 0.3s ease;
         }
 
         .nav-container {
             display: flex;
-            justify-content: space-between;
             align-items: center;
-        }
-
-        .logo {
-            font-family: 'Cinzel', serif;
-            font-size: 1.8rem;
-            font-weight: 700;
-            text-decoration: none;
-            color: #f39c12;
-            letter-spacing: 1px;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            min-height: 80px;
             gap: 2rem;
         }
 
-        .nav-links a {
-            color: white;
+        .nav-brand {
+            flex: 0 0 auto;
+        }
+
+        .nav-brand .brand-link {
             text-decoration: none;
-            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
             transition: color 0.3s ease;
         }
 
-        .nav-links a:hover {
-            color: #f39c12;
+        .brand-name {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #FFD700;
+            letter-spacing: 0;
+            text-transform: none;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            background: linear-gradient(135deg, #FFD700, #B7881F);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 0;
+        }
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            margin-left: auto;
+        }
+
+        .hamburger-line {
+            width: 25px;
+            height: 3px;
+            background-color: #FFD700;
+            margin: 2px 0;
+            transition: 0.3s;
+            display: block;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            flex: 1;
+            justify-content: flex-start;
+        }
+
+        .nav-list {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            margin: 0;
+            padding: 0;
+            align-items: center;
+            margin-left: auto;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        /* FIXED: Made main navigation links more specific */
+        .main-navigation .nav-link {
+            color: #FFD700 !important;
+            text-decoration: none;
+            font-family: 'Cinzel', serif;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            display: block;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-radius: 5px;
+            opacity: 1;
+        }
+
+        .main-navigation .nav-link:hover,
+        .main-navigation .nav-link.active {
+            color: #FFD700 !important;
+            opacity: 1;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: rgba(10, 10, 10, 0.95);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 4px;
+            padding: 0.5rem 0;
+            list-style: none;
+            min-width: 200px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-link {
+            color: #FFD700;
+            text-decoration: none;
+            font-family: 'Cinzel', serif;
+            font-size: 0.9rem;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            display: block;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .dropdown-link:hover {
+            color: #B7881F;
+            background: rgba(255, 215, 0, 0.1);
         }
 
         /* Blog Post Header */
         .blog-post-header {
-            background: linear-gradient(135deg, #2c1810 0%, #1a0f08 100%);
+            background: linear-gradient(135deg, 
+                rgba(0, 0, 0, 0.8) 0%, 
+                rgba(45, 24, 16, 0.9) 30%,
+                rgba(26, 26, 26, 0.8) 70%,
+                rgba(0, 0, 0, 0.8) 100%);
             color: white;
-            padding: 4rem 0 2rem;
+            padding: 10rem 0 4rem;
             text-align: center;
+            position: relative;
+            overflow: hidden;
         }
 
-        .breadcrumb {
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-            opacity: 0.8;
-        }
-
-        .breadcrumb a {
-            color: #f39c12;
-            text-decoration: none;
-        }
-
-        .breadcrumb a:hover {
-            text-decoration: underline;
+        .blog-post-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, rgba(218, 165, 32, 0.1) 0%, transparent 70%);
         }
 
         .post-title {
@@ -113,6 +234,15 @@
             font-weight: 700;
             margin-bottom: 1rem;
             line-height: 1.2;
+            background: linear-gradient(135deg, #DAA520, #FFD700, #B8860B);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            position: relative;
+            z-index: 2;
         }
 
         .post-meta {
@@ -122,74 +252,121 @@
             flex-wrap: wrap;
             font-size: 0.9rem;
             opacity: 0.9;
+            position: relative;
+            z-index: 2;
         }
 
         .post-meta span {
-            padding: 0.25rem 0.75rem;
-            background: rgba(255,255,255,0.1);
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
+            padding: 0.5rem 1rem;
+            background: linear-gradient(135deg, #DAA520, #B8860B);
+            color: #000;
+            font-family: 'Cinzel', serif;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.8rem;
         }
 
         /* Blog Post Content */
         .blog-post-content {
             padding: 4rem 0;
+            background: rgba(0, 0, 0, 0.1);
         }
 
         .post-content {
             max-width: 800px;
             margin: 0 auto;
-            background: white;
+            background: linear-gradient(135deg, rgba(45, 24, 16, 0.4), rgba(26, 26, 26, 0.4));
+            border: 1px solid rgba(218, 165, 32, 0.2);
             padding: 3rem;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
 
         .post-content .lead {
             font-size: 1.2rem;
             font-weight: 400;
-            color: #34495e;
+            color: rgba(232, 232, 232, 0.9);
             margin-bottom: 2rem;
             padding-bottom: 1rem;
-            border-bottom: 2px solid #f39c12;
+            border-bottom: 2px solid #DAA520;
+            font-style: italic;
         }
 
         .post-content p {
             margin-bottom: 1.5rem;
             text-align: justify;
+            color: rgba(232, 232, 232, 0.8);
+            line-height: 1.6;
         }
 
         .post-content h2 {
             font-family: 'Cinzel', serif;
-            color: #2c3e50;
+            color: #DAA520;
             margin: 2rem 0 1rem;
             font-size: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         /* Post Navigation */
         .post-navigation {
-            background: #2c1810;
-            padding: 2rem 0;
-            color: white;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 3rem 0;
+            color: #e8e8e8;
         }
 
         .nav-links-container {
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            align-items: flex-start;
+            gap: 2rem;
+        }
+
+        .post-nav-item {
+            flex: 1;
+            text-align: left;
+        }
+
+        .post-nav-item.next {
+            text-align: right;
+        }
+
+        .post-nav-label {
+            font-family: 'Cinzel', serif;
+            font-size: 0.9rem;
+            color: rgba(218, 165, 32, 0.8);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .post-nav-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.2rem;
+            color: #DAA520;
+            text-decoration: none;
+            font-weight: 600;
+            line-height: 1.3;
+            transition: color 0.3s ease;
+        }
+
+        .post-nav-title:hover {
+            color: #FFD700;
         }
 
         .nav-link {
             display: flex;
             align-items: center;
             text-decoration: none;
-            color: white;
+            color: #DAA520;
             font-weight: 500;
             transition: color 0.3s ease;
+            font-family: 'Cinzel', serif;
         }
 
         .nav-link:hover {
-            color: #f39c12;
+            color: #FFD700;
         }
 
         .nav-link span {
@@ -197,40 +374,200 @@
         }
 
         /* Footer */
-        .footer {
-            background: #1a1a2e;
-            color: white;
-            padding: 3rem 0 1rem;
+        .main-footer {
+            background: linear-gradient(135deg, #000000, #1a1a1a);
+            color: #e8e8e8;
+            padding: 4rem 0 2rem;
+            border-top: 2px solid #DAA520;
         }
 
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section {
+            margin-bottom: 0;
+        }
+
+        .footer-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #DAA520;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .footer-description {
+            font-size: 1rem;
+            color: rgba(232, 232, 232, 0.9);
+            line-height: 1.5;
             margin-bottom: 2rem;
         }
 
-        .footer-section h3 {
+        .footer-section-title {
             font-family: 'Cinzel', serif;
-            color: #f39c12;
+            color: #DAA520;
             margin-bottom: 1rem;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.3rem;
+        }
+
+        .footer-link {
+            color: rgba(232, 232, 232, 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-family: 'Crimson Text', serif;
+            font-size: 0.95rem;
+        }
+
+        .footer-link:hover {
+            color: #DAA520;
+        }
+
+        .purchase-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+        }
+
+        .purchase-link {
+            color: rgba(232, 232, 232, 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-family: 'Crimson Text', serif;
+            font-size: 0.95rem;
+        }
+
+        .purchase-link:hover {
+            color: #DAA520;
         }
 
         .footer-bottom {
-            text-align: center;
+            border-top: 1px solid rgba(218, 165, 32, 0.2);
             padding-top: 2rem;
-            border-top: 1px solid #34495e;
-            opacity: 0.8;
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .copyright {
+            color: rgba(232, 232, 232, 0.6);
+            font-family: 'Crimson Text', serif;
+            margin: 0 0 1rem 0;
+            font-size: 0.9rem;
+        }
+
+        .footer-legal {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .legal-link {
+            color: #DAA520;
+            text-decoration: none;
+            font-family: 'Crimson Text', serif;
+            transition: color 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .legal-link:hover {
+            color: #FFD700;
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
+            .nav-toggle {
+                display: flex;
+            }
+
+            .nav-container {
+                justify-content: space-between;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                right: 0;
+                background: rgba(10, 10, 10, 0.98);
+                backdrop-filter: blur(10px);
+                border-top: 1px solid rgba(255, 215, 0, 0.3);
+                padding: 2rem;
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .nav-menu.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .nav-list {
+                flex-direction: column;
+                gap: 1.5rem;
+                text-align: center;
+            }
+
+            .main-navigation .nav-link {
+                font-size: 1.2rem !important;
+                padding: 1rem 0 !important;
+            }
+
+            .dropdown-menu {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                background: rgba(255, 215, 0, 0.1);
+                margin-top: 0.5rem;
+                backdrop-filter: none;
+            }
+
+            .nav-toggle.active .hamburger-line:nth-child(1) {
+                transform: rotate(-45deg) translate(-5px, 6px);
+            }
+
+            .nav-toggle.active .hamburger-line:nth-child(2) {
+                opacity: 0;
+            }
+
+            .nav-toggle.active .hamburger-line:nth-child(3) {
+                transform: rotate(45deg) translate(-5px, -6px);
+            }
+            
+            .blog-post-header {
+                padding: 8rem 0 3rem;
             }
             
             .post-title {
                 font-size: 2rem;
+                letter-spacing: 1px;
             }
             
             .post-content {
@@ -239,38 +576,141 @@
             
             .nav-links-container {
                 flex-direction: column;
-                gap: 1rem;
+                gap: 2rem;
+                text-align: center;
+            }
+            
+            .post-nav-item.next {
+                text-align: center;
+            }
+
+            /* Responsive Design for Footer */
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+            }
+
+            .footer-title {
+                font-size: 1.5rem;
+            }
+
+            .purchase-links {
+                justify-content: center;
+                align-items: center;
+            }
+
+            .footer-legal {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            .nav-container {
+                padding: 0 0.75rem;
+                min-height: 65px;
+            }
+            
+            .brand-name {
+                font-size: 1.3rem;
+            }
+            
+            .nav-menu {
+                top: 65px;
+                padding: 1.5rem 0.75rem;
+            }
+            
+            .main-navigation .nav-link {
+                font-size: 1rem !important;
+            }
+            
+            .blog-post-header {
+                padding: 7rem 0 2rem;
+            }
+            
+            .post-title {
+                font-size: 1.8rem;
+            }
+            
+            .post-content {
+                padding: 1.5rem;
+            }
+            
+            .post-meta {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.5rem;
+            }
+
+            .footer-title {
+                font-size: 1.2rem;
+            }
+
+            .post-nav-title {
+                font-size: 1rem;
+            }
+
+            .footer-legal {
+                flex-direction: column;
+                gap: 0.5rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <div class="container">
-            <nav class="nav-container">
-                <a href="../../index.html" class="logo">Doraleous and Associates</a>
-                <ul class="nav-links">
-                    <li><a href="../../index.html">Home</a></li>
-                    <li><a href="../index.html">Blog</a></li>
-                    <li><a href="../../characters.html">Characters</a></li>
-                    <li><a href="../../world.html">World</a></li>
-                    <li><a href="../../episodes.html">Episodes</a></li>
-                    <li><a href="../../about.html">About</a></li>
+    <!-- Navigation -->
+    <nav class="main-navigation" id="main-nav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="../../index.html" class="brand-link">
+                    <h1 class="brand-name">Doraleous and Associates</h1>
+                </a>
+            </div>
+            
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+            
+            <div class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="../../index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../../about.html" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="../../books/index.html" class="nav-link">Books</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="../../books/doraleous-associates/index.html" class="dropdown-link">Doraleous and Associates</a></li>
+                            <li><a href="../../books/doraleous-associates/characters.html" class="dropdown-link">Character Guide</a></li>
+                            <li><a href="../../books/doraleous-associates/read-excerpt.html" class="dropdown-link">Read Excerpt</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../index.html" class="nav-link active">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../../media-kit.html" class="nav-link">Media Kit</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../../contact.html" class="nav-link">Contact</a>
+                    </li>
                 </ul>
-            </nav>
+            </div>
         </div>
-    </header>
+    </nav>
 
     <!-- Blog Post Header -->
     <section class="blog-post-header">
         <div class="container">
-            <div class="breadcrumb">
-                <a href="../../index.html">Home</a> > 
-                <a href="../index.html">Blog</a> > 
-                <a href="../index.html#adventure-tales">Adventure Tales</a> > 
-                <span>The Labyrinth of Souls</span>
-            </div>
             <h1 class="post-title">The Labyrinth of Souls: Personal Trials in the Heart of Darkness</h1>
             <div class="post-meta">
                 <span class="post-date">May 12, 2024</span>
@@ -329,42 +769,104 @@
     <section class="post-navigation">
         <div class="container">
             <div class="nav-links-container">
-                <a href="heist-at-irongate.html" class="nav-link">
-                    <span>←</span>
-                    <span>Previous: The Heist at Irongate</span>
-                </a>
-                <a href="underground-war.html" class="nav-link">
-                    <span>Next: The Underground War</span>
-                    <span>→</span>
-                </a>
+                <div class="post-nav-item">
+                    <span class="post-nav-label">Previous Post</span>
+                    <a href="heist-at-irongate.html" class="post-nav-title">The Heist at Irongate</a>
+                </div>
+                <div class="post-nav-item next">
+                    <span class="post-nav-label">Next Post</span>
+                    <a href="underground-war.html" class="post-nav-title">The Underground War</a>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="main-footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>Doraleous and Associates</h3>
-                    <p>Following the legendary adventures of brave heroes as they face ancient evils and forge unbreakable bonds of friendship.</p>
+                    <h3 class="footer-title">Brian M. Shoemaker</h3>
+                    <p class="footer-description">
+                        Fantasy author creating epic adventures and unforgettable characters in magical realms.
+                    </p>
                 </div>
                 <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <p><a href="../../characters.html" style="color: #f39c12;">Characters</a></p>
-                    <p><a href="../../world.html" style="color: #f39c12;">World</a></p>
-                    <p><a href="../../episodes.html" style="color: #f39c12;">Episodes</a></p>
-                    <p><a href="../index.html" style="color: #f39c12;">Blog</a></p>
+                    <h4 class="footer-section-title" style="margin-top: 2rem;">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html" class="footer-link">About Brian</a></li>
+                        <li><a href="books/index.html" class="footer-link">Books</a></li>
+                        <li><a href="blog/index.html" class="footer-link">Blog</a></li>
+                        <li><a href="events.html" class="footer-link">Events</a></li>
+                    </ul>
                 </div>
                 <div class="footer-section">
-                    <h3>Connect</h3>
-                    <p>Join our community of fantasy enthusiasts and stay updated on the latest adventures.</p>
+                    <h4 class="footer-section-title" style="margin-top: 2rem;">Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="books/doraleous-associates/characters.html" class="footer-link">Character Guide</a></li>
+                        <li><a href="books/doraleous-associates/read-excerpt.html" class="footer-link">Read Excerpt</a></li>
+                        <li><a href="media-kit.html" class="footer-link">Media Kit</a></li>
+                        <li><a href="contact.html" class="footer-link">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-section-title" style="margin-top: 2rem;">Get the Book</h4>
+                    <div class="purchase-links">
+                        <a href="#" class="purchase-link">Amazon</a>
+                        <a href="#" class="purchase-link">Barnes & Noble</a>
+                        <a href="#" class="purchase-link">Goodreads</a>
+                    </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 Doraleous and Associates. All rights reserved.</p>
+                <p class="copyright">
+                    &copy; 2024 Brian M. Shoemaker. All rights reserved.
+                </p>
+                <div class="footer-legal">
+                    <a href="#" class="legal-link">Privacy Policy</a>
+                    <a href="#" class="legal-link">Terms of Service</a>
+                </div>
             </div>
         </div>
     </footer>
+    
+    <!-- Scripts -->
+    <script>
+        // Mobile Navigation Toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const navToggle = document.getElementById('nav-toggle');
+            const navMenu = document.getElementById('nav-menu');
+            
+            if (navToggle && navMenu) {
+                navToggle.addEventListener('click', function() {
+                    navMenu.classList.toggle('active');
+                    navToggle.classList.toggle('active');
+                    document.body.classList.toggle('menu-open');
+                });
+            }
+            
+            // Close mobile menu when clicking on a link
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    navMenu.classList.remove('active');
+                    navToggle.classList.remove('active');
+                    document.body.classList.remove('menu-open');
+                });
+            });
+            
+            // Navigation scroll effect
+            const mainNav = document.getElementById('main-nav');
+            if (mainNav) {
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > 50) {
+                        mainNav.classList.add('scrolled');
+                    } else {
+                        mainNav.classList.remove('scrolled');
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>
