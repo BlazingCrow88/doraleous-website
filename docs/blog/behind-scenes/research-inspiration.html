@@ -46,7 +46,7 @@
         }
 
         /* Navigation */
-        .navbar {
+        .main-navigation {
             background: rgba(10, 10, 10, 0.95);
             backdrop-filter: blur(10px);
             padding: 0;
@@ -59,9 +59,11 @@
             transition: all 0.3s ease;
         }
 
-        .navbar .container {
+        .nav-container {
             display: flex;
             align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
             padding: 0 2rem;
             min-height: 80px;
             gap: 2rem;
@@ -72,27 +74,26 @@
         }
 
         .nav-brand .brand-link {
-            font-family: 'Cinzel', serif;
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #FFD700;
             text-decoration: none;
-            letter-spacing: 0;
-            text-transform: none;
             display: flex;
             align-items: center;
             gap: 0.5rem;
             transition: color 0.3s ease;
+        }
+
+        .brand-name {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #FFD700;
+            letter-spacing: 0;
+            text-transform: none;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
             background: linear-gradient(135deg, #FFD700, #B7881F);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-        }
-
-        .brand-logo {
-            height: 32px;
-            width: auto;
+            margin: 0;
         }
 
         .nav-toggle {
@@ -105,7 +106,7 @@
             margin-left: auto;
         }
 
-        .nav-toggle span {
+        .hamburger-line {
             width: 25px;
             height: 3px;
             background-color: #FFD700;
@@ -121,7 +122,7 @@
             justify-content: flex-start;
         }
 
-        .nav-links {
+        .nav-list {
             display: flex;
             list-style: none;
             gap: 2rem;
@@ -416,7 +417,7 @@
                 display: flex;
             }
 
-            .navbar .container {
+            .nav-container {
                 justify-content: space-between;
             }
 
@@ -444,7 +445,7 @@
                 visibility: visible;
             }
 
-            .nav-links {
+            .nav-list {
                 flex-direction: column;
                 gap: 1.5rem;
                 text-align: center;
@@ -465,15 +466,15 @@
                 backdrop-filter: none;
             }
 
-            .nav-toggle.active span:nth-child(1) {
+            .nav-toggle.active .hamburger-line:nth-child(1) {
                 transform: rotate(-45deg) translate(-5px, 6px);
             }
 
-            .nav-toggle.active span:nth-child(2) {
+            .nav-toggle.active .hamburger-line:nth-child(2) {
                 opacity: 0;
             }
 
-            .nav-toggle.active span:nth-child(3) {
+            .nav-toggle.active .hamburger-line:nth-child(3) {
                 transform: rotate(45deg) translate(-5px, -6px);
             }
             
@@ -506,12 +507,12 @@
                 padding: 0 15px;
             }
             
-            .navbar .container {
+            .nav-container {
                 padding: 0 0.75rem;
                 min-height: 65px;
             }
             
-            .nav-brand .brand-link {
+            .brand-name {
                 font-size: 1.3rem;
             }
             
@@ -546,16 +547,22 @@
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container">
+    <nav class="main-navigation" id="main-nav">
+        <div class="nav-container">
             <div class="nav-brand">
                 <a href="../../index.html" class="brand-link">
-                    <img src="../../assets/images/logo/logo-main.png" alt="Doraleous and Associates" class="brand-logo">
-                    <span class="brand-text">Doraleous and Associates</span>
+                    <h1 class="brand-name">Doraleous and Associates</h1>
                 </a>
             </div>
-            <div class="nav-menu">
-                <ul class="nav-links">
+            
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+            
+            <div class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
                     <li class="nav-item">
                         <a href="../../index.html" class="nav-link">Home</a>
                     </li>
@@ -580,11 +587,6 @@
                         <a href="../../contact.html" class="nav-link">Contact</a>
                     </li>
                 </ul>
-            </div>
-            <div class="nav-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
             </div>
         </div>
     </nav>
@@ -718,8 +720,8 @@
     <script>
         // Mobile Navigation Toggle
         document.addEventListener('DOMContentLoaded', function() {
-            const navToggle = document.querySelector('.nav-toggle');
-            const navMenu = document.querySelector('.nav-menu');
+            const navToggle = document.getElementById('nav-toggle');
+            const navMenu = document.getElementById('nav-menu');
             
             if (navToggle && navMenu) {
                 navToggle.addEventListener('click', function() {
@@ -738,6 +740,18 @@
                     document.body.classList.remove('menu-open');
                 });
             });
+            
+            // Navigation scroll effect
+            const mainNav = document.getElementById('main-nav');
+            if (mainNav) {
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > 50) {
+                        mainNav.classList.add('scrolled');
+                    } else {
+                        mainNav.classList.remove('scrolled');
+                    }
+                });
+            }
         });
     </script>
 </body>
