@@ -308,53 +308,113 @@
             letter-spacing: 1px;
         }
 
-        /* Post Navigation - FIXED: Renamed class to avoid conflict */
+        /* Post Navigation */
         .post-navigation {
-            background: linear-gradient(135deg, #DAA520, #B8860B);
-            padding: 2rem 0;
-            color: #000;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 3rem 0;
+            color: #e8e8e8;
         }
 
         .nav-links-container {
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            align-items: flex-start;
+            gap: 2rem;
         }
 
-        .post-nav-link {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            color: #000;
-            font-weight: 600;
+        .post-nav-item {
+            flex: 1;
+            text-align: left;
+        }
+
+        .post-nav-item.next {
+            text-align: right;
+        }
+
+        .post-nav-label {
             font-family: 'Cinzel', serif;
+            font-size: 0.9rem;
+            color: rgba(218, 165, 32, 0.8);
             text-transform: uppercase;
             letter-spacing: 1px;
-            transition: all 0.3s ease;
-            padding: 1rem 2rem;
-            background: rgba(0, 0, 0, 0.1);
+            margin-bottom: 0.5rem;
+            display: block;
         }
 
-        .post-nav-link:hover {
-            background: rgba(0, 0, 0, 0.2);
-            transform: translateY(-2px);
+        .post-nav-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.2rem;
+            color: #DAA520;
+            text-decoration: none;
+            font-weight: 600;
+            line-height: 1.3;
+            transition: color 0.3s ease;
         }
 
-        .post-nav-link span {
-            margin: 0 0.5rem;
+        .post-nav-title:hover {
+            color: #FFD700;
         }
 
         /* Footer */
         .footer {
             background: linear-gradient(135deg, #000000, #1a1a1a);
             color: #e8e8e8;
-            padding: 3rem 0 1rem;
+            padding: 4rem 0 2rem;
             border-top: 2px solid #DAA520;
+        }
+
+        .footer-hero {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .footer-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #DAA520;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+        }
+
+        .footer-subtitle {
+            font-size: 1.1rem;
+            color: rgba(232, 232, 232, 0.9);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            line-height: 1.6;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: #DAA520;
+            color: #000;
+            border-radius: 50%;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: #FFD700;
+            transform: translateY(-2px);
         }
 
         .footer-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 2rem;
             margin-bottom: 2rem;
         }
@@ -363,33 +423,59 @@
             font-family: 'Cinzel', serif;
             color: #DAA520;
             margin-bottom: 1rem;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
 
-        .footer-section p {
-            font-family: 'Crimson Text', serif;
-            line-height: 1.6;
-            color: rgba(232, 232, 232, 0.8);
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section li {
+            margin-bottom: 0.5rem;
         }
 
         .footer-section a {
-            color: #DAA520;
+            color: rgba(232, 232, 232, 0.8);
             text-decoration: none;
             transition: color 0.3s ease;
+            font-family: 'Crimson Text', serif;
         }
 
         .footer-section a:hover {
-            color: #FFD700;
+            color: #DAA520;
         }
 
         .footer-bottom {
             text-align: center;
             padding-top: 2rem;
             border-top: 1px solid rgba(218, 165, 32, 0.2);
+        }
+
+        .footer-copyright {
             color: rgba(232, 232, 232, 0.6);
             font-family: 'Crimson Text', serif;
+            margin-bottom: 1rem;
+        }
+
+        .footer-legal {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-legal a {
+            color: #DAA520;
+            text-decoration: none;
+            font-family: 'Crimson Text', serif;
+            transition: color 0.3s ease;
+        }
+
+        .footer-legal a:hover {
+            color: #FFD700;
         }
 
         /* Responsive Design */
@@ -474,12 +560,30 @@
             
             .nav-links-container {
                 flex-direction: column;
-                gap: 1rem;
+                gap: 2rem;
+                text-align: center;
             }
             
-            .post-nav-link {
+            .post-nav-item.next {
                 text-align: center;
-                padding: 0.8rem 1.5rem;
+            }
+
+            .footer-title {
+                font-size: 1.6rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+
+            .footer-legal {
+                flex-direction: column;
+                gap: 1rem;
             }
         }
 
@@ -522,6 +626,19 @@
                 flex-direction: column;
                 align-items: center;
                 gap: 0.5rem;
+            }
+
+            .footer-title {
+                font-size: 1.4rem;
+                letter-spacing: 1px;
+            }
+
+            .footer-subtitle {
+                font-size: 1rem;
+            }
+
+            .post-nav-title {
+                font-size: 1rem;
             }
         }
     </style>
@@ -653,14 +770,14 @@
     <section class="post-navigation">
         <div class="container">
             <div class="nav-links-container">
-                <a href="authentic-dialogue.html" class="post-nav-link">
-                    <span>←</span>
-                    <span>Previous: Authentic Dialogue</span>
-                </a>
-                <a href="../adventure-tales/battle-of-millbrook.html" class="post-nav-link">
-                    <span>Next: Battle of Millbrook</span>
-                    <span>→</span>
-                </a>
+                <div class="post-nav-item">
+                    <span class="post-nav-label">Previous Post</span>
+                    <a href="authentic-dialogue.html" class="post-nav-title">The Wyvern King's Sacrifice</a>
+                </div>
+                <div class="post-nav-item next">
+                    <span class="post-nav-label">Next Post</span>
+                    <a href="../adventure-tales/battle-of-millbrook.html" class="post-nav-title">Neebs Silverleaf: The Archer Who Bridged Two Worlds</a>
+                </div>
             </div>
         </div>
     </section>
@@ -668,25 +785,52 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Doraleous and Associates</h3>
-                    <p>Following the legendary adventures of brave heroes as they face ancient evils and forge unbreakable bonds of friendship.</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <p><a href="../../characters.html" style="color: #f39c12;">Characters</a></p>
-                    <p><a href="../../world.html" style="color: #f39c12;">World</a></p>
-                    <p><a href="../../episodes.html" style="color: #f39c12;">Episodes</a></p>
-                    <p><a href="../index.html" style="color: #f39c12;">Blog</a></p>
-                </div>
-                <div class="footer-section">
-                    <h3>Connect</h3>
-                    <p>Join our community of fantasy enthusiasts and stay updated on the latest adventures.</p>
+            <div class="footer-hero">
+                <h2 class="footer-title">Doraleous and Associates: A Tale of Glory</h2>
+                <p class="footer-subtitle">Epic fantasy adventure featuring unforgettable characters in magical realms filled with danger and glory.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link" aria-label="Facebook">f</a>
+                    <a href="#" class="social-link" aria-label="Twitter">t</a>
+                    <a href="#" class="social-link" aria-label="Instagram">i</a>
                 </div>
             </div>
+            
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="../../about.html">About Brian</a></li>
+                        <li><a href="../../books/index.html">Books</a></li>
+                        <li><a href="../index.html">Blog</a></li>
+                        <li><a href="../../contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>For Press</h3>
+                    <ul>
+                        <li><a href="../../media-kit.html">Media Kit</a></li>
+                        <li><a href="../../author-bio.html">Author Bio</a></li>
+                        <li><a href="../../author-photo.html">Author Photo</a></li>
+                        <li><a href="../../press-contact.html">Press Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Get the Book</h3>
+                    <ul>
+                        <li><a href="#" target="_blank">Amazon</a></li>
+                        <li><a href="#" target="_blank">Barnes & Noble</a></li>
+                        <li><a href="#" target="_blank">Apple Books</a></li>
+                        <li><a href="#" target="_blank">Google Play</a></li>
+                    </ul>
+                </div>
+            </div>
+            
             <div class="footer-bottom">
-                <p>&copy; 2024 Doraleous and Associates. All rights reserved.</p>
+                <p class="footer-copyright">&copy; 2024 Brian M. Shoemaker. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="../../privacy-policy.html">Privacy Policy</a>
+                    <a href="../../terms-of-service.html">Terms of Service</a>
+                </div>
             </div>
         </div>
     </footer>
