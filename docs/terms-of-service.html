@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service - Doraleous and Associates A Tale of Glory</title>
+    <meta name="description" content="Terms of Service for Doraleous and Associates A Tale of Glory. Please read these terms carefully before using our website.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/images/ui/favicon.ico">
+    
+    <style>
+        /* ===================================
+           TERMS OF SERVICE PAGE STYLES
+           Dark Fantasy Theme
+           =================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: #E5E5E5;
+            background: linear-gradient(135deg, 
+                rgba(10, 10, 10, 0.95) 0%, 
+                rgba(27, 67, 50, 0.4) 30%, 
+                rgba(139, 0, 0, 0.4) 70%, 
+                rgba(10, 10, 10, 0.95) 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Navigation Styles */
+        .main-navigation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid rgba(255, 215, 0, 0.3);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 80px;
+        }
+
+        .brand-name {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #FFD700, #B7881F);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-link {
+            font-family: 'Cinzel', serif;
+            font-weight: 500;
+            color: #FFD700;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 0.5rem 1rem;
+            transition: color 0.3s ease;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .nav-link:hover {
+            color: #B7881F;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Page Header */
+        .page-header {
+            padding: 10rem 0 6rem;
+            background: linear-gradient(135deg, 
+                rgba(0, 0, 0, 0.8) 0%, 
+                rgba(45, 24, 16, 0.9) 30%,
+                rgba(26, 26, 26, 0.8) 70%,
+                rgba(0, 0, 0, 0.8) 100%);
+            position: relative;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, rgba(218, 165, 32, 0.1) 0%, transparent 70%);
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .page-title {
+            font-family: 'Cinzel', serif;
+            font-size: 4rem;
+            font-weight: 700;
+            margin: 0 0 1.5rem 0;
+            background: linear-gradient(135deg, #DAA520, #FFD700, #B8860B);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .page-subtitle {
+            font-family: 'Open Sans', serif;
+            font-size: 1.3rem;
+            font-weight: 400;
+            color: rgba(232, 232, 232, 0.9);
+            margin: 0 auto;
+            max-width: 600px;
+            font-style: italic;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 4rem 0;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .legal-document {
+            background: rgba(10, 10, 10, 0.8);
+            border: 2px solid rgba(218, 165, 32, 0.3);
+            border-radius: 12px;
+            padding: 3rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+        }
+
+        .document-meta {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid rgba(218, 165, 32, 0.3);
+        }
+
+        .last-updated {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1rem;
+            color: #B7881F;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Typography */
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 3rem;
+            color: #FFD700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            color: #DAA520;
+            margin: 3rem 0 1.5rem 0;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(218, 165, 32, 0.3);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.4rem;
+            color: #B7881F;
+            margin: 2rem 0 1rem 0;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #E5E5E5;
+        }
+
+        ul {
+            margin: 1.5rem 0;
+            padding-left: 2rem;
+        }
+
+        li {
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #E5E5E5;
+        }
+
+        /* Links */
+        a {
+            color: #FFD700;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #B7881F;
+            text-decoration: underline;
+        }
+
+        /* Placeholder styling */
+        .placeholder {
+            background: rgba(218, 165, 32, 0.2);
+            color: #FFD700;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        /* Footer */
+        .page-footer {
+            padding: 2rem 0;
+            background: rgba(10, 10, 10, 0.95);
+            border-top: 2px solid rgba(218, 165, 32, 0.3);
+            text-align: center;
+        }
+
+        .footer-content p {
+            color: rgba(229, 229, 229, 0.7);
+            margin: 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 0 1rem;
+            }
+
+            .nav-menu {
+                gap: 1rem;
+            }
+
+            .page-title {
+                font-size: 2.5rem;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            .legal-document {
+                padding: 2rem;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .legal-document {
+                padding: 1.5rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.3rem;
+            }
+
+            .nav-menu {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="main-navigation">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="index.html" class="brand-link">
+                    <h1 class="brand-name">Doraleous and Associates A Tale of Glory</h1>
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li><a href="privacy-policy.html" class="nav-link">Privacy</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container">
+            <div class="header-content">
+                <h1 class="page-title">Terms of Service</h1>
+                <p class="page-subtitle">Please read these terms carefully before using our website</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <div class="legal-document">
+                <div class="document-meta">
+                    <p class="last-updated">Last updated: July 22, 2025</p>
+                </div>
+
+                <section>
+                    <h2>1. Agreement to Terms</h2>
+                    <p>By accessing or using <span class="placeholder">[YOUR WEBSITE NAME]</span> (the "Service"), you agree to be bound by these Terms of Service ("Terms"). If you disagree with any part of these terms, then you may not access the Service.</p>
+                </section>
+
+                <section>
+                    <h2>2. Description of Service</h2>
+                    <p><span class="placeholder">[YOUR WEBSITE NAME]</span> provides <span class="placeholder">[BRIEF DESCRIPTION OF YOUR SERVICE/WEBSITE]</span>. The Service is owned and operated by <span class="placeholder">[YOUR COMPANY NAME]</span> ("Company", "we", "us", or "our").</p>
+                </section>
+
+                <section>
+                    <h2>3. User Accounts</h2>
+                    <p>When you create an account with us, you must provide information that is accurate, complete, and current at all times. You are responsible for safeguarding the password and for keeping your account information current.</p>
+                </section>
+
+                <section>
+                    <h2>4. Acceptable Use</h2>
+                    <p>You may not use our Service:</p>
+                    <ul>
+                        <li>For any unlawful purpose or to solicit others to take unlawful actions</li>
+                        <li>To violate any international, federal, provincial, or state regulations, rules, laws, or local ordinances</li>
+                        <li>To infringe upon or violate our intellectual property rights or the intellectual property rights of others</li>
+                        <li>To harass, abuse, insult, harm, defame, slander, disparage, intimidate, or discriminate</li>
+                        <li>To submit false or misleading information</li>
+                        <li>To upload or transmit viruses or any other type of malicious code</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>5. Intellectual Property Rights</h2>
+                    <p>The Service and its original content, features, and functionality are and will remain the exclusive property of Brian M. Shoemaker and its licensors. The Service is protected by copyright, trademark, and other laws.</p>
+                </section>
+
+                <section>
+                    <h2>6. User-Generated Content</h2>
+                    <p>Our Service may allow you to post, link, store, share and otherwise make available certain information, text, graphics, videos, or other material ("Content"). You are responsible for the Content that you post to the Service, including its legality, reliability, and appropriateness.</p>
+                </section>
+
+                <section>
+                    <h2>7. Privacy Policy</h2>
+                    <p>Your privacy is important to us. Please review our <a href="privacy-policy.html">Privacy Policy</a>, which also governs your use of the Service, to understand our practices.</p>
+                </section>
+
+                <section>
+                    <h2>8. Termination</h2>
+                    <p>We may terminate or suspend your account immediately, without prior notice or liability, for any reason whatsoever, including without limitation if you breach the Terms.</p>
+                </section>
+
+                <section>
+                    <h2>9. Disclaimer</h2>
+                    <p>The information on this website is provided on an "as is" basis. To the fullest extent permitted by law, this Company excludes all representations, warranties, conditions and terms.</p>
+                </section>
+
+                <section>
+                    <h2>10. Limitation of Liability</h2>
+                    <p>In no event shall Brian M. Shoemaker, nor its directors, employees, partners, agents, suppliers, or affiliates, be liable for any indirect, incidental, special, consequential, or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses.</p>
+                </section>
+
+                <section>
+                    <h2>11. Changes to Terms</h2>
+                    <p>We reserve the right, at our sole discretion, to modify or replace these Terms at any time. If a revision is material, we will try to provide at least 30 days' notice prior to any new terms taking effect.</p>
+                </section>
+
+                <section>
+                    <h2>12. Contact Information</h2>
+                    <p>If you have any questions about these Terms, please contact us at:</p>
+                    <ul>
+                        <li>Email: greysilas2022@gmail.com</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="page-footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 Brian M. Shoemaker. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
